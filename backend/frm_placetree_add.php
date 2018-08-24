@@ -34,7 +34,7 @@
     
     <body>
         <div class="container">
-            <h2>กรอกข้อมูลสมุนไพร</h2>
+            <h2>กรอกข้อมูลต้นไม้</h2>
             <br>
             <form action="place_insert.php" method="POST" enctype="multipart/form-data" class="form-horizontal">
                 
@@ -43,10 +43,10 @@
 
                 <!-- owner_name -->
                 <div class="form-group">
-                    <label for="owner_id" class="col-md-2 control-label">ชื่อเจ้าของสมุนไพร :</label>
+                    <label for="owner_id" class="col-md-2 control-label">ชื่อเจ้าของต้นไม้ :</label>
                     <div class="col-md-10">
                         <select name="owner_id" id="owner_id" class="form-control" required>
-                            <option value="">--ชื่อเจ้าของสมุนไพร--</option>
+                            <option value="">--ชื่อเจ้าของต้นไม้--</option>
                                 
                                     <!-- ดึงข้อมูลจากฐานข้อมูล -->
                                     <?php
@@ -62,7 +62,7 @@
                 
                 <!-- alphabet -->
                 <div class="form-group">
-                    <label for="alphabet" class="col-md-2 control-label">ชื่อสมุนไพร :</label>
+                    <label for="alphabet" class="col-md-2 control-label">ชื่อต้นไม้ :</label>
                     <div class="col-md-10">
                             <select name="alphabet" id="alphabet" class="form-control" required>
                                 <option value="">--เลือกตัวอักษร--</option>
@@ -86,9 +86,9 @@
                 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <p class="bg-warning">*** ไม่พบชื่อสมุนไพร กรุณาคลิก <kbd>+ เพิ่มสมุนไพรไม่พบชื่อ</kbd> ***</p>
+                        <p class="bg-warning">*** ไม่พบชื่อต้นไม่ กรุณาคลิก <kbd>+ เพิ่มต้นไม้ไม่พบชื่อ</kbd> ***</p>
                         <a href="frm_place_herbname.php" class="btn btn-success">
-                            <span class="glyphicon glyphicon-plus"> เพิ่มสมุนไพรไม่พบชื่อ</span>
+                            <span class="glyphicon glyphicon-plus"> เพิ่มต้นไม้ไม่พบชื่อ</span>
                         </a>
                     </div>
                 </div>

@@ -68,8 +68,6 @@ $result = pg_fetch_array($query);
                             <span class="glyphicon glyphicon-map-marker"></span> แผนที่ต้นไม้</a></li>                     
                         </ul>
                     </li>  
-
-
                     <li><a href="logout.php">
                             <span class="glyphicon glyphicon-log-out"></span>  
                             ออกจากระบบ(<?php echo $result['user_username']; ?>)</a>

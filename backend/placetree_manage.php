@@ -32,7 +32,7 @@
     <body>
 
         <div class="container">
-            <a href="frm_place_add.php" class="btn btn-primary" >
+            <a href="frm_placetree_add.php" class="btn btn-primary" >
                 <span class="glyphicon glyphicon-plus"> เพิ่มต้นไม้</span>
             </a>
 

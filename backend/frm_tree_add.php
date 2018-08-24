@@ -6,11 +6,11 @@
         $queryType = pg_query($db, $sqlType);
         
         //sql herb_name
-        $sql_name = "SELECT * FROM herb_name";
+        $sql_name = "SELECT * FROM tree_name";
         $res_name = pg_query($db, $sql_name);
         
         //herb_data
-        $sql_data = "SELECT MAX(data_id) FROM herb_data";
+        $sql_data = "SELECT MAX(treedata_id) FROM tree_data";
         $res_data = pg_query($db, $sql_data);
         $row_data = pg_fetch_row($res_data);
         $row_data1 = $row_data[0];
@@ -34,7 +34,7 @@
                 <div class="form-group">
                     <label for="data_id" class="col-md-2 control-label">ลำดับ :</label>
                     <div class="col-md-10">-->
-                        <input name="data_id" type="hidden" class="form-control" value="<?php echo $row_data2; ?>">
+                        <input name="treedata_id" type="hidden" class="form-control" value="<?php echo $row_data2; ?>">
                     <!--</div>
                 </div>-->
                 
@@ -94,30 +94,38 @@
                     </div>
                 </div>
                 
-                <!-- data_detail -->
+                 <!-- data_hight -->
+                 <div class="form-group">
+                    <label for="data_hight" class="col-md-2 control-label">ความสูงของต้นไม้ :</label>
+                    <div class="col-md-10">
+                        <input name="data_hight" placeholder="เซนติเมตร" type="number" class="form-control">
+                    </div>
+                </div>
+
+                 <!-- data_width -->
+                 <div class="form-group">
+                    <label for="data_name_eng" class="col-md-2 control-label">ความกว้างของต้นไม้ :</label>
+                    <div class="col-md-10">
+                        <input name="data_name_eng" placeholder="เซนติเมตร" type="number" class="form-control">
+                    </div>
+                </div>
+
+                <!-- data_cicur -->
                 <div class="form-group">
+                    <label for="data_name_eng" class="col-md-2 control-label">เส้นรอบวงของต้นไม้ :</label>
+                    <div class="col-md-10">
+                        <input name="data_name_eng" placeholder="เซนติเมตร" type="number" class="form-control">
+                    </div>
+                </div>
+
+                 <!-- data_detail -->
+                 <div class="form-group">
                     <label for="data_detail" class="col-md-2 control-label">ลักษณะของพืช :</label>
                     <div class="col-md-10">
                         <textarea name="data_detail" class="form-control" rows="5"></textarea>
                     </div>
                 </div>
                 
-                <!-- data_medicine -->
-                <div class="form-group">
-                    <label for="data_medicine" class="col-md-2 control-label">ส่วนที่ใช้ทำยา :</label>
-                    <div class="col-md-10">
-                        <textarea name="data_medicine" class="form-control" rows="5"></textarea>
-                    </div>
-                </div>
-                
-                <!-- data_properties -->
-                <div class="form-group">
-                    <label for="data_properties" class="col-md-2 control-label">สรรพคุณ :</label>
-                    <div class="col-md-10">
-                        <textarea name="data_properties" class="form-control" rows="5"></textarea>
-                    </div>
-                </div>
-
                 <!-- button -->
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
