@@ -2,15 +2,15 @@
         require 'header_admin.php';
         
         //alphabet
-        $sql_alphabet = "SELECT * FROM herb_alphabet";
-        $res_alphabet = pg_query($db, $sql_alphabet);
+        $sql_treealphabet = "SELECT * FROM tree_alphabet";
+        $res_treealphabet = pg_query($db, $sql_treealphabet);
         
         //name
-        $sql_name = "SELECT MAX(name_id) FROM herb_name";
-        $res_name = pg_query($db, $sql_name);
-        $row_name = pg_fetch_row($res_name);
-        $row_name1 = $row_name[0];
-        $row_name2 = $row_name1 + 1;
+        $sql_treename = "SELECT MAX(treename_id) FROM tree_name";
+        $res_treename = pg_query($db, $sql_treename);
+        $row_treename = pg_fetch_row($res_treename);
+        $row_treename1 = $row_treename[0];
+        $row_treename2 = $row_treename1 + 1;
 ?>
 
 <!DOCTYPE html>
@@ -24,31 +24,31 @@
         <div class="container">
             <h2>กรอกชื่อต้นไม้</h2>
             <br>
-            <form action="herb_name_insert.php" method="POST" enctype="multipart/form-data" class="form-horizontal">
+            <form action="tree_name_insert.php" method="POST" enctype="multipart/form-data" class="form-horizontal">
                 
                 <!-- name_id -->
 
-                <input name="name_id" type="hidden" class="form-control" value="<?php echo $row_name2; ?>">
+                <input name="treename_id" type="hidden" class="form-control" value="<?php echo $row_treename2; ?>">
 
                 
                 <!-- name_th -->
                 <div class="form-group">
-                    <label for="name_th" class="col-md-2 control-label">ชื่อต้นไม้ :</label>
+                    <label for="treename_th" class="col-md-2 control-label">ชื่อต้นไม้ :</label>
                     <div class="col-md-10">
-                        <input name="name_th" type="text" class="form-control">
+                        <input name="treename_th" type="text" class="form-control">
                     </div>
                 </div>   
                 
                 <!-- alphabet -->
                 <div class="form-group">
-                    <label for="alphabet_id" class="col-md-2 control-label">หมวดตัวอักษร :</label>
+                    <label for="treealphabet_id" class="col-md-2 control-label">หมวดตัวอักษร :</label>
                     <div class="col-md-10">
-                        <select name="alphabet_id" id="alphabet_id" class="form-control">
+                        <select name="treealphabet_id" id="treealphabet_id" class="form-control">
                                     <!-- ดึงข้อมูลจากฐานข้อมูล -->
                                     <?php
-                                        while($row_alphabet = pg_fetch_row($res_alphabet))
+                                        while($row_treealphabet = pg_fetch_row($res_treealphabet))
                                         {
-                                            echo "<option value='$row_alphabet[0]'>$row_alphabet[1]</option>"; 
+                                            echo "<option value='$row_treealphabet[0]'>$row_treealphabet[1]</option>"; 
                                         }
                                     ?>
                         </select>
@@ -59,7 +59,7 @@
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <button type="submit" class="btn btn-primary">บันทึก</button>
-                        <a href="herb_name_manage.php" class="btn btn-danger">กลับหน้าหลัก</a>
+                        <a href="tree_name_manage.php" class="btn btn-danger">กลับหน้าหลัก</a>
                     </div>
                 </div>
                 

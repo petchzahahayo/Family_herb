@@ -63,13 +63,13 @@
                                 
                                     <!-- ดึงข้อมูลจากฐานข้อมูล -->
                                     <?php
-                                        $sql_alphabet = "SELECT * FROM herb_alphabet";
+                                        $sql_alphabet = "SELECT * FROM tree_alphabet";
                                         $res_alphabet = pg_query($db, $sql_alphabet);
                                     
                                         while($row_alphabet = pg_fetch_array($res_alphabet))
                                         {
-                                            $alphabet_id = $row_alphabet['alphabet_id'];
-                                            $alphabet_th = $row_alphabet['alphabet_th'];
+                                            $alphabet_id = $row_alphabet['treealphabet_id'];
+                                            $alphabet_th = $row_alphabet['treealphabet_th'];
                                             echo "<option value='$alphabet_id'>$alphabet_th</option>";
                                         }
                                     ?>

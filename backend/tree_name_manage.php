@@ -46,8 +46,8 @@
 
                         $start = ($page - 1) * $perpage;
 
-                        $sqlPage = "SELECT * FROM herb_name
-                                    ORDER BY name_id ASC limit {$perpage} offset {$start}
+                        $sqlPage = "SELECT * FROM tree_name
+                                    ORDER BY treename_id ASC limit {$perpage} offset {$start}
                                    ";
                         $queryPage = pg_query($db, $sqlPage);
                     ?>
@@ -68,7 +68,7 @@
                         <td><center><?php //echo $row['name_id']; ?></center></td>     -->     
             
                         <!-- ชื่อ -->
-                        <td><center><?php echo $row['name_th']; ?></center></td>
+                        <td><center><?php echo $row['treename_th']; ?></center></td>
                         
                         <!-- edit -->
                         <td><center><a href="frm_herb_name_edit.php?name_id=<?php echo $row['name_id']; ?>" class="btn btn-warning btn-md">

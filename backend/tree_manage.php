@@ -57,9 +57,9 @@
 
                         $start = ($page - 1) * $perpage;
 
-                        $sqlPage = "SELECT * FROM herb_name
-                                    INNER JOIN herb_data
-                                    ON herb_name.name_id = herb_data.name_id
+                        $sqlPage = "SELECT * FROM tree_name
+                                    INNER JOIN tree_data
+                                    ON tree_name.name_id = herb_data.name_id
                                     INNER JOIN herb_typename
                                     ON herb_data.type_id = herb_typename.type_id
                                     ORDER BY data_id ASC limit {$perpage} offset {$start}
