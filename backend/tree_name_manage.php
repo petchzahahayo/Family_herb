@@ -22,7 +22,7 @@
                         <span class="glyphicon glyphicon-th-list"> ข้อมูลต้นไม้</span>
                     </a>
                     <a href="tree_typename_manage.php" type="button" class="btn btn-success">
-                        <span class="glyphicon glyphicon-th-list"> รายชื่อประเภทต้นไม้</span>
+                        <span class="glyphicon glyphicon-th-list"> ประเภทต้นไม้</span>
                     </a>
                 </div>
                 
@@ -46,8 +46,8 @@
 
                         $start = ($page - 1) * $perpage;
 
-                        $sqlPage = "SELECT * FROM herb_name
-                                    ORDER BY name_id ASC limit {$perpage} offset {$start}
+                        $sqlPage = "SELECT * FROM tree_name
+                                    ORDER BY treename_id ASC limit {$perpage} offset {$start}
                                    ";
                         $queryPage = pg_query($db, $sqlPage);
                     ?>
@@ -68,15 +68,15 @@
                         <td><center><?php //echo $row['name_id']; ?></center></td>     -->     
             
                         <!-- ชื่อ -->
-                        <td><center><?php echo $row['name_th']; ?></center></td>
+                        <td><center><?php echo $row['treename_th']; ?></center></td>
                         
                         <!-- edit -->
-                        <td><center><a href="frm_herb_name_edit.php?name_id=<?php echo $row['name_id']; ?>" class="btn btn-warning btn-md">
+                        <td><center><a href="frm_tree_name_edit.php?treename_id=<?php echo $row['treename_id']; ?>" class="btn btn-warning btn-md">
                                 <span class="glyphicon glyphicon-edit"></span>
                         </a></center></td>
                         
                         <!-- delete -->
-                        <td><center><a href="herb_name_delete.php?name_id=<?php echo $row['name_id']; ?>" class="btn btn-danger btn-md">
+                        <td><center><a href="tree_name_delete.php?treename_id=<?php echo $row['treename_id']; ?>" class="btn btn-danger btn-md">
                                 <span class="glyphicon glyphicon-remove"></span>
                         </a></center></td>
                     </tr>
@@ -85,24 +85,24 @@
             </table>
             
                 <?php
-                    $sql2 = "select * from herb_name ";
-                    $query2 = pg_query($db, $sql2);
-                    $total_record = pg_num_rows($query2);
+                    $sql22 = "select * from tree_name ";
+                    $query22 = pg_query($db, $sql22);
+                    $total_record = pg_num_rows($query22);
                     $total_page = ceil($total_record / $perpage);
                 ?>
 
                 <nav>
                     <ul class="pagination">
                         <li class="active">
-                            <a href="herb_name_manage.php?page=1" aria-label="Previous">
+                            <a href="tree_name_manage.php?page=1" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
                         <?php for ($i = 1; $i <= $total_page; $i++) { ?>
-                            <li><a href="herb_name_manage.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                            <li><a href="tree_name_manage.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
                         <?php } ?>
                             <li class="active">
-                            <a href="herb_name_manage.php?page=<?php echo $total_page; ?>" aria-label="Next">
+                            <a href="tree_name_manage.php?page=<?php echo $total_page; ?>" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>

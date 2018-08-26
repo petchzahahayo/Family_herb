@@ -46,25 +46,25 @@
                     <!-- แบ่งหน้า -->
                     <?php 
                         //กำหนดจำนวนหน้า
-                        $perpage = 20;
+                        $treeperpage = 20;
                         
                         //เช็คว่าเป็นค่าว่างหรือไม่
-                        if (isset($_GET['page'])) {
-                            $page = $_GET['page'];
+                        if (isset($_GET['pagetree'])) {
+                            $treepage = $_GET['pagetree'];
                         } else {
-                            $page = 1;
+                            $treepage = 1;
                         }
 
-                        $start = ($page - 1) * $perpage;
+                        $treestart = ($treepage - 1) * $treeperpage;
 
-                        $sqlPage = "SELECT * FROM herb_name
-                                    INNER JOIN herb_data
-                                    ON herb_name.name_id = herb_data.name_id
-                                    INNER JOIN herb_typename
-                                    ON herb_data.type_id = herb_typename.type_id
-                                    ORDER BY data_id ASC limit {$perpage} offset {$start}
+                        $sqlPagetree = "SELECT * FROM tree_name
+                                    INNER JOIN tree_data
+                                    ON tree_name.treename_id = tree_data.treename_id
+                                    INNER JOIN tree_typename
+                                    ON tree_data.treetype_id = tree_typename.treetype_id
+                                    ORDER BY treedata_id ASC limit {$treeperpage} offset {$treestart}
                                    ";
-                        $queryPage = pg_query($db, $sqlPage);
+                        $queryPagetree = pg_query($db, $sqlPagetree);
                     ?>
                     
                     <tr class="info">
@@ -78,20 +78,20 @@
                 </thead>
                 
                 <!-- show data -->
-                <?php while($row = pg_fetch_array($queryPage)){ ?>
+                <?php while($row = pg_fetch_array($queryPagetree)){ ?>
                 <tbody>
                     <tr>
                         <!-- ลำดับ 
-                        <td><center><?php echo $row['data_id']; ?></center></td>-->
+                        <td><center><?php echo $row['treedata_id']; ?></center></td>-->
             
                         <!-- ประเภท -->
-                        <td><center><?php echo $row['type_name']; ?></center></td>
+                        <td><center><?php echo $row['treetype_name']; ?></center></td>
             
                         <!-- ชื่อ -->
-                        <td><center><?php echo $row['name_th']; ?></center></td>
+                        <td><center><?php echo $row['treename_th']; ?></center></td>
             
                         <!-- ดูข้อมูล -->
-                        <td><center><a href="show_herb_data.php?data_id=<?php echo $row['data_id']; ?>" class="btn btn-info btn-md">
+                        <td><center><a href="show_tree_data.php?treedata_id=<?php echo $row['treedata_id']; ?>" class="btn btn-info btn-md">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                         </a></center></td>
                         
@@ -113,7 +113,7 @@
                     $sql2 = "select * from herb_data ";
                     $query2 = pg_query($db, $sql2);
                     $total_record = pg_num_rows($query2);
-                    $total_page = ceil($total_record / $perpage);
+                    $total_page = ceil($total_record / $treeperpage);
                 ?>
 
                 <nav>
