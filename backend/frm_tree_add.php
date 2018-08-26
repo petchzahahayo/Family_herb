@@ -63,14 +63,25 @@
                                 
                                     <!-- ดึงข้อมูลจากฐานข้อมูล -->
                                     <?php
+<<<<<<< HEAD
                                       $sql_treealphabet = "SELECT * FROM tree_alphabet";
                                       $res_treealphabet = pg_query($db, $sql_treealphabet);
+=======
+                                        $sql_alphabet = "SELECT * FROM tree_alphabet";
+                                        $res_alphabet = pg_query($db, $sql_alphabet);
+>>>>>>> 4d544254bab372c95a98c56cc28cab99e7c87358
                                     
                                         while($row_treealphabet = pg_fetch_array($res_treealphabet))
                                         {
+<<<<<<< HEAD
                                             $treealphabet_id = $row_treealphabet['treealphabet_id'];
                                             $treealphabet_th = $row_treealphabet['treealphabet_th'];
                                             echo "<option value='$treealphabet_id'>$treealphabet_th</option>";
+=======
+                                            $alphabet_id = $row_alphabet['treealphabet_id'];
+                                            $alphabet_th = $row_alphabet['treealphabet_th'];
+                                            echo "<option value='$alphabet_id'>$alphabet_th</option>";
+>>>>>>> 4d544254bab372c95a98c56cc28cab99e7c87358
                                         }
                                     ?>
                                 

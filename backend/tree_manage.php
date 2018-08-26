@@ -57,12 +57,21 @@
 
                         $treestart = ($treepage - 1) * $treeperpage;
 
+<<<<<<< HEAD
                         $sqlPagetree = "SELECT * FROM tree_name
                                     INNER JOIN tree_data
                                     ON tree_name.treename_id = tree_data.treename_id
                                     INNER JOIN tree_typename
                                     ON tree_data.treetype_id = tree_typename.treetype_id
                                     ORDER BY treedata_id ASC limit {$treeperpage} offset {$treestart}
+=======
+                        $sqlPage = "SELECT * FROM tree_name
+                                    INNER JOIN tree_data
+                                    ON tree_name.name_id = herb_data.name_id
+                                    INNER JOIN herb_typename
+                                    ON herb_data.type_id = herb_typename.type_id
+                                    ORDER BY data_id ASC limit {$perpage} offset {$start}
+>>>>>>> 4d544254bab372c95a98c56cc28cab99e7c87358
                                    ";
                         $queryPagetree = pg_query($db, $sqlPagetree);
                     ?>
