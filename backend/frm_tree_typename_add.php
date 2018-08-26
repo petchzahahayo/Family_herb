@@ -2,11 +2,10 @@
     require 'header_admin.php';
 
     //name
-    $sql_typename = "SELECT MAX(type_id) FROM herb_typename";
-    $res_typename = pg_query($db, $sql_typename);
-    $row_typename = pg_fetch_row($res_typename);
-    $row_typename1 = $row_typename[0];
-    $row_typename2 = $row_typename1 + 1;
+    $sql_treetypename = "SELECT  FROM tree_typename";
+    $res_treetypename = pg_query($db, $sql_treetypename);
+    $row_treetypename = pg_fetch_row($res_treetypename);
+   
 ?>
 
 <!DOCTYPE html>
