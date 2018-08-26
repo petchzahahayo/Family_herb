@@ -2,8 +2,8 @@
 
 $host = "host = 127.0.0.1";
 $port = "port = 5432";
-$dbname = "dbname = db_herb";
-$credentials = "user=postgres password=12345";
+$dbname = "dbname = herb";
+$credentials = "user=postgres password=123456";
 
 $db = pg_connect("$host $port $dbname $credentials");
 

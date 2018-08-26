@@ -28,7 +28,7 @@
             header("Location:backend/user_manage.php");
         } 
         elseif($result['user_status'] == 'expert') {
-            header("Location:expert/herb_manage.php");
+            header("Location:expert/a_home.php");
         } 
         else {
             header("Location:user/place_manage.php");
