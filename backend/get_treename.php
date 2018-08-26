@@ -1,10 +1,10 @@
 <?php
     require '../connect/connectdb.php';
 
-    $alphabet_id = $_GET['alphabet_id'];
- $sql_name = "SELECT * FROM herb_name WHERE alphabet_id={$alphabet_id}";
-    $res_name = pg_query($db, $sql_name);
-   
+    $treealphabet_id = $_GET['treealphabet_id'];
+
+    $sql_treename = "SELECT * FROM tree_name WHERE treealphabet_id={$treelphabet_id}";
+    $res_treename = pg_query($db, $sql_treename);
 ?>    
 
 <!DOCTYPE html>
@@ -22,12 +22,12 @@
             
                 <div class="form-group">
                     <div class="col-md-10">
-                        <select name="name_id" id="name_th" class="form-control">
+                        <select name="treename_id" id="treename_th" class="form-control">
                             <option value="">--เลือกชื่อสมุนไพร--</option>
 
                             <?php
-                            while ($row_name = pg_fetch_array($res_name)) {
-                                echo '<option value="' . $row_name['name_id'] . '">' . $row_name['name_th'] . '</option>';
+                            while ($row_treename = pg_fetch_array($res_treename)) {
+                                echo '<option value="' . $row_treename['treename_id'] . '">' . $row_treename['treename_th'] . '</option>';
                             }
                             ?>
 

@@ -57,8 +57,8 @@
 
                         $start = ($page - 1) * $perpage;
 
-                        $sqlPage = "SELECT * FROM herb_typename
-                                    ORDER BY type_id ASC limit {$perpage} offset {$start}
+                        $sqlPage = "SELECT * FROM tree_typename
+                                    ORDER BY treetype_id ASC limit {$perpage} offset {$start}
                                    ";
                         $queryPage = pg_query($db, $sqlPage);
                     ?>
@@ -80,18 +80,18 @@
                         <td><center><?php //echo $row['type_id']; ?></center></td>         --> 
             
                         <!-- ชื่อ -->
-                        <td><center><?php echo $row['type_name']; ?></center></td>
+                        <td><center><?php echo $row['treetype_name']; ?></center></td>
             
                         <!-- รายละเอียด -->
-                        <td><center><?php echo $row['type_details']; ?></center></td>
+                        <td><center><?php echo $row['treetype_details']; ?></center></td>
                         
                         <!-- edit -->
-                        <td><center><a href="frm_herb_typename_edit.php?type_id=<?php echo $row['type_id']; ?>" class="btn btn-warning btn-md">
+                        <td><center><a href="frm_tree_typename_edit.php?treetype_id=<?php echo $row['treetype_id']; ?>" class="btn btn-warning btn-md">
                                 <span class="glyphicon glyphicon-edit"></span>
                         </a></center></td>
                         
                         <!-- delete -->
-                        <td><center><a type="button" onclick="comfirmDelete()" href="herb_typename_delete.php?type_id=<?php echo $row['type_id']; ?>" class="btn btn-danger btn-md">
+                        <td><center><a type="button" onclick="comfirmDelete()" href="tree_typename_delete.php?treetype_id=<?php echo $row['treetype_id']; ?>" class="btn btn-danger btn-md">
                                 <span class="glyphicon glyphicon-remove"></span>
                         </a></center></td>
                     </tr>
