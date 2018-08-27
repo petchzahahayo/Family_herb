@@ -43,9 +43,34 @@ $result = pg_fetch_array($query);
                         <!--                        <li><a href="map_manage.php">แผนที่</a></li> -->
                         <li><a href="user_manage.php?user_id=<?php echo base64_encode($result['user_id']); ?>">
                                 <span class="glyphicon glyphicon-pencil">แก้ไขข้อมูลส่วนตัว</span></a></li> 
-                        <li><a href="herb_manage.php"><span class="glyphicon glyphicon-th-list"></span> ข้อมูลสมุนไพร</a></li>
-                        <li><a href="place_manage.php"><span class="glyphicon glyphicon-th-list"></span> ข้อมูลสถานที่สมุนไพร</a></li>
-                        <li><a href="place_map.php"><span class="glyphicon glyphicon-map-marker"></span> แผนที่สมุนไพร</a></li>
+                        
+
+                    
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                       <span class="glyphicon glyphicon-th-list"></span> สมุนไพร</a>
+                        <ul class="dropdown-menu">
+                         <li><a href="herb_manage.php">
+                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลสมุนไพร</a></li>
+                         <li><a href="place_manage.php">
+                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลสถานที่สมุนไพร</a></li>   
+                         <li><a href="place_map.php">
+                            <span class="glyphicon glyphicon-map-marker"></span> แผนที่สมุนไพร</a></li>                     
+                        </ul>
+                        </li>  
+
+                       <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                       <span class="glyphicon glyphicon-th-list"></span> ต้นไม้</a>
+                        <ul class="dropdown-menu">
+                         <li><a href="tree_manage.php">
+                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลต้นไม้</a></li>
+                         <li><a href="placetree_manage.php">
+                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลสถานที่ต้นไม้</a></li>     
+                        <li><a href="placetree_map.php">
+                            <span class="glyphicon glyphicon-map-marker"></span> แผนที่ต้นไม้</a></li>                     
+                        </ul>
+                        </li> 
+
+
                         <li><a href="logout.php">
                                 <span class="glyphicon glyphicon-log-out"></span>  
                                 ออกจากระบบ(<?php echo $result['user_username']; ?>)</a>
