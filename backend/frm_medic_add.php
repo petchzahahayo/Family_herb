@@ -1,13 +1,13 @@
 <?php 
         require 'header_admin.php';
+
+        //sql medic_part
+        $sqlPart = "SELECT * FROM herb_part";
+        $queryPart = pg_query($db, $sqlPart);
         
         //sql medic_type
         $sqlType = "SELECT * FROM medicine_type";
         $queryType = pg_query($db, $sqlType);
-        
-        //sql medic_part
-        $sqlPart = "SELECT * FROM herb_part";
-        $queryPart = pg_query($db, $sqlType);
         
         //sql herb_name
         $sql_name = "SELECT * FROM herb_name";
@@ -30,9 +30,9 @@
     </head>
     <body>
         <div class="container">
-            <h2>กรอกข้อมูลสมุนไพร</h2>
+            <h2>กรอกข้อมูลยา</h2>
             <br>
-            <form action="herb_insert.php" method="POST" enctype="multipart/form-data" class="form-horizontal">
+            <form action="medic_insert.php" method="POST" enctype="multipart/form-data" class="form-horizontal">
                 
                 <!-- data_id 
                 <div class="form-group">
@@ -42,21 +42,7 @@
                     <!--</div>
                 </div>-->
                 
-                <!-- herb_type -->
-                <div class="form-group">
-                    <label for="type_id" class="col-md-2 control-label">ประเภทสมุนไพร :</label>
-                    <div class="col-md-10">
-                        <select name="type_id" id="owner_id" class="form-control">
-                                    <!-- ดึงข้อมูลจากฐานข้อมูล -->
-                                    <?php
-                                        while($rowType = pg_fetch_row($queryType))
-                                        {
-                                            echo "<option value='$rowType[0]'>$rowType[1]</option>"; 
-                                        }
-                                    ?>
-                        </select>
-                    </div>
-                </div>
+             
                 
                 <!-- alphabet -->
                 <div class="form-group">
@@ -82,35 +68,54 @@
                     </div>
                 </div>
 
-                <!-- data_name_eng -->
-                <div class="form-group">
-                    <label for="data_name_eng" class="col-md-2 control-label">ชื่อภาษาอังกฤษ :</label>
-                    <div class="col-md-10">
-                        <input name="data_name_eng" type="text" class="form-control">
-                    </div>
-                </div>
                 
-                <!-- data_name_sci -->
+                
+                <!-- name_medic -->
                 <div class="form-group">
-                    <label for="data_name_sci" class="col-md-2 control-label">ชื่อวิทยาศาสตร์ :</label>
+                    <label for="data_name_sci" class="col-md-2 control-label">ชื่อยา :</label>
                     <div class="col-md-10">
                         <input name="data_name_sci" type="text" class="form-control">
                     </div>
                 </div>
                 
-                <!-- data_detail -->
+                <!-- data_medic -->
                 <div class="form-group">
-                    <label for="data_detail" class="col-md-2 control-label">ลักษณะของพืช :</label>
+                    <label for="data_detail" class="col-md-2 control-label">วิธีการทำยา :</label>
                     <div class="col-md-10">
-                        <textarea name="data_detail" class="form-control" rows="5"></textarea>
+                        <textarea name="data_detail" class="form-control" rows="9"></textarea>
                     </div>
                 </div>
                 
-                <!-- data_medicine -->
+                <!-- part -->
                 <div class="form-group">
-                    <label for="data_medicine" class="col-md-2 control-label">ส่วนที่ใช้ทำยา :</label>
+                    <label for="part_id" class="col-md-2 control-label">ส่วนที่ใช้ทำยา :</label>
                     <div class="col-md-10">
-                        <textarea name="data_medicine" class="form-control" rows="5"></textarea>
+                        <select name="part_id" id="owner_id" class="form-control">
+                                    <!-- ดึงข้อมูลจากฐานข้อมูล -->
+                                    <?php
+                                        while($rowPart = pg_fetch_row($queryPart))
+                                        {
+                                            echo "<option value='$rowPart[0]'>$rowPart[1]</option>"; 
+                                        }
+                                    ?>
+                        </select>
+                    </div>
+                </div>
+
+
+                <!-- herb_type -->
+                   <div class="form-group">
+                    <label for="type_id" class="col-md-2 control-label">ประเภทยา :</label>
+                    <div class="col-md-10">
+                        <select name="type_id" id="owner_id" class="form-control">
+                                    <!-- ดึงข้อมูลจากฐานข้อมูล -->
+                                    <?php
+                                        while($rowType = pg_fetch_row($queryType))
+                                        {
+                                            echo "<option value='$rowType[0]'>$rowType[1]</option>"; 
+                                        }
+                                    ?>
+                        </select>
                     </div>
                 </div>
                 
