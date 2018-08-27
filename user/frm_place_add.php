@@ -1,6 +1,6 @@
 <?php 
         require 'header_user.php';
-
+        
         //herb_owner
         $sqlOwner = "SELECT * FROM herb_owner";
         $resOwner = pg_query($db, $sqlOwner);
@@ -19,8 +19,8 @@
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <script src="../bootstrap/js/jquery-ui.min.js" type="text/javascript"></script>
-        <link href="../bootstrap/js/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+        <script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="script.js" type="text/javascript"></script>
         <style type="text/css">
             /* css กำหนดความกว้าง ความสูงของแผนที่ */
             #map_canvas { 
@@ -30,14 +30,6 @@
             /*  margin-top:100px;*/
             }
         </style>
-        <script>
-            $(function() {
-                $('#name_th').autocomplete({
-                    source: 'autocomplete.php',
-                    autoFocus: true
-                });
-            });
-        </script>
     </head>
     
     <body>
@@ -46,12 +38,9 @@
             <br>
             <form action="place_insert.php" method="POST" enctype="multipart/form-data" class="form-horizontal">
                 
-                <!-- user_id -->
-                <input name="user_id" type="hidden" value="<?php echo $_SESSION['user_id'] ?>">
-                
                 <!-- place_id -->
                 <input name="place_id" type="hidden" value="<?php echo $row_place2; ?>">
-                
+
                 <!-- owner_name -->
                 <div class="form-group">
                     <label for="owner_id" class="col-md-2 control-label">ชื่อเจ้าของสมุนไพร :</label>
@@ -75,12 +64,12 @@
                 <div class="form-group">
                     <label for="alphabet" class="col-md-2 control-label">ชื่อสมุนไพร :</label>
                     <div class="col-md-10">
-                        <!--<select name="alphabet" id="alphabet" class="form-control" required>
+                            <select name="alphabet" id="alphabet" class="form-control" required>
                                 <option value="">--เลือกตัวอักษร--</option>
                                 
                                     <!-- ดึงข้อมูลจากฐานข้อมูล -->
                                     <?php
-                                        /*$sql_alphabet = "SELECT * FROM herb_alphabet";
+                                        $sql_alphabet = "SELECT * FROM herb_alphabet";
                                         $res_alphabet = pg_query($db, $sql_alphabet);
                                     
                                         while($row_alphabet = pg_fetch_array($res_alphabet))
@@ -88,12 +77,10 @@
                                             $alphabet_id = $row_alphabet['alphabet_id'];
                                             $alphabet_th = $row_alphabet['alphabet_th'];
                                             echo "<option value='$alphabet_id'>$alphabet_th</option>";
-                                        }*/
+                                        }
                                     ?>
                                 
-                        <!-- </select> -->
-                        <input name="name_th" id="name_th" type="text" class="form-control" placeholder="พิมพ์ชื่อสมุนไพร" required>
-                        
+                            </select>
                     </div>
                 </div>
                 
@@ -106,11 +93,11 @@
                     </div>
                 </div>
                 
-                <!-- place_herbimg -->
+                <!-- data_image -->
                 <div class="form-group">
                     <label for="place_herbimg" class="col-md-2 control-label">รูปภาพ :</label>
                     <div class="col-md-10">
-                        <input type="file" name="place_herbimg" accept="image/* " required>
+                        <input type="file" name="place_herbimg" accept="image/*" required>
                     </div>
                 </div>
                 
@@ -125,7 +112,7 @@
                 <div class="form-group">
                     <label for="place_lat" class="col-md-2 control-label">ละติจูด :</label>
                     <div class="col-md-10">
-                        <input name="place_lat" type="text" id="place_herb_lat" value="0" class="form-control" required readonly>
+                        <input name="place_lat" type="text" id="place_herb_lat" value="0" class="form-control" required>
                     </div>
                 </div>
                 
@@ -134,7 +121,7 @@
                 <div class="form-group">
                     <label for="place_lng" class="col-md-2 control-label">ลองติจูด :</label>
                     <div class="col-md-10">
-                        <input name="place_lng" type="text" id="place_herb_lng" value="0" class="form-control" required readonly>
+                        <input name="place_lng" type="text" id="place_herb_lng" value="0" class="form-control" required>
                     </div>
                 </div>
                 
