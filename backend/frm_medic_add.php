@@ -38,7 +38,7 @@
                 <div class="form-group">
                     <label for="data_id" class="col-md-2 control-label">ลำดับ :</label>
                     <div class="col-md-10">-->
-                        <input name="data_id" type="hidden" class="form-control" value="<?php echo $row_data2; ?>">
+                        <input name="medicine_id" type="hidden" class="form-control" value="<?php echo $row_data2; ?>">
                     <!--</div>
                 </div>-->
                 
@@ -49,7 +49,7 @@
                     <label for="alphabet" class="col-md-2 control-label">ชื่อสมุนไพร :</label>
                     <div class="col-md-10">
                             <select name="alphabet" id="alphabet" class="form-control">
-                                <option value="">--เลือกตัวอักษร--</option>
+                                <option value="">-เลือกตัวอักษร-</option>
                                 
                                     <!-- ดึงข้อมูลจากฐานข้อมูล -->
                                     <?php
@@ -72,17 +72,25 @@
                 
                 <!-- name_medic -->
                 <div class="form-group">
-                    <label for="data_name_sci" class="col-md-2 control-label">ชื่อยา :</label>
+                    <label for="medicine_name" class="col-md-2 control-label">ชื่อยา :</label>
                     <div class="col-md-10">
-                        <input name="data_name_sci" type="text" class="form-control">
+                        <input name="medicine_name" type="text" class="form-control">
                     </div>
                 </div>
                 
                 <!-- data_medic -->
                 <div class="form-group">
-                    <label for="data_detail" class="col-md-2 control-label">วิธีการทำยา :</label>
+                    <label for="medicine_data" class="col-md-2 control-label">วิธีการทำยา :</label>
                     <div class="col-md-10">
-                        <textarea name="data_detail" class="form-control" rows="9"></textarea>
+                        <textarea name="medicine_data" class="form-control" rows="9"></textarea>
+                    </div>
+                </div>
+
+                <!-- data_image -->
+                <div class="form-group">
+                    <label for="medicine_img" class="col-md-2 control-label">รูปภาพ :</label>
+                    <div class="col-md-10">
+                        <input type="file" name="medicine_img" accept="image/*" required>
                     </div>
                 </div>
                 
@@ -119,13 +127,7 @@
                     </div>
                 </div>
                 
-                <!-- data_properties -->
-                <div class="form-group">
-                    <label for="data_properties" class="col-md-2 control-label">สรรพคุณ :</label>
-                    <div class="col-md-10">
-                        <textarea name="data_properties" class="form-control" rows="5"></textarea>
-                    </div>
-                </div>
+               
 
                 <!-- button -->
                 <div class="form-group">
