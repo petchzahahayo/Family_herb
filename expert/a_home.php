@@ -48,7 +48,7 @@
               <div class="caption">
                 <h4>ต้นไม้</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit</p>
-               <a href="#" class="btn btn-info btn-xs" role="button">เข้าชม</a>
+               <a href="tree_manage.php" class="btn btn-info btn-xs" role="button">เข้าชม</a>
             </div>
           </div>
         </div>

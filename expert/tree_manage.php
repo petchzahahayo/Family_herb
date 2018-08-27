@@ -1,5 +1,5 @@
 <?php
-    require 'header_admin.php';      
+    require 'header_expert.php';      
 ?>
 
 <!DOCTYPE html>
@@ -23,9 +23,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <a href="frm_tree_add.php" class="btn btn-primary" >
+                    <!--<a href="frm_tree_add.php" class="btn btn-primary" >
                         <span class="glyphicon glyphicon-plus"> เพิ่มต้นไม้</span>
-                    </a>                    
+                    </a>-->                  
                 </div>
                 
                 <div class="col-md-6">
@@ -73,7 +73,7 @@
                         <th><center>ชื่อ</center></th>
                         <th><center>ดูข้อมูล</center></th>
                         <th><center>แก้ไข</center></th>
-                        <th><center>ลบ</center></th>
+                        <!--<th><center>ลบ</center></th>-->
                     </tr>
                 </thead>
                 
@@ -96,21 +96,21 @@
                         </a></center></td>
                         
                         <!-- edit -->
-                        <td><center><a href="frm_herb_edit.php?data_id=<?php echo $row['data_id']; ?>" class="btn btn-warning btn-md">
+                        <td><center><a href="frm_tree_edit.php?data_id=<?php echo $row['treedata_id']; ?>" class="btn btn-warning btn-md">
                                 <span class="glyphicon glyphicon-edit"></span>
                         </a></center></td>
                         
                         <!-- delete -->
-                        <td><center><a href="herb_delete.php?data_id=<?php echo $row['data_id']; ?>" class="btn btn-danger btn-md">
+                        <!--<td><center><a href="herb_delete.php?data_id=<?php echo $row['data_id']; ?>" class="btn btn-danger btn-md">
                                 <span class="glyphicon glyphicon-remove"></span>
-                        </a></center></td>
+                        </a></center></td>-->
                     </tr>
                 </tbody>
                 <?php } ?>
             </table>
             
                 <?php
-                    $sql2 = "select * from herb_data ";
+                    $sql2 = "select * from tree_data ";
                     $query2 = pg_query($db, $sql2);
                     $total_record = pg_num_rows($query2);
                     $total_page = ceil($total_record / $treeperpage);
@@ -119,15 +119,15 @@
                 <nav>
                     <ul class="pagination">
                         <li class="active">
-                            <a href="herb_manage.php?page=1" aria-label="Previous">
+                            <a href="tree_manage.php?page=1" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
                         <?php for ($i = 1; $i <= $total_page; $i++) { ?>
-                            <li><a href="herb_manage.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                            <li><a href="tree_manage.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
                         <?php } ?>
                             <li class="active">
-                            <a href="herb_manage.php?page=<?php echo $total_page; ?>" aria-label="Next">
+                            <a href="tree_manage.php?page=<?php echo $total_page; ?>" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>

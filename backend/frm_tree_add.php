@@ -120,7 +120,7 @@
 
                  <!-- data_detail -->
                  <div class="form-group">
-                    <label for="treedata_detail" class="col-md-2 control-label">ลักษณะของต้นไม้ :</label>
+                    <label for="treedata_detail" class="col-md-2 control-label">ลักษณะของพืช :</label>
                     <div class="col-md-10">
                         <textarea name="treedata_detail" class="form-control" rows="5"></textarea>
                     </div>

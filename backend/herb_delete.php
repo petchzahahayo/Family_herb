@@ -5,7 +5,7 @@
         $data_id = $_GET['data_id'];
 
         //sqlDelete Image
-        $sql_image = "SELECT data_image FROM tree_data WHERE data_id='$data_id'";
+        $sql_image = "SELECT data_image FROM herb_data WHERE data_id='$data_id'";
         $res_image = pg_query($db, $sql_image);
         $data_image = pg_fetch_row($res_image);
         $file_name = $data_image[0];

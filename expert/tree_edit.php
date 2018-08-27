@@ -8,21 +8,26 @@
     $treename_id = $_POST['treename_id'];
     $treedata_name_eng = $_POST['treedata_name_eng'];
     $treedata_name_sci = $_POST['treedata_name_sci'];
-    $treedata_hight = $_POST['treedata_hight'];
-    $treedata_wideth = $_POST['treedata_wideth'];
-    $treedata_radius = $_POST['treedata_radius'];
     $treedata_detail = $_POST['treedata_detail'];
+    $data_hight = $_POST['data_hight'];
+    $data_wideth = $_POST['data_wideth'];
+    $data_radius = $_POST['data_radius'];
+    /*$data_medicine = $_POST['data_medicine'];
+    $data_properties = $_POST['data_properties'];*/
+
     //คำสั่ง sql เพื่อ update ข้อมูล
     $sql = "UPDATE tree_data 
-                SET treetype_id = '$treetype_id',
+                SET type_id = '$treetype_id',
                 treename_id='$treename_id', 
                 treedata_name_eng='$treedata_name_eng', 
                 treedata_name_sci='$treedata_name_sci',
-                treedata_hight= '$treedata_hight',
-                treedata_wideth='$treedata_wideth',
-                treedata_radius='$treedata_radius',  
-                treedata_detail='$treedata_detail', 
-               
+                treedata_detail='$treedata_detail',
+                data_hight='$data_hight',
+                data_wideth='$data_wideth',
+                data_radius='$data_radius', 
+                data_medicine='$data_medicine', 
+                data_properties='$data_properties'
+
                 WHERE treedata_id='$treedata_id' ";
     $result = pg_query($sql);
 
