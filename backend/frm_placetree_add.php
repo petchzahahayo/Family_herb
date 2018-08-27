@@ -20,7 +20,7 @@
         <meta charset="UTF-8">
         <title></title>
         <script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="script.js" type="text/javascript"></script>
+        <script src="treescript.js" type="text/javascript"></script>
         <style type="text/css">
             /* css กำหนดความกว้าง ความสูงของแผนที่ */
             #map_canvas { 
@@ -36,7 +36,7 @@
         <div class="container">
             <h2>กรอกข้อมูลต้นไม้</h2>
             <br>
-            <form action="place_insert.php" method="POST" enctype="multipart/form-data" class="form-horizontal">
+            <form action="place_treeinsert.php" method="POST" enctype="multipart/form-data" class="form-horizontal">
                 
                 <!-- place_id -->
                 <input name="place_id" type="hidden" value="<?php echo $row_place2; ?>">
@@ -62,21 +62,21 @@
                 
                 <!-- alphabet -->
                 <div class="form-group">
-                    <label for="alphabet" class="col-md-2 control-label">ชื่อต้นไม้ :</label>
+                    <label for="treealphabet" class="col-md-2 control-label">ชื่อต้นไม้ :</label>
                     <div class="col-md-10">
-                            <select name="alphabet" id="alphabet" class="form-control" required>
+                            <select name="treealphabet" id="treealphabet" class="form-control" required>
                                 <option value="">--เลือกตัวอักษร--</option>
                                 
                                     <!-- ดึงข้อมูลจากฐานข้อมูล -->
                                     <?php
-                                        $sql_alphabet = "SELECT * FROM herb_alphabet";
-                                        $res_alphabet = pg_query($db, $sql_alphabet);
+                                        $sql_treealphabet = "SELECT * FROM tree_alphabet";
+                                        $res_treealphabet = pg_query($db, $sql_treealphabet);
                                     
-                                        while($row_alphabet = pg_fetch_array($res_alphabet))
+                                        while($row_treealphabet = pg_fetch_array($res_treealphabet))
                                         {
-                                            $alphabet_id = $row_alphabet['alphabet_id'];
-                                            $alphabet_th = $row_alphabet['alphabet_th'];
-                                            echo "<option value='$alphabet_id'>$alphabet_th</option>";
+                                            $treealphabet_id = $row_treealphabet['treealphabet_id'];
+                                            $treealphabet_th = $row_treealphabet['treealphabet_th'];
+                                            echo "<option value='$treealphabet_id'>$treealphabet_th</option>";
                                         }
                                     ?>
                                 

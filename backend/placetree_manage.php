@@ -1,6 +1,6 @@
 <?php
     require 'header_admin.php';
-    require 'function.php';
+    require 'treefunction.php';
 
     //คำสั่ง sql เรียกเฉพาะข้อมูล = 9999
         $sql2 = "SELECT *  FROM herb_place 
@@ -59,8 +59,8 @@
                     $query = "SELECT *  FROM herb_place 
                                 INNER JOIN herb_owner
                                 ON herb_place.owner_id = herb_owner.owner_id
-                                INNER JOIN herb_name
-                                on herb_place.name_id = herb_name.name_id
+                                INNER JOIN tree_name
+                                on herb_place.treename_id = tree_name.name_id
                                 WHERE name_th NOT IN ('ก9999')
                                 ORDER BY place_id ASC";
 

@@ -104,35 +104,23 @@
 
                  <!-- data_width -->
                  <div class="form-group">
-<<<<<<< HEAD
                     <label for="treedata_wideth" class="col-md-2 control-label">ความกว้างของต้นไม้ :</label>
                     <div class="col-md-10">
                         <input name="treedata_wideth" placeholder="เซนติเมตร" type="number" class="form-control">
-=======
-                    <label for="treedata_name_eng" class="col-md-2 control-label">ความกว้างของต้นไม้ :</label>
-                    <div class="col-md-10">
-                        <input name="treedata_name_eng" placeholder="เซนติเมตร" type="number" class="form-control">
->>>>>>> fdb80281a676b0ffc59c50ca98b30a47ec87970d
                     </div>
                 </div>
 
                 <!-- data_radus -->
                 <div class="form-group">
-<<<<<<< HEAD
                     <label for="treedata_radius" class="col-md-2 control-label">เส้นรอบวงของต้นไม้ :</label>
                     <div class="col-md-10">
                         <input name="treedata_radius" placeholder="เซนติเมตร" type="number" class="form-control">
-=======
-                    <label for="treedata_name_eng" class="col-md-2 control-label">เส้นรอบวงของต้นไม้ :</label>
-                    <div class="col-md-10">
-                        <input name="treedata_name_eng" placeholder="เซนติเมตร" type="number" class="form-control">
->>>>>>> fdb80281a676b0ffc59c50ca98b30a47ec87970d
                     </div>
                 </div>
 
                  <!-- data_detail -->
                  <div class="form-group">
-                    <label for="treedata_detail" class="col-md-2 control-label">ลักษณะของพืช :</label>
+                    <label for="treedata_detail" class="col-md-2 control-label">ลักษณะของต้นไม้ :</label>
                     <div class="col-md-10">
                         <textarea name="treedata_detail" class="form-control" rows="5"></textarea>
                     </div>

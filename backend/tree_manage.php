@@ -96,12 +96,12 @@
                         </a></center></td>
                         
                         <!-- edit -->
-                        <td><center><a href="frm_herb_edit.php?data_id=<?php echo $row['data_id']; ?>" class="btn btn-warning btn-md">
+                        <td><center><a href="frm_tree_edit.php?treedata_id=<?php echo $row['treedata_id']; ?>" class="btn btn-warning btn-md">
                                 <span class="glyphicon glyphicon-edit"></span>
                         </a></center></td>
                         
                         <!-- delete -->
-                        <td><center><a href="herb_delete.php?data_id=<?php echo $row['data_id']; ?>" class="btn btn-danger btn-md">
+                        <td><center><a href="tree_delete.php?treedata_id=<?php echo $row['treedata_id']; ?>" class="btn btn-danger btn-md">
                                 <span class="glyphicon glyphicon-remove"></span>
                         </a></center></td>
                     </tr>
@@ -110,7 +110,7 @@
             </table>
             
                 <?php
-                    $sql2 = "select * from herb_data ";
+                    $sql2 = "select * from tree_data ";
                     $query2 = pg_query($db, $sql2);
                     $total_record = pg_num_rows($query2);
                     $total_page = ceil($total_record / $treeperpage);
@@ -119,15 +119,15 @@
                 <nav>
                     <ul class="pagination">
                         <li class="active">
-                            <a href="herb_manage.php?page=1" aria-label="Previous">
+                            <a href="tree_manage.php?page=1" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
                         <?php for ($i = 1; $i <= $total_page; $i++) { ?>
-                            <li><a href="herb_manage.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                            <li><a href="tree_manage.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
                         <?php } ?>
                             <li class="active">
-                            <a href="herb_manage.php?page=<?php echo $total_page; ?>" aria-label="Next">
+                            <a href="tree_manage.php?page=<?php echo $total_page; ?>" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
