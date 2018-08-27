@@ -51,7 +51,9 @@ $result = pg_fetch_array($query);
                          <li><a href="herb_manage.php">
                             <span class="glyphicon glyphicon-th-list"></span> ข้อมูลสมุนไพร</a></li>
                          <li><a href="place_manage.php">
-                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลสถานที่สมุนไพร</a></li>   
+                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลสถานที่สมุนไพร</a></li>  
+                        <li><a href="medic_manage.php">
+                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลยาของสมุนไพร</a></li>  
                          <li><a href="place_map.php">
                             <span class="glyphicon glyphicon-map-marker"></span> แผนที่สมุนไพร</a></li>                     
                         </ul>
@@ -63,8 +65,8 @@ $result = pg_fetch_array($query);
                          <li><a href="tree_manage.php">
                             <span class="glyphicon glyphicon-th-list"></span> ข้อมูลต้นไม้</a></li>
                          <li><a href="placetree_manage.php">
-                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลสถานที่ต้นไม้</a></li>   
-                         <li><a href="placetree_map.php">
+                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลสถานที่ต้นไม้</a></li>     
+                        <li><a href="placetree_map.php">
                             <span class="glyphicon glyphicon-map-marker"></span> แผนที่ต้นไม้</a></li>                     
                         </ul>
                     </li>  
