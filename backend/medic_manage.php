@@ -23,48 +23,48 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <a href="frm_tree_add.php" class="btn btn-primary" >
-                        <span class="glyphicon glyphicon-plus"> เพิ่มต้นไม้</span>
+                    <a href="frm_herb_add.php" class="btn btn-primary" >
+                        <span class="glyphicon glyphicon-plus"> เพิ่มยา</span>
                     </a>                    
                 </div>
                 
                 <div class="col-md-6">
-                    <a href="tree_name_manage.php" type="button" class="btn btn-success">
-                        <span class="glyphicon glyphicon-th-list"> รายชื่อต้นไม้ </span>
+                    <a href="herb_name_manage.php" type="button" class="btn btn-success">
+                        <span class="glyphicon glyphicon-th-list"> รายชื่อยา </span>
                     </a>
-                    <a href="tree_typename_manage.php" class="btn btn-success" >
-                        <span class="glyphicon glyphicon-th-list"> รายชื่อประเภทต้นไม้</span>
+                    <a href="herb_typename_manage.php" class="btn btn-success" >
+                        <span class="glyphicon glyphicon-th-list"> รายชื่อประเภทยา</span>
                     </a>                    
                 </div>
                 
             </div>
             
-            <h2>ข้อมูลต้นไม้</h2> 
+            <h2>ข้อมูลยา</h2> 
             <table class="table table-bordered">
                 <thead>
                     
                     <!-- แบ่งหน้า -->
                     <?php 
                         //กำหนดจำนวนหน้า
-                        $treeperpage = 20;
+                        $perpage = 20;
                         
                         //เช็คว่าเป็นค่าว่างหรือไม่
-                        if (isset($_GET['pagetree'])) {
-                            $treepage = $_GET['pagetree'];
+                        if (isset($_GET['page'])) {
+                            $page = $_GET['page'];
                         } else {
-                            $treepage = 1;
+                            $page = 1;
                         }
 
-                        $treestart = ($treepage - 1) * $treeperpage;
+                        $start = ($page - 1) * $perpage;
 
-                        $sqlPagetree = "SELECT * FROM tree_name
-                                    INNER JOIN tree_data
-                                    ON tree_name.treename_id = tree_data.treename_id
-                                    INNER JOIN tree_typename
-                                    ON tree_data.treetype_id = tree_typename.treetype_id
-                                    ORDER BY treedata_id ASC limit {$treeperpage} offset {$treestart}
+                        $sqlPage = "SELECT * FROM herb_name
+                                    INNER JOIN medicine
+                                    ON herb_name.name_id = medicine.name_id
+                                    INNER JOIN medicine_type
+                                    ON medicine.type_id = medicine_type.type_id
+                                    ORDER BY medicine_id ASC limit {$perpage} offset {$start}
                                    ";
-                        $queryPagetree = pg_query($db, $sqlPagetree);
+                        $queryPage = pg_query($db, $sqlPage);
                     ?>
                     
                     <tr class="info">
@@ -78,30 +78,30 @@
                 </thead>
                 
                 <!-- show data -->
-                <?php while($row = pg_fetch_array($queryPagetree)){ ?>
+                <?php while($row = pg_fetch_array($queryPage)){ ?>
                 <tbody>
                     <tr>
                         <!-- ลำดับ 
-                        <td><center><?php echo $row['treedata_id']; ?></center></td>-->
+                        <td><center><?php echo $row['data_id']; ?></center></td>-->
             
                         <!-- ประเภท -->
-                        <td><center><?php echo $row['treetype_name']; ?></center></td>
+                        <td><center><?php echo $row['type_name']; ?></center></td>
             
                         <!-- ชื่อ -->
-                        <td><center><?php echo $row['treename_th']; ?></center></td>
+                        <td><center><?php echo $row['name_th']; ?></center></td>
             
                         <!-- ดูข้อมูล -->
-                        <td><center><a href="show_tree_data.php?treedata_id=<?php echo $row['treedata_id']; ?>" class="btn btn-info btn-md">
+                        <td><center><a href="show_herb_data.php?data_id=<?php echo $row['data_id']; ?>" class="btn btn-info btn-md">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                         </a></center></td>
                         
                         <!-- edit -->
-                        <td><center><a href="frm_tree_edit.php?treedata_id=<?php echo $row['treedata_id']; ?>" class="btn btn-warning btn-md">
+                        <td><center><a href="frm_herb_edit.php?data_id=<?php echo $row['data_id']; ?>" class="btn btn-warning btn-md">
                                 <span class="glyphicon glyphicon-edit"></span>
                         </a></center></td>
                         
                         <!-- delete -->
-                        <td><center><a href="tree_delete.php?treedata_id=<?php echo $row['treedata_id']; ?>" class="btn btn-danger btn-md">
+                        <td><center><a href="herb_delete.php?data_id=<?php echo $row['data_id']; ?>" class="btn btn-danger btn-md">
                                 <span class="glyphicon glyphicon-remove"></span>
                         </a></center></td>
                     </tr>
@@ -110,24 +110,24 @@
             </table>
             
                 <?php
-                    $sql2 = "select * from tree_data ";
+                    $sql2 = "select * from herb_data ";
                     $query2 = pg_query($db, $sql2);
                     $total_record = pg_num_rows($query2);
-                    $total_page = ceil($total_record / $treeperpage);
+                    $total_page = ceil($total_record / $perpage);
                 ?>
 
                 <nav>
                     <ul class="pagination">
                         <li class="active">
-                            <a href="tree_manage.php?page=1" aria-label="Previous">
+                            <a href="herb_manage.php?page=1" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
                         <?php for ($i = 1; $i <= $total_page; $i++) { ?>
-                            <li><a href="tree_manage.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                            <li><a href="herb_manage.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
                         <?php } ?>
                             <li class="active">
-                            <a href="tree_manage.php?page=<?php echo $total_page; ?>" aria-label="Next">
+                            <a href="herb_manage.php?page=<?php echo $total_page; ?>" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
