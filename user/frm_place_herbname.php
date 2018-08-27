@@ -6,7 +6,7 @@
         $resOwner = pg_query($db, $sqlOwner);
         
         //herb_name
-        $sql_name = "SELECT * FROM herb_name WHERE name_id=2";
+        $sql_name = "SELECT * FROM herb_name";
         $res_name = pg_query($db, $sql_name);
         $row_name = pg_fetch_array($res_name);
         
@@ -66,7 +66,7 @@
                 <div class="form-group">
                     <label for="data_id" class="col-md-2 control-label">ชื่อสมุนไพร :</label>
                     <div class="col-md-10">
-                        <input name="name_id" type="text" value="<?php echo $row_name['name_id']; ?>" class="form-control" readonly>
+                        <input name="name_id" type="text" value="" class="form-control">
                     </div>
                 </div>
                 
