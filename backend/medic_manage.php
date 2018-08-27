@@ -23,7 +23,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <a href="frm_herb_add.php" class="btn btn-primary" >
+                    <a href="frm_medic_add.php" class="btn btn-primary" >
                         <span class="glyphicon glyphicon-plus"> เพิ่มยา</span>
                     </a>                    
                 </div>
@@ -82,10 +82,10 @@
                 <tbody>
                     <tr>
                         <!-- ลำดับ 
-                        <td><center><?php echo $row['data_id']; ?></center></td>-->
+                        <td><center><?php echo $row['medicine_id']; ?></center></td>-->
             
                         <!-- ประเภท -->
-                        <td><center><?php echo $row['type_name']; ?></center></td>
+                        <td><center><?php echo $row['medicine_type']; ?></center></td>
             
                         <!-- ชื่อ -->
                         <td><center><?php echo $row['name_th']; ?></center></td>
