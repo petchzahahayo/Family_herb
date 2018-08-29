@@ -5,7 +5,11 @@
         //รับค่าตัวแปรจากฟอร์ม
         $treeplace_id = $_POST['treeplace_id'];
         $treeowner_id = $_POST['treeowner_id'];
+<<<<<<< HEAD
         $treealphabet = $_POST['treename_id'];
+=======
+        $treetreealphabet = $_POST['treename_id'];
+>>>>>>> daea5bdefc771f53ae086857a5ee5a564fb6431f
         $treeplace_lat = $_POST['treeplace_lat'];
         $treeplace_lng = $_POST['treeplace_lng'];
         
