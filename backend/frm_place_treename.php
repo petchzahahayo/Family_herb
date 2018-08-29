@@ -1,17 +1,14 @@
 <?php 
-        require 'header_admin.php';
+        require 'header_admin.php';    
         
         //herb_owner
-        $sqlOwner = "SELECT * FROM tree_owner";
+        $sqlOwner = "SELECT * FROM treeherb_owner";
         $resOwner = pg_query($db, $sqlOwner);
         
-        //herb_place
-        $sql_place = "SELECT MAX(treeplace_id) FROM tree_place";
-        $res_place = pg_query($db, $sql_place);
-        $row_place = pg_fetch_row($res_place);
-        $row_place1 = $row_place[0];
-        $row_place2 = $row_place1 + 1;
-        
+        //herb_name
+        $sql_name = "SELECT name_id FROM herb_name";
+        $res_name = pg_query($db, $sql_name);
+        $row_name = pg_fetch_row($res_name);
 ?>
 
 <!DOCTYPE html>
@@ -19,8 +16,6 @@
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="treescript.js" type="text/javascript"></script>
         <style type="text/css">
             /* css กำหนดความกว้าง ความสูงของแผนที่ */
             #map_canvas { 
@@ -34,19 +29,16 @@
     
     <body>
         <div class="container">
-            <h2>กรอกข้อมูลต้นไม้</h2>
+            <h2>กรอกข้อมูลสมุนไพรไม่พบชื่อ</h2>
             <br>
-            <form action="place_treeinsert.php" method="POST" enctype="multipart/form-data" class="form-horizontal">
+            <form action="place_herbname_insert.php" method="POST" enctype="multipart/form-data" class="form-horizontal">
                 
-                <!-- place_id -->
-                <input name="treeplace_id" type="hidden" value="<?php echo $row_place2; ?>">
-
                 <!-- owner_name -->
                 <div class="form-group">
-                    <label for="treeowner_id" class="col-md-2 control-label">ชื่อเจ้าของต้นไม้ :</label>
+                    <label for="owner_id" class="col-md-2 control-label">ชื่อเจ้าของสมุนไพร :</label>
                     <div class="col-md-10">
-                        <select name="treeowner_id" id="treeowner_id" class="form-control" required>
-                            <option value="">--ชื่อเจ้าของต้นไม้--</option>
+                        <select name="owner_id" id="owner_id" class="form-control" required>
+                            <option value="">--ชื่อเจ้าของสมุนไพร--</option>
                                 
                                     <!-- ดึงข้อมูลจากฐานข้อมูล -->
                                     <?php
@@ -60,44 +52,19 @@
                     </div>
                 </div>
                 
-                <!-- alphabet -->
+                 <!-- name_id -->
                 <div class="form-group">
-                    <label for="treealphabet" class="col-md-2 control-label">ชื่อต้นไม้ :</label>
+                    <label for="data_id" class="col-md-2 control-label">ชื่อสมุนไพร :</label>
                     <div class="col-md-10">
-                            <select name="treealphabet" id="treealphabet" class="form-control" required>
-                                <option value="">--เลือกตัวอักษร--</option>
-                                
-                                    <!-- ดึงข้อมูลจากฐานข้อมูล -->
-                                    <?php
-                                        $sql_treealphabet = "SELECT * FROM tree_alphabet";
-                                        $res_treealphabet = pg_query($db, $sql_treealphabet);
-                                    
-                                        while($row_treealphabet = pg_fetch_array($res_treealphabet))
-                                        {
-                                            $treealphabet_id = $row_treealphabet['treealphabet_id'];
-                                            $treealphabet_th = $row_treealphabet['treealphabet_th'];
-                                            echo "<option value='$treealphabet_id'>$treealphabet_th</option>";
-                                        }
-                                    ?>
-                                
-                            </select>
+                        <input name="name_id" type="text" value="<?php echo $row_name[0] ?>" class="form-control" required>
                     </div>
                 </div>
                 
+                <!-- place_herbimg -->
                 <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <p class="bg-warning">*** ไม่พบชื่อต้นไม่ กรุณาคลิก <kbd>+ เพิ่มต้นไม้ไม่พบชื่อ</kbd> ***</p>
-                        <a href="frm_place_treename.php" class="btn btn-success">
-                            <span class="glyphicon glyphicon-plus"> เพิ่มต้นไม้ไม่พบชื่อ</span>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- data_image -->
-                <div class="form-group">
-                    <label for="treeplace_herbimg" class="col-md-2 control-label">รูปภาพ :</label>
+                    <label for="place_herbimg" class="col-md-2 control-label">รูปภาพ :</label>
                     <div class="col-md-10">
-                        <input type="file" name="treeplace_herbimg" accept="image/*" required>
+                        <input type="file" name="place_herbimg" accept="image/*" required>
                     </div>
                 </div>
                 
@@ -110,18 +77,17 @@
 
                 <!-- latitude -->
                 <div class="form-group">
-                    <label for="treeplace_lat" class="col-md-2 control-label">ละติจูด :</label>
+                    <label for="place_lat" class="col-md-2 control-label">ละติจูด :</label>
                     <div class="col-md-10">
-                        <input name="treeplace_lat" type="text" id="place_tree_lat" value="0" class="form-control" required>
+                        <input name="place_lat" type="text" id="place_herb_lat" value="0" class="form-control" required>
                     </div>
                 </div>
-                
-                
+                                
                 <!-- longitude -->
                 <div class="form-group">
-                    <label for="treeplace_lng" class="col-md-2 control-label">ลองติจูด :</label>
+                    <label for="place_lng" class="col-md-2 control-label">ลองติจูด :</label>
                     <div class="col-md-10">
-                        <input name="treeplace_lng" type="text" id="place_tree_lng" value="0" class="form-control" required>
+                        <input name="place_lng" type="text" id="place_herb_lng" value="0" class="form-control" required>
                     </div>
                 </div>
                 
@@ -156,8 +122,8 @@
                                  
                                                 var my_Point = infowindow.getPosition();  // หาตำแหน่งของตัว marker เมื่อกดลากแล้วปล่อย
                                                 //map.panTo(my_Point);  // ให้แผนที่แสดงไปที่ตัว marker       
-                                                $("#place_tree_lat").val(my_Point.lat());  // เอาค่า latitude ตัว marker แสดงใน textbox id=lat_value
-                                                $("#place_tree_lng").val(my_Point.lng()); // เอาค่า longitude ตัว marker แสดงใน textbox id=lon_value        
+                                                $("#place_herb_lat").val(my_Point.lat());  // เอาค่า latitude ตัว marker แสดงใน textbox id=lat_value
+                                                $("#place_herb_lng").val(my_Point.lng()); // เอาค่า longitude ตัว marker แสดงใน textbox id=lon_value        
                                                 map.setCenter(pos);
                                         }, function () {
                                                 // คำสั่งทำงาน ถ้า ระบบระบุตำแหน่ง geolocation ผิดพลาด หรือไม่ทำงาน
@@ -190,7 +156,7 @@
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <button type="submit" class="btn btn-primary">บันทึก</button>
-                        <a href="placetree_manage.php" class="btn btn-danger">
+                        <a href="place_manage.php" class="btn btn-danger">
                             กลับหน้าหลัก
                         </a>
                     </div>
