@@ -51,11 +51,15 @@ $result = pg_fetch_array($query);
                                 <span class="glyphicon glyphicon-pencil"> แก้ไขข้อมูลส่วนตัว</span>
                             </a>
                         </li> 
-                        <li>
-                            <a href="place_manage.php">
-                                <span class="glyphicon glyphicon-th-list"> ข้อมูลสมุนไพร</span>
-                            </a>
-                        </li>
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                       <span class="glyphicon glyphicon-th-list"></span> สมุนไพร</a>
+                        <ul class="dropdown-menu">
+                         <li><a href="place_manage.php">
+                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลสมุนไพร</a></li>
+                         <li><a href="medic_manage.php">
+                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลยาของสมุนไพร</a></li>                      
+                        </ul>
+                    </li>  
                         <li>
                             <a href="owner_manage.php">
                                 <span class="glyphicon glyphicon-th-list"> กรอกข้อมูลเจ้าของสมุนไพร</span>

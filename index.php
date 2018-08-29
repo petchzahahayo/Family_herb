@@ -76,7 +76,7 @@ require 'connect/connectdb.php';
                                 <div class="caption">
                                     <h3><?php echo $row_place['name_th']; ?></h3>
                                     <p>
-                                        <a href="herb_detail.php?place_id=<?php echo $row_place['place_id']; ?>" class="btn btn-primary">รายละเอียด...</a> 
+                                        <a href="herb_detail.php?place_id=<?php echo $row_place['place_id']; ?>" class="btn btn-primary">รายละเอียด</a> 
                                     </p>
                                 </div>
                             </div>

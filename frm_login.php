@@ -21,9 +21,9 @@
                 <input type="password" class="form-control" name="user_password" placeholder="รหัสผ่าน" required/>      
                 
                 <button class="btn btn-lg btn-primary btn-block" type="submit">เข้าสู่ระบบ</button>   
-               <button class="btn btn-lg btn-danger btn-block" type="submit">
+              <!-- <button class="btn btn-lg btn-danger btn-block" type="submit">
                     <a href="frm_register.php">ลงทะเบียน</a>
-                </button>
+                </button> -->
               
             </form>
         </div>
