@@ -3,19 +3,19 @@
         require '../connect/connectdb.php';
         
         //รับค่าตัวแปรจากฟอร์ม
-        $place_id = $_POST['place_id'];
-        $owner_id = $_POST['owner_id'];
+        $treeplace_id = $_POST['treeplace_id'];
+        $treeowner_id = $_POST['treeowner_id'];
         $treealphabet = $_POST['treename_id'];
-        $place_lat = $_POST['place_lat'];
-        $place_lng = $_POST['place_lng'];
+        $treeplace_lat = $_POST['treeplace_lat'];
+        $treeplace_lng = $_POST['treeplace_lng'];
         
         //upload image
-        $ext = pathinfo(($_FILES['place_herbimg']['name']), PATHINFO_EXTENSION); //นามสกุลของไฟล์
+        $ext = pathinfo(($_FILES['treeplace_herbimg']['name']), PATHINFO_EXTENSION); //นามสกุลของไฟล์
         $new_image_name = 'img_' . uniqid() . "." . $ext;
         $image_path = '../images/';
         $upload_path = $image_path . $new_image_name;
         //uploading
-        $sucess = move_uploaded_file($_FILES['place_herbimg']['tmp_name'], $upload_path);
+        $sucess = move_uploaded_file($_FILES['treeplace_herbimg']['tmp_name'], $upload_path);
         
         if ($sucess==FALSE) {
             echo "ไม่สามารถเพิ่มรูปภาพได้";
@@ -26,8 +26,8 @@
         //end upload image
         
         //คำสั่ง sql
-        $sql = "INSERT INTO herb_place (place_id, owner_id, treename_id,  place_lat, place_lng, place_herbimg)"
-                . "VALUES ('$place_id','$owner_id', '$treealphabet',  '$place_lat', '$place_lng', '$place_herbimg') ";
+        $sql = "INSERT INTO tree_place (treeplace_id, treeowner_id, treename_id,  treeplace_lat, treeplace_lng, treeplace_herbimg)"
+                . "VALUES ('$treeplace_id','$treeowner_id', '$treealphabet',  '$treeplace_lat', '$treeplace_lng', '$treeplace_herbimg') ";
         $result = pg_query($db, $sql);
         
         //check 
