@@ -53,7 +53,9 @@ $result = pg_fetch_array($query);
                          <li><a href="place_manage.php">
                             <span class="glyphicon glyphicon-th-list"></span> ข้อมูลสถานที่สมุนไพร</a></li>  
                         <li><a href="medic_manage.php">
-                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลยาของสมุนไพร</a></li>  
+                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลยาของสมุนไพร</a></li>
+                        <li><a href="season_manage.php">
+                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลการเก็บเกี่ยว</a></li>      
                          <li><a href="place_map.php">
                             <span class="glyphicon glyphicon-map-marker"></span> แผนที่สมุนไพร</a></li>                     
                         </ul>
