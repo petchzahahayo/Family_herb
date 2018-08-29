@@ -40,7 +40,7 @@ $result = pg_fetch_array($query);
                 </button>
                 <div class="collapse navbar-collapse navHeader">
                     <ul class="nav navbar-nav navbar-right">
-                        <!--<li><a href="map_manage.php">แผนที่</a></li> -->
+                        <!--                        <li><a href="map_manage.php">แผนที่</a></li> -->
                         <li><a href="user_manage.php?user_id=<?php echo base64_encode($result['user_id']); ?>">
                                 <span class="glyphicon glyphicon-pencil">แก้ไขข้อมูลส่วนตัว</span></a></li> 
                         

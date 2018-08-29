@@ -32,7 +32,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="season_manage.php">
                                     <span class="glyphicon glyphicon-th-list"></span> ทั้งหมด </a></li>
-                                 <li><a href="season_summer_manage.php">
+                                <li><a href="season_summer_manage.php">
                                     <span class="glyphicon glyphicon-th-list"></span> ฤดูร้อน </a></li>
                                 <li><a href="season_rainy_manage.php">
                                     <span class="glyphicon glyphicon-th-list"></span> ฤดูฝน </a></li>     

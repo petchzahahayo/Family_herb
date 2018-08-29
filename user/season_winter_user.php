@@ -1,5 +1,5 @@
 <?php
-    require 'header_admin.php';      
+    require 'header_user.php';      
 ?>
 
 <!DOCTYPE html>
@@ -30,13 +30,13 @@
                                 <span class="glyphicon glyphicon-th-list"></span> ฤดู
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="season_manage.php">
+                                <li><a href="season_user.php">
                                     <span class="glyphicon glyphicon-th-list"></span> ทั้งหมด </a></li>
-                                 <li><a href="season_summer_manage.php">
+                                <li><a href="season_summer_user.php">
                                     <span class="glyphicon glyphicon-th-list"></span> ฤดูร้อน </a></li>
-                                <li><a href="season_rainy_manage.php">
+                                <li><a href="season_rainy_user.php">
                                     <span class="glyphicon glyphicon-th-list"></span> ฤดูฝน </a></li>     
-                                <li><a href="season_winter_manage.php">
+                                <li><a href="season_winter_user.php">
                                     <span class="glyphicon glyphicon-th-list"></span> ฤดูหนาว </a></li>                     
                             </ul>
                         </li>
@@ -79,8 +79,7 @@
                         </th><th><center>ฤดูร้อน</center></th>
                         </th><th><center>ฤดูฝน</center></th>
                         </th><th><center>ฤดูหนาว</center></th>
-                        <th><center>แก้ไข</center></th>
-                        <th><center>ลบ</center></th>
+                        
                     </tr>
                 </thead>
                 

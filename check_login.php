@@ -31,7 +31,7 @@
             header("Location:expert/a_home.php");
         } 
         else {
-            header("Location:user/a_home.php");
+            header("Location:user/place_manage.php");
         }
     } 
     else {

@@ -2,15 +2,15 @@
         require 'header_admin.php';
         
         //herb_owner
-        $sqltreeOwner = "SELECT * FROM tree_owner";
-        $restreeOwner = pg_query($db, $sqltreeOwner);
+        $sqlOwner = "SELECT * FROM herb_owner";
+        $resOwner = pg_query($db, $sqlOwner);
         
         //herb_place
-        $sql_treeplace = "SELECT MAX(treeplace_id) FROM tree_place";
-        $res_treeplace = pg_query($db, $sql_treeplace);
-        $row_treeplace = pg_fetch_row($res_treeplace);
-        $row_treeplace1 = $row_treeplace[0];
-        $row_treeplace2 = $row_treeplace1 + 1;
+        $sql_place = "SELECT MAX(place_id) FROM herb_place";
+        $res_place = pg_query($db, $sql_place);
+        $row_place = pg_fetch_row($res_place);
+        $row_place1 = $row_place[0];
+        $row_place2 = $row_place1 + 1;
         
 ?>
 
@@ -43,9 +43,9 @@
 
                 <!-- owner_name -->
                 <div class="form-group">
-                    <label for="treeowner_id" class="col-md-2 control-label">ชื่อเจ้าของต้นไม้ :</label>
+                    <label for="owner_id" class="col-md-2 control-label">ชื่อเจ้าของต้นไม้ :</label>
                     <div class="col-md-10">
-                        <select name="treeowner_id" id="treeowner_id" class="form-control" required>
+                        <select name="owner_id" id="owner_id" class="form-control" required>
                             <option value="">--ชื่อเจ้าของต้นไม้--</option>
                                 
                                     <!-- ดึงข้อมูลจากฐานข้อมูล -->
