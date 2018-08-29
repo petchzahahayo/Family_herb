@@ -21,30 +21,6 @@
     </head>
     <body>
         <div class="container">
-<<<<<<< HEAD
-            <div class="row">                
-                <div class="col-md-6">
-                    <ul class="nav navbar-nav navbar-left">
-                        <li class="dropdown">
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle">
-                                <span class="glyphicon glyphicon-th-list"></span> ฤดู
-                            </a>
-                            <ul class="dropdown-menu">
-                                 <li><a href="season_summer_manage.php">
-                                    <span class="glyphicon glyphicon-th-list"></span> ฤดูร้อน </a></li>
-                                <li><a href="season_rainy_manage.php">
-                                    <span class="glyphicon glyphicon-th-list"></span> ฤดูฝน </a></li>     
-                                <li><a href="season_winter_manage.php">
-                                    <span class="glyphicon glyphicon-th-list"></span> ฤดูหนาว </a></li>                     
-                            </ul>
-                        </li>
-                    </ul>                  
-                </div>
-            </div>
-            
-            
-=======
             <div class="row">
                 <div class="col-md-6">
                     <a href="frm_herb_add.php" class="btn btn-primary" >
@@ -71,7 +47,6 @@
                 </div>
             </div>
             
->>>>>>> e5ef6f7c325b9f87e4d9e404604d2ea2267b0500
             <h2>ข้อมูลการเก็บเกี่ยว</h2>
             <table class="table table-bordered">
                 <thead>

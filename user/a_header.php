@@ -51,40 +51,6 @@ $result = pg_fetch_array($query);
                                 <span class="glyphicon glyphicon-pencil"> แก้ไขข้อมูลส่วนตัว</span>
                             </a>
                         </li> 
-
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                       <span class="glyphicon glyphicon-th-list"></span> สมุนไพร</a>
-                        <ul class="dropdown-menu">
-                        <li>
-                            <a href="place_manage.php">
-                                <span class="glyphicon glyphicon-th-list"> ข้อมูลสมุนไพร</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="owner_manage.php">
-                                <span class="glyphicon glyphicon-th-list"> กรอกข้อมูลเจ้าของสมุนไพร</span>
-                            </a>
-                        </li>
-                        </ul>
-                        </li>
-
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                       <span class="glyphicon glyphicon-th-list"></span> ต้นไม้</a>
-                        <ul class="dropdown-menu">
-                        <li>
-                            <a href="placetree_manage.php">
-                                <span class="glyphicon glyphicon-th-list"> ข้อมูลต้นไม้</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="treeowner_manage.php">
-                                <span class="glyphicon glyphicon-th-list"> กรอกข้อมูลเจ้าของต้นไม้</span>
-                            </a>
-                        </li>
-                        </ul>
-                        </li>  
-
-
                         <li><a href="logout.php">
                                 <span class="glyphicon glyphicon-log-out"></span>  
                                 ออกจากระบบ(<?php echo $result['user_username']; ?>)</a>
