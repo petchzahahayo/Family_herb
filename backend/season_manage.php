@@ -21,6 +21,7 @@
     </head>
     <body>
         <div class="container">
+<<<<<<< HEAD
             <div class="row">                
                 <div class="col-md-6">
                     <ul class="nav navbar-nav navbar-left">
@@ -43,6 +44,34 @@
             </div>
             
             
+=======
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="frm_herb_add.php" class="btn btn-primary" >
+                        <span class="glyphicon glyphicon-plus"> เพิ่มสมุนไพร</span>
+                    </a>                    
+                </div>
+                
+                <div class="col-md-6">
+                    <h4><ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="" type="button" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-th-list"></span> ฤดู
+                            </a>
+                            <ul class="dropdown-menu">
+                                 <li><a href="#">
+                                    <span class="glyphicon glyphicon-th-list"></span> ฤดูร้อน </a></li>
+                                <li><a href="#">
+                                    <span class="glyphicon glyphicon-th-list"></span> ฤดูฝน </a></li>     
+                                <li><a href="#">
+                                    <span class="glyphicon glyphicon-th-list"></span> ฤดูหนาว </a></li>                     
+                            </ul>
+                        </li>
+                    </ul></h4>                    
+                </div>
+            </div>
+            
+>>>>>>> e5ef6f7c325b9f87e4d9e404604d2ea2267b0500
             <h2>ข้อมูลการเก็บเกี่ยว</h2>
             <table class="table table-bordered">
                 <thead>

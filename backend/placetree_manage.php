@@ -3,12 +3,12 @@
     require 'treefunction.php';
 
     //คำสั่ง sql เรียกเฉพาะข้อมูล = 9999
-        $sql2 = "SELECT *  FROM herb_place 
-                 INNER JOIN herb_owner  
-                 ON herb_place.owner_id = herb_owner.owner_id 
-                 INNER JOIN herb_name  
-                 ON herb_place.name_id = herb_name.name_id
-                 WHERE name_th = 'ก9999' ";
+        $sql2 = "SELECT *  FROM tree_place 
+                 INNER JOIN tree_owner  
+                 ON tree_place.treeowner_id = tree_owner.treeowner_id 
+                 INNER JOIN tree_name  
+                 ON tree_place.treename_id = tree_name.treename_id
+                 WHERE treename_th = 'ก9999' ";
         $result2 = pg_query($db, $sql2);    
 ?>
 
@@ -56,13 +56,13 @@
                 <!-- show data -->
                 <?php
                     //คำสั่ง sql
-                    $query = "SELECT *  FROM herb_place 
-                                INNER JOIN herb_owner
-                                ON herb_place.owner_id = herb_owner.owner_id
+                    $query = "SELECT *  FROM tree_place 
+                                INNER JOIN tree_owner
+                                ON tree_place.treeowner_id = tree_owner.treeowner_id
                                 INNER JOIN tree_name
-                                on herb_place.treename_id = tree_name.name_id
-                                WHERE name_th NOT IN ('ก9999')
-                                ORDER BY place_id ASC";
+                                on tree_place.treename_id = tree_name.treename_id
+                                WHERE treename_th NOT IN ('ก9999')
+                                ORDER BY treeplace_id ASC";
 
                     $result = pagination($query);
                     while ($row = pg_fetch_array($result)) {
@@ -72,26 +72,26 @@
                         <tr>
 
                             <!-- ชื่อ -->
-                            <td><center><?php echo $row['owner_name']; ?></center></td>
+                            <td><center><?php echo $row['treeowner_name']; ?></center></td>
 
                             <!-- ชื่อสมุนไพร -->
-                            <td><center><?php echo $row['name_th']; ?></center></td>
+                            <td><center><?php echo $row['treename_th']; ?></center></td>
 
                             <!-- รูปภาพ -->
-                            <td><center><img src="../images/<?php echo $row['place_herbimg']; ?>" style="width:100px;height:100px;"></center></td>
+                            <td><center><img src="../images/<?php echo $row['treeplace_herbimg']; ?>" style="width:100px;height:100px;"></center></td>
 
                             <!-- ดูข้อมูล -->
-                            <td><center><a href="show_place_data.php?place_id=<?php echo $row['place_id']; ?>" class="btn btn-info btn-md">
+                            <td><center><a href="show_place_data.php?treeplace_id=<?php echo $row['treeplace_id']; ?>" class="btn btn-info btn-md">
                                     <span class="glyphicon glyphicon-eye-open"></span>
                                 </a></center></td>
 
                             <!-- edit -->
-                            <td><center><a href="frm_place_edit.php?place_id=<?php echo $row['place_id']; ?>" class="btn btn-warning btn-md">
+                            <td><center><a href="frm_place_edit.php?treeplace_id=<?php echo $row['treeplace_id']; ?>" class="btn btn-warning btn-md">
                                     <span class="glyphicon glyphicon-pencil"></span>
                                 </a></center></td>
 
                             <!-- delete -->
-                            <td><center><a href="place_delete.php?place_id=<?php echo $row['place_id']; ?>" class="btn btn-danger btn-md">
+                            <td><center><a href="place_delete.php?treeplace_id=<?php echo $row['treeplace_id']; ?>" class="btn btn-danger btn-md">
                                     <span class="glyphicon glyphicon-remove"></span>
                                 </a></center></td>
 
@@ -140,20 +140,20 @@
 
                     <tr>
                         <!--<td><center><?php //echo $row2['place_id']; ?></center></td>-->
-                        <td><center><?php echo $row2['owner_name']; ?></center></td>
-                        <td><center><?php echo $row2['name_th']; ?></center></td>
-                        <td><center><img src="../images/<?php echo $row2['place_herbimg']; ?>" style="width:100px;height:100px;"></center></td>
+                        <td><center><?php echo $row2['treeowner_name']; ?></center></td>
+                        <td><center><?php echo $row2['treename_th']; ?></center></td>
+                        <td><center><img src="../images/<?php echo $row2['treeplace_herbimg']; ?>" style="width:100px;height:100px;"></center></td>
                         <!-- ดูข้อมูล -->
-                        <td><center><a href="show_place_data.php?place_id=<?php echo $row2['place_id']; ?>" class="btn btn-info btn-md">
+                        <td><center><a href="show_place_data.php?treeplace_id=<?php echo $row2['treeplace_id']; ?>" class="btn btn-info btn-md">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                             </a></center></td>
                         <!-- edit -->
-                        <td><center><a href="frm_place_edit.php?place_id=<?php echo $row2['place_id']; ?>" class="btn btn-warning btn-md">
+                        <td><center><a href="frm_place_edit.php?treeplace_id=<?php echo $row2['treeplace_id']; ?>" class="btn btn-warning btn-md">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </a></center></td>
 
                         <!-- delete -->
-                        <td><center><a href="place_delete.php?place_id=<?php echo $row2['place_id']; ?>" class="btn btn-danger btn-md">
+                        <td><center><a href="place_delete.php?treeplace_id=<?php echo $row2['treeplace_id']; ?>" class="btn btn-danger btn-md">
                                 <span class="glyphicon glyphicon-remove"></span>
                             </a></center></td>
                     </tr>

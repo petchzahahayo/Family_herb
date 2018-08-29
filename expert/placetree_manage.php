@@ -1,6 +1,6 @@
 <?php
     require 'header_expert.php';
-    require 'function.php';
+    require 'treefunction.php';
 
     //คำสั่ง sql เรียกเฉพาะข้อมูล = 9999
         $sql2 = "SELECT *  FROM herb_place 
@@ -101,15 +101,15 @@
             <nav>
                 <ul class="pagination">
                     <li class="active">
-                        <a href="place_manage.php?page=1" aria-label="Previous">
+                        <a href="placetree_manage.php?page=1" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
                     <?php for ($i = 1; $i <= $total_page; $i++) { ?>
-                        <li><a href="place_manage.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                        <li><a href="placetree_manage.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
                     <?php } ?>
                     <li class="active">
-                        <a href="place_manage.php?page=<?php echo $total_page; ?>" aria-label="Next">
+                        <a href="placetree_manage.php?page=<?php echo $total_page; ?>" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>

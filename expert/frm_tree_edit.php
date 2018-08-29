@@ -32,7 +32,7 @@
                 
                 <!-- herb_type -->
                 <div class="form-group">
-                    <label for="treetype_id" class="col-md-2 control-label">ประเภทต้นไม้ :</label>
+                    <label for="treetype_id" class="col-md-2 control-label">ประเภทสมุนไพร :</label>
                     <div class="col-md-10">
                         <select name="treetype_id" id="owner_id" class="form-control">
                             
@@ -53,7 +53,7 @@
                 
                 <!-- name_th -->
                 <div class="form-group">
-                    <label for="treename_id" class="col-md-2 control-label">ชื่อต้นไม้ :</label>
+                    <label for="treename_id" class="col-md-2 control-label">ชื่อสมุนไพร :</label>
                     <div class="col-md-10">
                         <select name="treename_id" class="form-control">     
                         
