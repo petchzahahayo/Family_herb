@@ -2,11 +2,11 @@
         require 'header_admin.php';
         
         //herb_owner
-        $sqlOwner = "SELECT * FROM herb_owner";
+        $sqlOwner = "SELECT * FROM tree_owner";
         $resOwner = pg_query($db, $sqlOwner);
         
         //herb_place
-        $sql_place = "SELECT MAX(place_id) FROM herb_place";
+        $sql_place = "SELECT MAX(treeplace_id) FROM tree_place";
         $res_place = pg_query($db, $sql_place);
         $row_place = pg_fetch_row($res_place);
         $row_place1 = $row_place[0];
@@ -39,13 +39,13 @@
             <form action="place_treeinsert.php" method="POST" enctype="multipart/form-data" class="form-horizontal">
                 
                 <!-- place_id -->
-                <input name="place_id" type="hidden" value="<?php echo $row_place2; ?>">
+                <input name="treeplace_id" type="hidden" value="<?php echo $row_place2; ?>">
 
                 <!-- owner_name -->
                 <div class="form-group">
-                    <label for="owner_id" class="col-md-2 control-label">ชื่อเจ้าของต้นไม้ :</label>
+                    <label for="treeowner_id" class="col-md-2 control-label">ชื่อเจ้าของต้นไม้ :</label>
                     <div class="col-md-10">
-                        <select name="owner_id" id="owner_id" class="form-control" required>
+                        <select name="treeowner_id" id="treeowner_id" class="form-control" required>
                             <option value="">--ชื่อเจ้าของต้นไม้--</option>
                                 
                                     <!-- ดึงข้อมูลจากฐานข้อมูล -->
@@ -95,9 +95,9 @@
                 
                 <!-- data_image -->
                 <div class="form-group">
-                    <label for="place_herbimg" class="col-md-2 control-label">รูปภาพ :</label>
+                    <label for="treeplace_herbimg" class="col-md-2 control-label">รูปภาพ :</label>
                     <div class="col-md-10">
-                        <input type="file" name="place_herbimg" accept="image/*" required>
+                        <input type="file" name="treeplace_herbimg" accept="image/*" required>
                     </div>
                 </div>
                 
@@ -110,18 +110,18 @@
 
                 <!-- latitude -->
                 <div class="form-group">
-                    <label for="place_lat" class="col-md-2 control-label">ละติจูด :</label>
+                    <label for="treeplace_lat" class="col-md-2 control-label">ละติจูด :</label>
                     <div class="col-md-10">
-                        <input name="place_lat" type="text" id="place_herb_lat" value="0" class="form-control" required>
+                        <input name="treeplace_lat" type="text" id="place_tree_lat" value="0" class="form-control" required>
                     </div>
                 </div>
                 
                 
                 <!-- longitude -->
                 <div class="form-group">
-                    <label for="place_lng" class="col-md-2 control-label">ลองติจูด :</label>
+                    <label for="treeplace_lng" class="col-md-2 control-label">ลองติจูด :</label>
                     <div class="col-md-10">
-                        <input name="place_lng" type="text" id="place_herb_lng" value="0" class="form-control" required>
+                        <input name="treeplace_lng" type="text" id="place_tree_lng" value="0" class="form-control" required>
                     </div>
                 </div>
                 
@@ -156,8 +156,8 @@
                                  
                                                 var my_Point = infowindow.getPosition();  // หาตำแหน่งของตัว marker เมื่อกดลากแล้วปล่อย
                                                 //map.panTo(my_Point);  // ให้แผนที่แสดงไปที่ตัว marker       
-                                                $("#place_herb_lat").val(my_Point.lat());  // เอาค่า latitude ตัว marker แสดงใน textbox id=lat_value
-                                                $("#place_herb_lng").val(my_Point.lng()); // เอาค่า longitude ตัว marker แสดงใน textbox id=lon_value        
+                                                $("#place_tree_lat").val(my_Point.lat());  // เอาค่า latitude ตัว marker แสดงใน textbox id=lat_value
+                                                $("#place_tree_lng").val(my_Point.lng()); // เอาค่า longitude ตัว marker แสดงใน textbox id=lon_value        
                                                 map.setCenter(pos);
                                         }, function () {
                                                 // คำสั่งทำงาน ถ้า ระบบระบุตำแหน่ง geolocation ผิดพลาด หรือไม่ทำงาน
@@ -190,7 +190,7 @@
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <button type="submit" class="btn btn-primary">บันทึก</button>
-                        <a href="place_manage.php" class="btn btn-danger">
+                        <a href="placetree_manage.php" class="btn btn-danger">
                             กลับหน้าหลัก
                         </a>
                     </div>
