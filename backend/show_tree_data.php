@@ -4,7 +4,7 @@
         //รับข้อมูล
         $treedata_id = $_GET['treedata_id'];
 
-        $sql = "select * from treeherb_data 
+        $sql = "select * from tree_data 
                 INNER JOIN tree_typename
                 ON tree_data.treetype_id = tree_treetypename.treetype_id
                 INNER JOIN tree_name

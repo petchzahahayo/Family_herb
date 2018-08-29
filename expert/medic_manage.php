@@ -23,26 +23,23 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <!--<a href="frm_herb_add.php" class="btn btn-primary" >
-                        <span class="glyphicon glyphicon-plus"> เพิ่มสมุนไพร</span>
-                    </a> -->                   
+                   <!-- <a href="frm_medic_add.php" class="btn btn-primary" >
+                        <span class="glyphicon glyphicon-plus"> เพิ่มยา</span>
+                    </a>  -->                  
                 </div>
                 
                 <div class="col-md-6">
-                    <a href="herb_name_manage.php" type="button" class="btn btn-success">
-                        <span class="glyphicon glyphicon-th-list"> รายชื่อสมุนไพร </span>
+                    <a href="herb_part_manage.php" type="button" class="btn btn-success">
+                        <span class="glyphicon glyphicon-th-list"> รายชื่อส่วนที่ใช้ </span>
                     </a>
-                    <a href="medic_manage.php" class="btn btn-success" >
-                        <span class="glyphicon glyphicon-th-list"> รายชื่อยา</span>
-                    </a>      
-                    <a href="herb_typename_manage.php" class="btn btn-success" >
-                        <span class="glyphicon glyphicon-th-list"> รายชื่อประเภทสมุนไพร</span>
-                    </a>                                  
+                    <a href="medic_type_manage.php" class="btn btn-success" >
+                        <span class="glyphicon glyphicon-th-list"> รายชื่อประเภทยา</span>
+                    </a>                    
                 </div>
                 
             </div>
             
-            <h2>ข้อมูลสมุนไพร</h2> 
+            <h2>ข้อมูลยา</h2> 
             <table class="table table-bordered">
                 <thead>
                     
@@ -61,11 +58,11 @@
                         $start = ($page - 1) * $perpage;
 
                         $sqlPage = "SELECT * FROM herb_name
-                                    INNER JOIN herb_data
-                                    ON herb_name.name_id = herb_data.name_id
-                                    INNER JOIN herb_typename
-                                    ON herb_data.type_id = herb_typename.type_id
-                                    ORDER BY data_id ASC limit {$perpage} offset {$start}
+                                    INNER JOIN medicine
+                                    ON herb_name.name_id = medicine.name_id
+                                    INNER JOIN medicine_type
+                                    ON medicine.type_id = medicine_type.type_id  
+                                    ORDER BY medicine_id ASC limit {$perpage} offset {$start}
                                    ";
                         $queryPage = pg_query($db, $sqlPage);
                     ?>
@@ -73,10 +70,12 @@
                     <tr class="info">
                         <!--<th><center>#</center></th>-->
                         <th><center>ประเภท</center></th>
-                        <th><center>ชื่อ</center></th>
+                        <th><center>ชื่อสมุนไพร</center></th>
+                        <th><center>ชื่อยา</center></th>
+                        <th><center>รูปภาพ</center></th>
                         <th><center>ดูข้อมูล</center></th>
                         <th><center>แก้ไข</center></th>
-                        <!--<th><center>ลบ</center></th>-->
+                        <!--<th><center>ลบ</center></th> -->
                     </tr>
                 </thead>
                 
@@ -85,35 +84,41 @@
                 <tbody>
                     <tr>
                         <!-- ลำดับ 
-                        <td><center><?php echo $row['data_id']; ?></center></td>-->
+                        <td><center><?php echo $row['medicine_id']; ?></center></td>-->
             
                         <!-- ประเภท -->
                         <td><center><?php echo $row['type_name']; ?></center></td>
             
                         <!-- ชื่อ -->
                         <td><center><?php echo $row['name_th']; ?></center></td>
+
+                        <!-- ชื่อยา -->
+                        <td><center><?php echo $row['medicine_name']; ?></center></td>
+
+                        <!-- img -->
+                        <td><center><img src="../images/<?php echo $row['medicine_img']; ?>" style="width:100px;height:100px;"></center></td>
             
                         <!-- ดูข้อมูล -->
-                        <td><center><a href="show_herb_data.php?data_id=<?php echo $row['data_id']; ?>" class="btn btn-info btn-md">
+                        <td><center><a href="show_medicine.php?medicine_id=<?php echo $row['medicine_id']; ?>" class="btn btn-info btn-md">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                         </a></center></td>
                         
                         <!-- edit -->
-                        <td><center><a href="frm_herb_edit.php?data_id=<?php echo $row['data_id']; ?>" class="btn btn-warning btn-md">
+                        <td><center><a href="frm_medic_edit.php?medicine_id=<?php echo $row['medicine_id']; ?>" class="btn btn-warning btn-md">
                                 <span class="glyphicon glyphicon-edit"></span>
                         </a></center></td>
                         
                         <!-- delete -->
-                        <!--<td><center><a href="herb_delete.php?data_id=<?php echo $row['data_id']; ?>" class="btn btn-danger btn-md">
+                       <!--<td><center><a href="medic_delete.php?medicine_id=<?php echo $row['medicine_id']; ?>" class="btn btn-danger btn-md">
                                 <span class="glyphicon glyphicon-remove"></span>
-                        </a></center></td>-->
+                        </a></center></td>   -->
                     </tr>
                 </tbody>
                 <?php } ?>
             </table>
             
                 <?php
-                    $sql2 = "select * from herb_data ";
+                    $sql2 = "select * from medicine ";
                     $query2 = pg_query($db, $sql2);
                     $total_record = pg_num_rows($query2);
                     $total_page = ceil($total_record / $perpage);
@@ -122,20 +127,23 @@
                 <nav>
                     <ul class="pagination">
                         <li class="active">
-                            <a href="herb_manage.php?page=1" aria-label="Previous">
+                            <a href="medic_manage.php?page=1" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
                         <?php for ($i = 1; $i <= $total_page; $i++) { ?>
-                            <li><a href="herb_manage.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                            <li><a href="medic_manage.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
                         <?php } ?>
-                        <li class="active">
-                            <a href="herb_manage.php?page=<?php echo $total_page; ?>" aria-label="Next">
+                            <li class="active">
+                            <a href="medic_manage.php?page=<?php echo $total_page; ?>" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
                     </ul>
                 </nav>
+                   
         </div>
     </body>
+
+    
 </html>

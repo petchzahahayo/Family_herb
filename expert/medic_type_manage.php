@@ -1,5 +1,5 @@
 <?php
-    require 'header_admin.php';      
+    require 'header_expert.php';      
 ?>
 
 <!DOCTYPE html>
@@ -23,9 +23,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <a href="frm_medic_type_add.php" class="btn btn-primary" >
+                    <!--<a href="frm_medic_type_add.php" class="btn btn-primary" >
                         <span class="glyphicon glyphicon-plus"> เพิ่มประเภทยา</span>
-                    </a>
+                    </a> -->
                 </div>
                 
                 <div class="col-md-6">
@@ -67,7 +67,7 @@
                         <!--<th><center>#</center></th>    -->                    
                         <th><center>ประเภท</center></th>   
                         <th><center>แก้ไข</center></th> 
-                        <th><center>ลบ</center></th>
+                       <!-- <th><center>ลบ</center></th> -->
                        
                     </tr>
                 </thead>
@@ -89,9 +89,9 @@
                         </a></center></td>
                         
                         <!-- delete -->
-                        <td><center><a type="button" onclick="comfirmDelete()" href="medic_type_delete.php?type_id=<?php echo $row['type_id']; ?>" class="btn btn-danger btn-md">
+                     <!--   <td><center><a type="button" onclick="comfirmDelete()" href="medic_type_delete.php?type_id=<?php echo $row['type_id']; ?>" class="btn btn-danger btn-md">
                                 <span class="glyphicon glyphicon-remove"></span>
-                        </a></center></td>
+                        </a></center></td>  -->
                     </tr>
                 </tbody>
                 <?php } ?>

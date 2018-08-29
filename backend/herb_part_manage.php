@@ -29,11 +29,11 @@
                 </div>
                 
                 <div class="col-md-6">
-                    <a href="herb_manage.php" type="button" class="btn btn-success">
-                        <span class="glyphicon glyphicon-th-list"> ข้อมูลสมุนไพร</span>
+                    <a href="medic_manage.php" type="button" class="btn btn-success">
+                        <span class="glyphicon glyphicon-th-list"> ข้อมูลยา</span>
                     </a>
-                    <a href="herb_name_manage.php" type="button" class="btn btn-success">
-                        <span class="glyphicon glyphicon-th-list"> รายชื่อสมุนไพร</span>
+                    <a href="medic_type_manage.php" type="button" class="btn btn-success">
+                        <span class="glyphicon glyphicon-th-list"> รายชื่อประเภทยา</span>
                     </a>
                 </div>
                 
