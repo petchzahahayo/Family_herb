@@ -1,7 +1,7 @@
 <?php
 
 require '../connect/connectdb.php';
-require 'function.php';
+require 'treefunction.php';
 
 //upload image      
 if (is_uploaded_file($_FILES['treeowner_image']['tmp_name'])) {

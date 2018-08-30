@@ -87,7 +87,7 @@
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <p class="bg-warning">*** ไม่พบชื่อต้นไม่ กรุณาคลิก <kbd>+ เพิ่มต้นไม้ไม่พบชื่อ</kbd> ***</p>
-                        <a href="frm_place_herbname.php" class="btn btn-success">
+                        <a href="frm_place_treename.php" class="btn btn-success">
                             <span class="glyphicon glyphicon-plus"> เพิ่มต้นไม้ไม่พบชื่อ</span>
                         </a>
                     </div>

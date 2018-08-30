@@ -1,7 +1,7 @@
 <?php
 require 'header_user.php';
 
-$owner_id = $_GET['treeowner_id'];
+$treeowner_id = $_GET['treeowner_id'];
 //คำสั่ง sql
 $sql = "SELECT * FROM tree_owner WHERE treeowner_id='$treeowner_id'";
 $result = pg_query($db, $sql);
@@ -53,7 +53,7 @@ $row = pg_fetch_array($result);
                 <div class="form-group">
                     <label for="treeowner_image" class="col-md-2 control-label">รูปภาพ :</label>
                     <div class="col-md-10">
-                        <img src="../images/owner/<?php echo $row['treeowner_image']; ?>" style="width:150px;height:150px;"><br><br>
+                        <img src="../images/treeowner/<?php echo $row['treeowner_image']; ?>" style="width:150px;height:150px;"><br><br>
                         <input type="file" name="treeowner_image" accept="image/*">
                     </div>
                 </div>
@@ -74,7 +74,7 @@ $row = pg_fetch_array($result);
                 <div class="form-group">
                     <label for="treeowner_education" class="col-md-2 control-label">การศีกษา :</label>
                     <div class="col-md-10">
-                        <label class="radio-inline"><input type="radio" name="treeowner_education" value="ต่ำกว่า ม.3" <?php if ($row['treeowner_education'] == 'ต่ำกว่า ม.3') echo "checked"; ?>>ต่ำกว่า ม.3</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_education" value="ต่ำกว่า ม.3" <?php if ($row['owner_education'] == 'ต่ำกว่า ม.3') echo "checked"; ?>>ต่ำกว่า ม.3</label>
                         <label class="radio-inline"><input type="radio" name="treeowner_education" value="ม.3" <?php if ($row['treeowner_education'] == 'ม.3') echo "checked"; ?>>ม.3</label>
                         <label class="radio-inline"><input type="radio" name="treeowner_education" value="ม.6" <?php if ($row['treeowner_education'] == 'ม.6') echo "checked"; ?>>ม.6</label>
                         <label class="radio-inline"><input type="radio" name="treeowner_education" value="ป.ตรี" <?php if ($row['treeowner_education'] == 'ป.ตรี') echo "checked"; ?>>ป.ตรี</label>
@@ -95,7 +95,7 @@ $row = pg_fetch_array($result);
                         <label class="radio-inline"><input type="radio" name="treeowner_career" value="ค้าขาย" <?php if ($row['treeowner_career'] == 'ค้าขาย') echo "checked"; ?>>ค้าขาย</label>
                         <label class="radio-inline">
                             <input type="radio" name="treeowner_career" value="อื่นๆ" <?php if ($row['treeowner_career'] == 'อื่นๆ') echo "checked"; ?>>อื่นๆ (โปรดระบุ) </label>
-                            
+                            <input type="text" name="treeowner_career2" value="<?php echo $row['treeowner_career2']; ?>"> 
                         </label>
                     </div>
                 </div>
@@ -119,7 +119,7 @@ $row = pg_fetch_array($result);
                         <label class="radio-inline"><input type="radio" name="treeowner_health" value="ไม่มี" <?php if ($row['treeowner_health'] == 'ไม่มี') echo "checked"; ?>>ไม่มี</label>
                         <label class="radio-inline">
                             <input type="radio" name="treeowner_health" value="มี" <?php if ($row['treeowner_health'] == 'มี') echo "checked"; ?>>มี (โปรดระบุ) </label>
-                            
+                            <input type="text" name="treeowner_health2" value="<?php echo $row['treeowner_health2']; ?>">
                         </label>
                     </div>
                 </div>

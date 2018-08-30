@@ -3,7 +3,7 @@
 
     if (isset($_GET['treeowner_id'])) {
         //รับข้อมูล
-        $owner_id = $_GET['treeowner_id'];
+        $treeowner_id = $_GET['treeowner_id'];
 
         $sql = "SELECT * FROM tree_owner WHERE treeowner_id='$treeowner_id'";
         $result = pg_query($db, $sql);
@@ -35,7 +35,7 @@
 
                     <tr>
                         <th class="info">รูปภาพ</th>
-                        <td><img src="../images/owner/<?php echo $row['treeowner_image']; ?>" style="width:100px;height:100px;"></td>
+                        <td><img src="../images/treeowner/<?php echo $row['treeowner_image']; ?>" style="width:100px;height:100px;"></td>
                     </tr>
 
                     <!-- owner_age -->
@@ -116,8 +116,8 @@
                             function selectLocation()
                             {
                                 for (var i = 0; i < array_json.length; i++) {
-                                    var owner_lat = array_json[i].owner_lat;
-                                    var owner_lng = array_json[i].owner_lng;
+                                    var treeowner_lat = array_json[i].treeowner_lat;
+                                    var treeowner_lng = array_json[i].treeowner_lng;
                                     var latlng = new google.maps.LatLng(treeowner_lat, treeowner_lng);
                                     //alert(owner_lat + owner_lng);
                                     var markeroption = {map: map, html: "", position: latlng};

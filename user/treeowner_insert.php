@@ -6,11 +6,26 @@ require 'treefunction.php';
 if($_POST) {
     //รับค่าตัวแปรจากฟอร์ม
     $treeowner_name = $_POST['treeowner_name'];
+    $treeowner_address = $_POST['treeowner_address'];
     $treeowner_age = $_POST['treeowner_age'];
     $treeowner_education = $_POST['treeowner_education'];
-    $treeowner_career = $_POST['treeowner_career'];
+    $treeowner_career2 = $_POST['treeowner_career2'];
+    $treeowner_health2 = $_POST['treeowner_health2'];
+
+    if (!empty($_POST['treeowner_career'])) {
+        $treeowner_career = $_POST['treeowner_career'];
+    } else {
+        $treeowner_career = $_POST['treeowner_career2'];
+    }
+
     $treeowner_revenue = $_POST['treeowner_revenue'];
-    $treeowner_health = $_POST['treeowner_health'];
+
+    if (!empty($_POST['treeowner_health'])) {
+        $treeowner_health = $_POST['treeowner_health'];
+    } else {
+        $treeowner_health = $_POST['treeowner_health2'];
+    }
+
     $treeowner_lat = $_POST['treeowner_lat'];
     $treeowner_lng = $_POST['treeowner_lng'];
 
@@ -21,7 +36,7 @@ if($_POST) {
     $owner_image = insertImage($imgName, $path, $imgTmp);*/
     $ext = pathinfo(($_FILES['treeowner_image']['name']), PATHINFO_EXTENSION); //นามสกุลของไฟล์
     $new_image_name = 'img_' . uniqid() . "." . $ext;
-    $image_path = '../images/owner/';
+    $image_path = '../images/treeowner/';
     $upload_path = $image_path . $new_image_name;
     
     //uploading
@@ -48,14 +63,14 @@ if($_POST) {
             exit();
         }
         
-        $owner_image = $new_image_name;
+        $treeowner_image = $new_image_name;
         //end upload image
 
     //คำสั่ง sql
-    $sql = "INSERT INTO tree_owner (treeowner_name,treeowner_address,treeowner_age, treeowner_education, 
-                    treeowner_career, treeowner_revenue, treeowner_health, treeowner_image, treeowner_lat, treeowner_lng)
+    $sql = "INSERT INTO tree_owner (treeowner_name, treeowner_address, treeowner_age, treeowner_education, 
+                    treeowner_career, treeowner_revenue, treeowner_health, treeowner_image, treeowner_lat, treeowner_lng,treeowner_career2,treeowner_health2)
                     VALUES ('$treeowner_name', '$treeowner_address', '$treeowner_age', '$treeowner_education', '$treeowner_career', 
-                    '$treeowner_revenue', '$treeowner_health', '$treeowner_image', '$treeowner_lat', '$treeowner_lng') ";
+                    '$treeowner_revenue', '$treeowner_health', '$treeowner_image', '$treeowner_lat', '$treeowner_lng','$treeowner_career2','$treeowner_health2') ";
     $result = pg_query($db, $sql);
 
     //check 
