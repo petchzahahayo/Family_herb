@@ -11,6 +11,7 @@
     $data_detail = $_POST['data_detail'];
     $data_medicine = $_POST['data_medicine'];
     $data_properties = $_POST['data_properties'];
+    $po_id =  $_POST['po_id'];
 
     //คำสั่ง sql เพื่อ update ข้อมูล
     $sql = "UPDATE herb_data 
@@ -20,7 +21,8 @@
                 data_name_sci='$data_name_sci',
                 data_detail='$data_detail', 
                 data_medicine='$data_medicine', 
-                data_properties='$data_properties'
+                data_properties='$data_properties',
+                po_id ='$po_id'
                 WHERE data_id='$data_id' ";
     $result = pg_query($sql);
 
