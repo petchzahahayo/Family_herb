@@ -9,7 +9,7 @@ if($_POST) {
     $treeowner_age = $_POST['treeowner_age'];
     $treeowner_education = $_POST['treeowner_education'];
     $treeowner_career = $_POST['treeowner_career'];
-    $owner_revenue = $_POST['owner_revenue'];
+    $treeowner_revenue = $_POST['treeowner_revenue'];
     $treeowner_health = $_POST['treeowner_health'];
     $treeowner_lat = $_POST['treeowner_lat'];
     $treeowner_lng = $_POST['treeowner_lng'];
@@ -52,7 +52,7 @@ if($_POST) {
         //end upload image
 
     //คำสั่ง sql
-    $sql = "INSERT INTO tree_owner (treeowner_name,treeowner_age, treeowner_education, 
+    $sql = "INSERT INTO tree_owner (treeowner_name,treeowner_address,treeowner_age, treeowner_education, 
                     treeowner_career, treeowner_revenue, treeowner_health, treeowner_image, treeowner_lat, treeowner_lng)
                     VALUES ('$treeowner_name', '$treeowner_address', '$treeowner_age', '$treeowner_education', '$treeowner_career', 
                     '$treeowner_revenue', '$treeowner_health', '$treeowner_image', '$treeowner_lat', '$treeowner_lng') ";

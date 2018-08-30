@@ -25,108 +25,108 @@
                 
                 <!-- owner_name -->
                 <div class="form-group">
-                    <label for="owner_name" class="col-md-2 control-label">ชื่อ :</label>
+                    <label for="treeowner_name" class="col-md-2 control-label">ชื่อ :</label>
                     <div class="col-md-10">
-                        <input name="owner_name" type="text" class="form-control" required>
+                        <input name="treeowner_name" type="text" class="form-control" required>
                     </div>
                 </div>
                 
                 <!-- owner_address -->
                 <div class="form-group">
-                    <label for="owner_address" class="col-md-2 control-label">ที่อยู่ :</label>
+                    <label for="treeowner_address" class="col-md-2 control-label">ที่อยู่ :</label>
                     <div class="col-md-10">
-                        <textarea name="owner_address" class="form-control" rows="5" required></textarea>
+                        <textarea name="treeowner_address" class="form-control" rows="5" required></textarea>
                     </div>
                 </div>
                 
                 <!-- owner_image -->
                 <div class="form-group">
-                    <label for="owner_image" class="col-md-2 control-label">รูปภาพ :</label>
+                    <label for="treeowner_image" class="col-md-2 control-label">รูปภาพ :</label>
                     <div class="col-md-10">
-                        <input type="file" name="owner_image" accept="image/*" required>
+                        <input type="file" name="treeowner_image" accept="image/*" required>
                     </div>
                 </div>
                 
                 <!-- owner_age -->
                 <div class="form-group">
-                    <label for="owner_age" class="col-md-2 control-label">อายุ :</label>
+                    <label for="treeowner_age" class="col-md-2 control-label">อายุ :</label>
                     <div class="col-md-10">
-                        <label class="radio-inline"><input type="radio" name="owner_age" value="ต่ำกว่า 20 ปี">ต่ำกว่า 20 ปี</label>
-                        <label class="radio-inline"><input type="radio" name="owner_age" value="21 - 30 ปี">21 - 30 ปี</label>
-                        <label class="radio-inline"><input type="radio" name="owner_age" value="31 - 40 ปี">31 - 40 ปี</label>
-                        <label class="radio-inline"><input type="radio" name="owner_age" value="41 - 50 ปี">41 - 50 ปี</label>
-                        <label class="radio-inline"><input type="radio" name="owner_age" value="50 ปีขึ้นไป">50 ปีขึ้นไป</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_age" value="ต่ำกว่า 20 ปี">ต่ำกว่า 20 ปี</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_age" value="21 - 30 ปี">21 - 30 ปี</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_age" value="31 - 40 ปี">31 - 40 ปี</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_age" value="41 - 50 ปี">41 - 50 ปี</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_age" value="50 ปีขึ้นไป">50 ปีขึ้นไป</label>
                     </div>
                 </div>
                 
                 <!-- owner_education -->
                 <div class="form-group">
-                    <label for="owner_education" class="col-md-2 control-label">การศีกษา :</label>
+                    <label for="treeowner_education" class="col-md-2 control-label">การศีกษา :</label>
                     <div class="col-md-10">
-                        <label class="radio-inline"><input type="radio" name="owner_education" value="ต่ำกว่า ม.3">ต่ำกว่า ม.3</label>
-                        <label class="radio-inline"><input type="radio" name="owner_education" value="ม.3">ม.3</label>
-                        <label class="radio-inline"><input type="radio" name="owner_education" value="ม.6">ม.6</label>
-                        <label class="radio-inline"><input type="radio" name="owner_education" value="ป.ตรี">ป.ตรี</label>
-                        <label class="radio-inline"><input type="radio" name="owner_education" value="ป.โท">ป.โท</label>
-                        <label class="radio-inline"><input type="radio" name="owner_education" value="ป.เอก">ป.เอก</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_education" value="ต่ำกว่า ม.3">ต่ำกว่า ม.3</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_education" value="ม.3">ม.3</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_education" value="ม.6">ม.6</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_education" value="ป.ตรี">ป.ตรี</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_education" value="ป.โท">ป.โท</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_education" value="ป.เอก">ป.เอก</label>
                     </div>
                 </div>
                 
                 <!-- owner_career -->
                 <div class="form-group">
-                    <label for="owner_career" class="col-md-2 control-label">อาชีพ :</label>
+                    <label for="treeowner_career" class="col-md-2 control-label">อาชีพ :</label>
                     <div class="col-md-10">
-                        <label class="radio-inline"><input type="radio" name="owner_career" value="รับราชการ">รับราชการ</label>
-                        <label class="radio-inline"><input type="radio" name="owner_career" value="พนักงานรัฐวิสาหกิจ">พนักงานรัฐวิสาหกิจ</label>
-                        <label class="radio-inline"><input type="radio" name="owner_career" value="พนังานเอกชน">พนังานเอกชน</label>
-                        <label class="radio-inline"><input type="radio" name="owner_career" value="รับจ้างทั่วไป">รับจ้างทั่วไป</label>
-                        <label class="radio-inline"><input type="radio" name="owner_career" value="นักเรียน นักศึกษา">นักเรียน นักศึกษา</label>
-                        <label class="radio-inline"><input type="radio" name="owner_career" value="ค้าขาย">ค้าขาย</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_career" value="รับราชการ">รับราชการ</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_career" value="พนักงานรัฐวิสาหกิจ">พนักงานรัฐวิสาหกิจ</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_career" value="พนังานเอกชน">พนังานเอกชน</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_career" value="รับจ้างทั่วไป">รับจ้างทั่วไป</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_career" value="นักเรียน นักศึกษา">นักเรียน นักศึกษา</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_career" value="ค้าขาย">ค้าขาย</label>
                         <label class="radio-inline">
-                            <input type="radio" name="owner_career" value="อื่นๆ">อื่นๆ (โปรดระบุ) </label>
-                            <input type="text" name="owner_career2" class="form-inline"> 
+                            <input type="radio" name="treeowner_career" value="อื่นๆ">อื่นๆ (โปรดระบุ) </label>
+                            <input type="text" name="treeowner_career2" class="form-inline"> 
                         </label>
                     </div>
                 </div>
                 
                 <!-- owner_revenue-->
                 <div class="form-group">
-                    <label for="owner_revenue" class="col-md-2 control-label">รายได้ :</label>
+                    <label for="treeowner_revenue" class="col-md-2 control-label">รายได้ :</label>
                     <div class="col-md-10">
-                        <label class="radio-inline"><input type="radio" name="owner_revenue" value="ต่ำกว่า 5,000 บาท">ต่ำกว่า 5,000 บาท</label>
-                        <label class="radio-inline"><input type="radio" name="owner_revenue" value="5,001 - 10,000 บาท">5,001 - 10,000 บาท</label>
-                        <label class="radio-inline"><input type="radio" name="owner_revenue" value="10,001 - 15,000 บาท">10,001 - 15,000 บาท</label>
-                        <label class="radio-inline"><input type="radio" name="owner_revenue" value="15,001 - 20,000 บาท">15,001 - 20,000 บาท</label>
-                        <label class="radio-inline"><input type="radio" name="owner_revenue" value="20,001 บาท ขึ้นไป">20,001 บาท ขึ้นไป</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_revenue" value="ต่ำกว่า 5,000 บาท">ต่ำกว่า 5,000 บาท</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_revenue" value="5,001 - 10,000 บาท">5,001 - 10,000 บาท</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_revenue" value="10,001 - 15,000 บาท">10,001 - 15,000 บาท</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_revenue" value="15,001 - 20,000 บาท">15,001 - 20,000 บาท</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_revenue" value="20,001 บาท ขึ้นไป">20,001 บาท ขึ้นไป</label>
                     </div>
                 </div>
                 
                 <!-- owner_health-->
                 <div class="form-group">
-                    <label for="owner_health" class="col-md-2 control-label">โรคประจำตัว :</label>
+                    <label for="treeowner_health" class="col-md-2 control-label">โรคประจำตัว :</label>
                     <div class="col-md-10">
-                        <label class="radio-inline"><input type="radio" name="owner_health" value="ไม่มี">ไม่มี</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_health" value="ไม่มี">ไม่มี</label>
                         <label class="radio-inline">
-                            <input type="radio" name="owner_health" value="มี">มี (โปรดระบุ) </label>
-                            <input type="text" name="owner_health2" class="form-inline">
+                            <input type="radio" name="treeowner_health" value="มี">มี (โปรดระบุ) </label>
+                            <input type="text" name="treeowner_health2" class="form-inline">
                         </label>
                     </div>
                 </div>
                 
                 <!-- latitude -->
                 <div class="form-group">
-                    <label for="owner_lat" class="col-md-2 control-label">ละติจูด :</label>
+                    <label for="treeowner_lat" class="col-md-2 control-label">ละติจูด :</label>
                     <div class="col-md-10">
-                        <input name="owner_lat" type="text" id="owner_lat" value="0" class="form-control" readonly>
+                        <input name="treeowner_lat" type="text" id="treeowner_lat" value="0" class="form-control" readonly>
                     </div>
                 </div>
                 
                 
                 <!-- longitude -->
                 <div class="form-group">
-                    <label for="owner_lng" class="col-md-2 control-label">ลองติจูด :</label>
+                    <label for="treeowner_lng" class="col-md-2 control-label">ลองติจูด :</label>
                     <div class="col-md-10">
-                        <input name="owner_lng" type="text" id="owner_lng" value="0" class="form-control" readonly>
+                        <input name="treeowner_lng" type="text" id="treeowner_lng" value="0" class="form-control" readonly>
                     </div>
                 </div>
                 
@@ -169,8 +169,8 @@
                                  
                                                 var my_Point = infowindow.getPosition();  // หาตำแหน่งของตัว marker เมื่อกดลากแล้วปล่อย
                                                 //map.panTo(my_Point);  // ให้แผนที่แสดงไปที่ตัว marker       
-                                                $("#owner_lat").val(my_Point.lat());  // เอาค่า latitude ตัว marker แสดงใน textbox id=lat_value
-                                                $("#owner_lng").val(my_Point.lng()); // เอาค่า longitude ตัว marker แสดงใน textbox id=lon_value        
+                                                $("#treeowner_lat").val(my_Point.lat());  // เอาค่า latitude ตัว marker แสดงใน textbox id=lat_value
+                                                $("#treeowner_lng").val(my_Point.lng()); // เอาค่า longitude ตัว marker แสดงใน textbox id=lon_value        
                                                 map.setCenter(pos);
                                         }, function () {
                                                 // คำสั่งทำงาน ถ้า ระบบระบุตำแหน่ง geolocation ผิดพลาด หรือไม่ทำงาน

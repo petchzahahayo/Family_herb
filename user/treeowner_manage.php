@@ -50,12 +50,12 @@
                                 <td><center><?php echo $row['treeowner_name']; ?></center></td>
 
                                 <!-- ดูข้อมูล -->
-                                <td><center><a href="show_owner_data.php?owner_id=<?php echo $row['treeowner_id']; ?>" class="btn btn-info btn-md">
+                                <td><center><a href="show_treeowner_data.php?owner_id=<?php echo $row['treeowner_id']; ?>" class="btn btn-info btn-md">
                                         <span class="glyphicon glyphicon-eye-open"></span>
                                     </a></center></td>
                                 
                                 <!-- edit -->
-                                <td><center><a href="frm_owner_edit.php?owner_id=<?php echo $row['treeowner_id']; ?>" class="btn btn-warning btn-md">
+                                <td><center><a href="frm_treeowner_edit.php?owner_id=<?php echo $row['treeowner_id']; ?>" class="btn btn-warning btn-md">
                                         <span class="glyphicon glyphicon-pencil"></span>
                                     </a></center></td>
 
