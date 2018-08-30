@@ -1,5 +1,5 @@
 <?php 
-        require 'header_admin.php';
+        require 'header_user.php';
         
         //herb_owner
         $sqltreeOwner = "SELECT * FROM tree_owner";
@@ -190,7 +190,7 @@
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <button type="submit" class="btn btn-primary">บันทึก</button>
-                        <a href="place_manage.php" class="btn btn-danger">
+                        <a href="placetree_manage.php" class="btn btn-danger">
                             กลับหน้าหลัก
                         </a>
                     </div>

@@ -1,5 +1,7 @@
 <?php
+
     require '../connect/connectdb.php';
+    
     //รับค่าตัวแปรจากฟอร์ม
     $treedata_id = $_POST['treedata_id'];
     $treetype_id = $_POST['treetype_id'];

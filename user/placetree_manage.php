@@ -1,5 +1,5 @@
 <?php
-    require 'header_expert.php';
+    require 'header_user.php';
     require 'treefunction.php';
 
     //คำสั่ง sql เรียกเฉพาะข้อมูล = 9999
@@ -32,7 +32,9 @@
     <body>
 
         <div class="container">
-            
+            <a href="frm_placetree_add.php" class="btn btn-primary" >
+                <span class="glyphicon glyphicon-plus"> เพิ่มต้นไม้</span>
+            </a>
 
             <h2>ข้อมูลต้นไม้</h2> 
 
@@ -42,12 +44,12 @@
                 <thead>
                     <tr class="info">
                         <!--<th><center>#</center></th>-->
-                        <!--<th><center>ชื่อ</center></th>-->
+                        <th><center>ชื่อ</center></th>
                         <th><center>ชื่อต้นไม้</center></th>
                         <th><center>รูปภาพ</center></th>
                         <th><center>ดูข้อมูล</center></th>
                         <th><center>แก้ไข</center></th>
-                        <!--<th><center>ลบ</center></th>-->
+                        <th><center>ลบ</center></th>
                     </tr>
                 </thead>
 
@@ -69,8 +71,8 @@
                     <tbody>
                         <tr>
 
-                            <!-- ชื่อ 
-                            <td><center><?php echo $row['treeowner_name']; ?></center></td>-->
+                            <!-- ชื่อ -->
+                            <td><center><?php echo $row['treeowner_name']; ?></center></td>
 
                             <!-- ชื่อสมุนไพร -->
                             <td><center><?php echo $row['treename_th']; ?></center></td>
@@ -88,10 +90,10 @@
                                     <span class="glyphicon glyphicon-pencil"></span>
                                 </a></center></td>
 
-                            <!-- delete 
+                            <!-- delete -->
                             <td><center><a href="place_delete.php?treeplace_id=<?php echo $row['treeplace_id']; ?>" class="btn btn-danger btn-md">
                                     <span class="glyphicon glyphicon-remove"></span>
-                                </a></center></td>-->
+                                </a></center></td>
 
                     </tr>
                     </tbody>
@@ -126,12 +128,12 @@
             <table class="table table-bordered">
                 <tr class="danger">
                     <!--<th><center>#</center></th>-->
-                    <!--<th><center>ชื่อ</center></th>-->
+                    <th><center>ชื่อ</center></th>
                     <th><center>ชื่อต้นไม้</center></th>
                     <th><center>รูปภาพ</center></th>
                     <th><center>ดูข้อมูล</center></th>
                     <th><center>แก้ไข</center></th>
-                    <!--<th><center>ลบ</center></th>-->
+                    <th><center>ลบ</center></th>
                 </tr>
 
                 <?php while ($row2 = pg_fetch_array($result2)) { ?>

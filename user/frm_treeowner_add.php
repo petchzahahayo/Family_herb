@@ -1,17 +1,5 @@
 <?php 
-        require 'header_admin.php';
-        
-        //herb_owner
-        $sqltreeOwner = "SELECT * FROM tree_owner";
-        $restreeOwner = pg_query($db, $sqltreeOwner);
-        
-        //herb_place
-        $sql_treeplace = "SELECT MAX(treeplace_id) FROM tree_place";
-        $res_treeplace = pg_query($db, $sql_treeplace);
-        $row_treeplace = pg_fetch_row($res_treeplace);
-        $row_treeplace1 = $row_treeplace[0];
-        $row_treeplace2 = $row_treeplace1 + 1;
-        
+        require 'header_user.php';
 ?>
 
 <!DOCTYPE html>
@@ -19,8 +7,6 @@
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="treescript.js" type="text/javascript"></script>
         <style type="text/css">
             /* css กำหนดความกว้าง ความสูงของแผนที่ */
             #map_canvas { 
@@ -31,73 +17,116 @@
             }
         </style>
     </head>
-    
     <body>
         <div class="container">
-            <h2>กรอกข้อมูลต้นไม้</h2>
+            <h2>กรอกข้อมูลเจ้าของสถานที่</h2>
             <br>
-            <form action="place_treeinsert.php" method="POST" enctype="multipart/form-data" class="form-horizontal">
+            <form action="treeowner_insert.php" method="POST" enctype="multipart/form-data" class="form-horizontal">
                 
-                <!-- place_id -->
-                <input name="place_id" type="hidden" value="<?php echo $row_place2; ?>">
-
                 <!-- owner_name -->
                 <div class="form-group">
-                    <label for="treeowner_id" class="col-md-2 control-label">ชื่อเจ้าของต้นไม้ :</label>
+                    <label for="owner_name" class="col-md-2 control-label">ชื่อ :</label>
                     <div class="col-md-10">
-                        <select name="treeowner_id" id="treeowner_id" class="form-control" required>
-                            <option value="">--ชื่อเจ้าของต้นไม้--</option>
-                                
-                                    <!-- ดึงข้อมูลจากฐานข้อมูล -->
-                                    <?php
-                                        while($rowOwner = pg_fetch_row($resOwner))
-                                        {
-                                            echo "<option value='$rowOwner[0]'>$rowOwner[1]</option>"; 
-                                        }
-                                    ?>
-                                
-                        </select>
+                        <input name="owner_name" type="text" class="form-control" required>
                     </div>
                 </div>
                 
-                <!-- alphabet -->
+                <!-- owner_address -->
                 <div class="form-group">
-                    <label for="treealphabet" class="col-md-2 control-label">ชื่อต้นไม้ :</label>
+                    <label for="owner_address" class="col-md-2 control-label">ที่อยู่ :</label>
                     <div class="col-md-10">
-                            <select name="treealphabet" id="treealphabet" class="form-control" required>
-                                <option value="">--เลือกตัวอักษร--</option>
-                                
-                                    <!-- ดึงข้อมูลจากฐานข้อมูล -->
-                                    <?php
-                                        $sql_treealphabet = "SELECT * FROM tree_alphabet";
-                                        $res_treealphabet = pg_query($db, $sql_treealphabet);
-                                    
-                                        while($row_treealphabet = pg_fetch_array($res_treealphabet))
-                                        {
-                                            $treealphabet_id = $row_treealphabet['treealphabet_id'];
-                                            $treealphabet_th = $row_treealphabet['treealphabet_th'];
-                                            echo "<option value='$treealphabet_id'>$treealphabet_th</option>";
-                                        }
-                                    ?>
-                                
-                            </select>
+                        <textarea name="owner_address" class="form-control" rows="5" required></textarea>
                     </div>
                 </div>
                 
+                <!-- owner_image -->
                 <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <p class="bg-warning">*** ไม่พบชื่อต้นไม่ กรุณาคลิก <kbd>+ เพิ่มต้นไม้ไม่พบชื่อ</kbd> ***</p>
-                        <a href="frm_place_herbname.php" class="btn btn-success">
-                            <span class="glyphicon glyphicon-plus"> เพิ่มต้นไม้ไม่พบชื่อ</span>
-                        </a>
+                    <label for="owner_image" class="col-md-2 control-label">รูปภาพ :</label>
+                    <div class="col-md-10">
+                        <input type="file" name="owner_image" accept="image/*" required>
                     </div>
                 </div>
                 
-                <!-- data_image -->
+                <!-- owner_age -->
                 <div class="form-group">
-                    <label for="place_herbimg" class="col-md-2 control-label">รูปภาพ :</label>
+                    <label for="owner_age" class="col-md-2 control-label">อายุ :</label>
                     <div class="col-md-10">
-                        <input type="file" name="place_herbimg" accept="image/*" required>
+                        <label class="radio-inline"><input type="radio" name="owner_age" value="ต่ำกว่า 20 ปี">ต่ำกว่า 20 ปี</label>
+                        <label class="radio-inline"><input type="radio" name="owner_age" value="21 - 30 ปี">21 - 30 ปี</label>
+                        <label class="radio-inline"><input type="radio" name="owner_age" value="31 - 40 ปี">31 - 40 ปี</label>
+                        <label class="radio-inline"><input type="radio" name="owner_age" value="41 - 50 ปี">41 - 50 ปี</label>
+                        <label class="radio-inline"><input type="radio" name="owner_age" value="50 ปีขึ้นไป">50 ปีขึ้นไป</label>
+                    </div>
+                </div>
+                
+                <!-- owner_education -->
+                <div class="form-group">
+                    <label for="owner_education" class="col-md-2 control-label">การศีกษา :</label>
+                    <div class="col-md-10">
+                        <label class="radio-inline"><input type="radio" name="owner_education" value="ต่ำกว่า ม.3">ต่ำกว่า ม.3</label>
+                        <label class="radio-inline"><input type="radio" name="owner_education" value="ม.3">ม.3</label>
+                        <label class="radio-inline"><input type="radio" name="owner_education" value="ม.6">ม.6</label>
+                        <label class="radio-inline"><input type="radio" name="owner_education" value="ป.ตรี">ป.ตรี</label>
+                        <label class="radio-inline"><input type="radio" name="owner_education" value="ป.โท">ป.โท</label>
+                        <label class="radio-inline"><input type="radio" name="owner_education" value="ป.เอก">ป.เอก</label>
+                    </div>
+                </div>
+                
+                <!-- owner_career -->
+                <div class="form-group">
+                    <label for="owner_career" class="col-md-2 control-label">อาชีพ :</label>
+                    <div class="col-md-10">
+                        <label class="radio-inline"><input type="radio" name="owner_career" value="รับราชการ">รับราชการ</label>
+                        <label class="radio-inline"><input type="radio" name="owner_career" value="พนักงานรัฐวิสาหกิจ">พนักงานรัฐวิสาหกิจ</label>
+                        <label class="radio-inline"><input type="radio" name="owner_career" value="พนังานเอกชน">พนังานเอกชน</label>
+                        <label class="radio-inline"><input type="radio" name="owner_career" value="รับจ้างทั่วไป">รับจ้างทั่วไป</label>
+                        <label class="radio-inline"><input type="radio" name="owner_career" value="นักเรียน นักศึกษา">นักเรียน นักศึกษา</label>
+                        <label class="radio-inline"><input type="radio" name="owner_career" value="ค้าขาย">ค้าขาย</label>
+                        <label class="radio-inline">
+                            <input type="radio" name="owner_career" value="อื่นๆ">อื่นๆ (โปรดระบุ) </label>
+                            <input type="text" name="owner_career2" class="form-inline"> 
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- owner_revenue-->
+                <div class="form-group">
+                    <label for="owner_revenue" class="col-md-2 control-label">รายได้ :</label>
+                    <div class="col-md-10">
+                        <label class="radio-inline"><input type="radio" name="owner_revenue" value="ต่ำกว่า 5,000 บาท">ต่ำกว่า 5,000 บาท</label>
+                        <label class="radio-inline"><input type="radio" name="owner_revenue" value="5,001 - 10,000 บาท">5,001 - 10,000 บาท</label>
+                        <label class="radio-inline"><input type="radio" name="owner_revenue" value="10,001 - 15,000 บาท">10,001 - 15,000 บาท</label>
+                        <label class="radio-inline"><input type="radio" name="owner_revenue" value="15,001 - 20,000 บาท">15,001 - 20,000 บาท</label>
+                        <label class="radio-inline"><input type="radio" name="owner_revenue" value="20,001 บาท ขึ้นไป">20,001 บาท ขึ้นไป</label>
+                    </div>
+                </div>
+                
+                <!-- owner_health-->
+                <div class="form-group">
+                    <label for="owner_health" class="col-md-2 control-label">โรคประจำตัว :</label>
+                    <div class="col-md-10">
+                        <label class="radio-inline"><input type="radio" name="owner_health" value="ไม่มี">ไม่มี</label>
+                        <label class="radio-inline">
+                            <input type="radio" name="owner_health" value="มี">มี (โปรดระบุ) </label>
+                            <input type="text" name="owner_health2" class="form-inline">
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- latitude -->
+                <div class="form-group">
+                    <label for="owner_lat" class="col-md-2 control-label">ละติจูด :</label>
+                    <div class="col-md-10">
+                        <input name="owner_lat" type="text" id="owner_lat" value="0" class="form-control" readonly>
+                    </div>
+                </div>
+                
+                
+                <!-- longitude -->
+                <div class="form-group">
+                    <label for="owner_lng" class="col-md-2 control-label">ลองติจูด :</label>
+                    <div class="col-md-10">
+                        <input name="owner_lng" type="text" id="owner_lng" value="0" class="form-control" readonly>
                     </div>
                 </div>
                 
@@ -107,25 +136,9 @@
                         <div id="map_canvas"></div>
                     </div>
                 </div>
-
-                <!-- latitude -->
-                <div class="form-group">
-                    <label for="place_lat" class="col-md-2 control-label">ละติจูด :</label>
-                    <div class="col-md-10">
-                        <input name="place_lat" type="text" id="place_herb_lat" value="0" class="form-control" required>
-                    </div>
-                </div>
-                
-                
-                <!-- longitude -->
-                <div class="form-group">
-                    <label for="place_lng" class="col-md-2 control-label">ลองติจูด :</label>
-                    <div class="col-md-10">
-                        <input name="place_lng" type="text" id="place_herb_lng" value="0" class="form-control" required>
-                    </div>
-                </div>
                 
                 <!-- googleMap -->
+                <script src="../bootstrap/js/jquery.min.js"></script> 
                 <script>
                     var map; // กำหนดตัวแปร map ไว้ด้านนอกฟังก์ชัน เพื่อให้สามารถเรียกใช้งาน จากส่วนอื่นได้
                     var GGM; // กำหนดตัวแปร GGM ไว้เก็บ google.maps Object จะได้เรียกใช้งานได้ง่ายขึ้น
@@ -156,8 +169,8 @@
                                  
                                                 var my_Point = infowindow.getPosition();  // หาตำแหน่งของตัว marker เมื่อกดลากแล้วปล่อย
                                                 //map.panTo(my_Point);  // ให้แผนที่แสดงไปที่ตัว marker       
-                                                $("#place_herb_lat").val(my_Point.lat());  // เอาค่า latitude ตัว marker แสดงใน textbox id=lat_value
-                                                $("#place_herb_lng").val(my_Point.lng()); // เอาค่า longitude ตัว marker แสดงใน textbox id=lon_value        
+                                                $("#owner_lat").val(my_Point.lat());  // เอาค่า latitude ตัว marker แสดงใน textbox id=lat_value
+                                                $("#owner_lng").val(my_Point.lng()); // เอาค่า longitude ตัว marker แสดงใน textbox id=lon_value        
                                                 map.setCenter(pos);
                                         }, function () {
                                                 // คำสั่งทำงาน ถ้า ระบบระบุตำแหน่ง geolocation ผิดพลาด หรือไม่ทำงาน
@@ -185,14 +198,12 @@
                             }).appendTo("body");    
                     });
                 </script>
-        
+                
                 <!-- button -->
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <button type="submit" class="btn btn-primary">บันทึก</button>
-                        <a href="place_manage.php" class="btn btn-danger">
-                            กลับหน้าหลัก
-                        </a>
+                        <a href="treeowner_manage.php" class="btn btn-danger">กลับหน้าหลัก</a>
                     </div>
                 </div>
                 <br><br>
