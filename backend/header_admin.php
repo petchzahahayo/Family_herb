@@ -23,7 +23,7 @@ $result = pg_fetch_array($query);
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>ระบบเก็บข้อมูล</title>
+        <title>ระบบเก็บข้อมูลสมุนไพร</title>
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
@@ -34,7 +34,7 @@ $result = pg_fetch_array($query);
 <body>
     <div class="navbar navbar-inverse navbar-static-top">
         <div class="container">
-            <a href="" class="navbar-brand">ระบบเก็บข้อมูล(Admin)</a>
+            <a href="" class="navbar-brand">ระบบเก็บข้อมูลสมุนไพร(Admin)</a>
             <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeader">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -43,7 +43,8 @@ $result = pg_fetch_array($query);
             <div class="collapse navbar-collapse navHeader">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="user_manage.php">
-                            <span class="glyphicon glyphicon-user"></span> สมาชิก</a></li>
+                            <span class="glyphicon glyphicon-user"></span> สมาชิก</a>
+                    </li>
             
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
                        <span class="glyphicon glyphicon-th-list"></span> สมุนไพร</a>
@@ -51,31 +52,12 @@ $result = pg_fetch_array($query);
                          <li><a href="herb_manage.php">
                             <span class="glyphicon glyphicon-th-list"></span> ข้อมูลสมุนไพร</a></li>
                          <li><a href="place_manage.php">
-                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลสถานที่สมุนไพร</a></li>  
-                        <li><a href="medic_manage.php">
-                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลยาของสมุนไพร</a></li>
-                            <li><a href="owner_manage.php">
-                         <span class="glyphicon glyphicon-th-list"></span> ข้อมูลเจ้าของสถานที่</a></li>
-                        <li><a href="season_manage.php">
-                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลการเก็บเกี่ยว</a></li>      
+                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลสถานที่สมุนไพร</a></li>   
                          <li><a href="place_map.php">
                             <span class="glyphicon glyphicon-map-marker"></span> แผนที่สมุนไพร</a></li>                     
                         </ul>
                     </li>  
 
-                      <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                       <span class="glyphicon glyphicon-th-list"></span> ต้นไม้</a>
-                        <ul class="dropdown-menu">
-                         <li><a href="tree_manage.php">
-                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลต้นไม้</a></li>
-                         <li><a href="treeowner_manage.php">
-                         <span class="glyphicon glyphicon-th-list"></span> ข้อมูลเจ้าของสถานที่</a></li>
-                    <li><a href="placetree_manage.php">
-                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลสถานที่ต้นไม้</a></li>     
-                        <li><a href="placetree_map.php">
-                            <span class="glyphicon glyphicon-map-marker"></span> แผนที่ต้นไม้</a></li>                     
-                        </ul>
-                    </li>  
 
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
                        <span class="glyphicon glyphicon-th-list"></span> สัตว์</a>
@@ -88,6 +70,31 @@ $result = pg_fetch_array($query);
                             <span class="glyphicon glyphicon-map-marker"></span> แผนที่สัตว์</a></li>                     
                         </ul>
                     </li>  
+
+
+
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                       <span class="glyphicon glyphicon-th-list"></span> ต้นไม้</a>
+                        <ul class="dropdown-menu">
+                         <li><a href="tree_manage.php">
+                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลต้นไม้</a></li>
+                            
+                         <li><a href="treeowner_manage.php">
+                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลเจ้าของสถานที่</a></li>
+
+                         <li><a href="placetree_manage.php">
+                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลสถานที่ต้นไม้</a></li>   
+                         <li><a href="placetree_map.php">
+                            <span class="glyphicon glyphicon-map-marker"></span> แผนที่ต้นไม้</a></li>                     
+                        </ul>
+                    </li> 
+
+                    
+                    
+                    
+
+
+
 
                     <li><a href="logout.php">
                             <span class="glyphicon glyphicon-log-out"></span>  

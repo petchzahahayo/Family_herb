@@ -12,7 +12,7 @@ if($_POST) {
     $treeowner_career2 = $_POST['treeowner_career2'];
     $treeowner_health2 = $_POST['treeowner_health2'];
 
-    if (!empty($_POST['owner_career'])) {
+    if (!empty($_POST['treeowner_career'])) {
         $treeowner_career = $_POST['treeowner_career'];
     } else {
         $treeowner_career = $_POST['treeowner_career2'];
@@ -36,11 +36,11 @@ if($_POST) {
     $owner_image = insertImage($imgName, $path, $imgTmp);*/
     $ext = pathinfo(($_FILES['treeowner_image']['name']), PATHINFO_EXTENSION); //นามสกุลของไฟล์
     $new_image_name = 'img_' . uniqid() . "." . $ext;
-    $image_path = '../images/owner/';
+    $image_path = '../images/treeowner/';
     $upload_path = $image_path . $new_image_name;
     
     //uploading
-    $sucess = move_uploaded_file($_FILES['treeowner_image']['treetmp_name'], $upload_path);
+    $sucess = move_uploaded_file($_FILES['treeowner_image']['tmp_name'], $upload_path);
     
     if ($sucess == TRUE) {
             $size = getimagesize($upload_path);
@@ -67,9 +67,9 @@ if($_POST) {
         //end upload image
 
     //คำสั่ง sql
-    $sql = "INSERT INTO tree_owner (treeowner_name, treeowner_address, owner_age, owner_education, 
-                    owner_career, owner_revenue, owner_health, owner_image, owner_lat, owner_lng,owner_career2,owner_health2)
-                    VALUES ('$owner_name', '$owner_address', '$treeowner_age', '$treeowner_education', '$treeowner_career', 
+    $sql = "INSERT INTO tree_owner (treeowner_name, treeowner_address, treeowner_age, treeowner_education, 
+                    treeowner_career, treeowner_revenue, treeowner_health, treeowner_image, treeowner_lat, treeowner_lng,treeowner_career2,treeowner_health2)
+                    VALUES ('$treeowner_name', '$treeowner_address', '$treeowner_age', '$treeowner_education', '$treeowner_career', 
                     '$treeowner_revenue', '$treeowner_health', '$treeowner_image', '$treeowner_lat', '$treeowner_lng','$treeowner_career2','$treeowner_health2') ";
     $result = pg_query($db, $sql);
 

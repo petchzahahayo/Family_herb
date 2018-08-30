@@ -100,7 +100,7 @@
             </table>
             
                 <?php
-                    $sql2 = "select * from herb_typename ";
+                    $sql2 = "select * from tree_typename ";
                     $query2 = pg_query($db, $sql2);
                     $total_record = pg_num_rows($query2);
                     $total_page = ceil($total_record / $perpage);
@@ -109,15 +109,15 @@
                 <nav>
                     <ul class="pagination">
                         <li class="active">
-                            <a href="herb_typename_manage.php?page=1" aria-label="Previous">
+                            <a href="tree_typename_manage.php?page=1" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
                         <?php for ($i = 1; $i <= $total_page; $i++) { ?>
-                            <li><a href="herb_typename_manage.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                            <li><a href="tree_typename_manage.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
                         <?php } ?>
                             <li class="active">
-                            <a href="herb_typename_manage.php?page=<?php echo $total_page; ?>" aria-label="Next">
+                            <a href=tree_typename_manage.php?page=<?php echo $total_page; ?>" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>

@@ -35,7 +35,7 @@
 
                     <tr>
                         <th class="info">รูปภาพ</th>
-                        <td><img src="../images/owner/<?php echo $row['treeowner_image']; ?>" style="width:100px;height:100px;"></td>
+                        <td><img src="../images/treeowner/<?php echo $row['treeowner_image']; ?>" style="width:100px;height:100px;"></td>
                     </tr>
 
                     <!-- owner_age -->

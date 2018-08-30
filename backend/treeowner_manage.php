@@ -54,12 +54,12 @@
                         </a></center></td>
                         
                         <!-- edit -->
-                        <td><center><a href="frm_treeowner_edit.php?owner_id=<?php echo $row['owner_id']; ?>" class="btn btn-warning btn-md">
+                        <td><center><a href="frm_treeowner_edit.php?treeowner_id=<?php echo $row['treeowner_id']; ?>" class="btn btn-warning btn-md">
                                 <span class="glyphicon glyphicon-pencil"></span>
                         </a></center></td>
                         
                         <!-- delete -->
-                        <td><center><a href="owner_treedelete.php?owner_id=<?php echo $row['owner_id']; ?>" class="btn btn-danger btn-md">
+                        <td><center><a href="owner_treedelete.php?treeowner_id=<?php echo $row['treeowner_id']; ?>" class="btn btn-danger btn-md">
                                 <span class="glyphicon glyphicon-remove"></span>
                         </a></center></td>
                     </tr>

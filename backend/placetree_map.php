@@ -2,31 +2,31 @@
 require 'header_admin.php';
 
 //sql search
-$sqlSearch = "  SELECT *  FROM herb_place
-                    INNER JOIN herb_name  
-                    ON herb_place.name_id = herb_name.name_id
-                    INNER JOIN herb_data
-                    ON herb_name.name_id = herb_data.name_id
-                    INNER JOIN herb_typename
-                    ON herb_data.type_id = herb_typename.type_id                    
+$sqlSearch = "  SELECT *  FROM tree_place
+                    INNER JOIN tree_name  
+                    ON tree_place.treename_id = tree_name.treename_id
+                    INNER JOIN tree_data
+                    ON tree_name.treename_id = tree_data.treename_id
+                    INNER JOIN tree_typename
+                    ON tree_data.treetype_id = tree_typename.treetype_id                    
                  ";
 $resultSearch = pg_query($db, $sqlSearch);
 
 $arr_json = array();
 while ($rowSearch = pg_fetch_array($resultSearch)) {
-    $type_name = $rowSearch['type_name'];
-    $name_th = $rowSearch['name_th'];
-    $place_lat = $rowSearch['place_lat'];
-    $place_lng = $rowSearch['place_lng'];
-    $place_herbimg = $rowSearch['place_herbimg'];
+    $treetype_name = $rowSearch['treetype_name'];
+    $treename_th = $rowSearch['treename_th'];
+    $treeplace_lat = $rowSearch['treeplace_lat'];
+    $treeplace_lng = $rowSearch['treeplace_lng'];
+    $treeplace_herbimg = $rowSearch['treeplace_herbimg'];
 
     //array
     $arr = array();
-    $arr['type_name'] = $type_name;
-    $arr['name_th'] = $name_th;
-    $arr['place_lat'] = $place_lat;
-    $arr['place_lng'] = $place_lng;
-    $arr['place_herbimg'] = $place_herbimg;
+    $arr['treetype_name'] = $treetype_name;
+    $arr['treename_th'] = $treename_th;
+    $arr['treeplace_lat'] = $treeplace_lat;
+    $arr['treeplace_lng'] = $treeplace_lng;
+    $arr['treeplace_herbimg'] = $treeplace_herbimg;
 
     array_push($arr_json, $arr);
 }
@@ -61,7 +61,7 @@ $json = json_encode($arr_json); //chang array to json
             <div class="row">
 
                 <div class="col-md-3">
-                    <form action="place_map2.php" method="post" >
+                    <form action="treeplace_map2.php" method="post" >
                         <div class="input-group">  
 
                             <select name="search" id="search" class="form-control">
@@ -70,7 +70,7 @@ $json = json_encode($arr_json); //chang array to json
                                 <!-- ดึงข้อมูลจากฐานข้อมูล -->
                                 <?php
                                 //sql herb_type
-                                $sqlType = "SELECT * FROM herb_typename";
+                                $sqlType = "SELECT * FROM tree_typename";
                                 $queryType = pg_query($db, $sqlType);
                                 while ($rowType = pg_fetch_row($queryType)) {
                                     echo "<option value='$rowType[1]'>$rowType[1]</option>";
@@ -88,9 +88,9 @@ $json = json_encode($arr_json); //chang array to json
                 </div>
 
                 <div class="col-md-3"> 
-                    <form action="place_map2.php" method="post" >
+                    <form action="treeplace_map2.php" method="post" >
                         <div class="input-group">
-                            <select name="place_id" class="form-control">
+                            <select name="treeplace_id" class="form-control">
                                 <option>---เลือกต้นไม้---</option>  
                             </select>
 
