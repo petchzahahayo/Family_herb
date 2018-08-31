@@ -64,7 +64,7 @@
                 </tr>
                 
                 <tr>
-                    <th class="info">ประเภทสมุนไพร</th>
+                    <th class="info">ประเภทต้นไม้</th>
                     <?php while($rowData = pg_fetch_array($resultData)){ ?>
                         <td><?php echo $rowData['treetype_name']; ?></td>
                     

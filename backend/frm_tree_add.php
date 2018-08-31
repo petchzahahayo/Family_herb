@@ -129,20 +129,6 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="laaf_id" class="col-md-2 control-label">ประเภทต้นไม้ :</label>
-                    <div class="col-md-10">
-                        <select name="leaf_id" id="owner_id" class="form-control">
-                                    <!-- ดึงข้อมูลจากฐานข้อมูล -->
-                                    <?php
-                                        while($rowleaf = pg_fetch_row($res_leaf))
-                                        {
-                                            echo "<option value='$rowleaf[0]'>$rowleaf[1]</option>"; 
-                                        }
-                                    ?>
-                        </select>
-                    </div>
-                </div>
                 
                 <!-- button -->
                 <div class="form-group">

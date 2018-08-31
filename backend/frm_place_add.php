@@ -84,14 +84,7 @@
                     </div>
                 </div>
                 
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <p class="bg-warning">*** ไม่พบชื่อสมุนไพร กรุณาคลิก <kbd>+ เพิ่มสมุนไพรไม่พบชื่อ</kbd> ***</p>
-                        <a href="frm_place_herbname.php" class="btn btn-success">
-                            <span class="glyphicon glyphicon-plus"> เพิ่มสมุนไพรไม่พบชื่อ</span>
-                        </a>
-                    </div>
-                </div>
+                
                 
                 <!-- data_image -->
                 <div class="form-group">
