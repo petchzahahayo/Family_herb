@@ -33,8 +33,8 @@
                     </a>   
                     
                 </div>
-                
-                <div class="col-md-6">
+                <br><br>
+                <div class="col-md-8">
                     <a href="user_manage.php" type="button" class="btn btn-success">
                         <span class="glyphicon glyphicon-th-list"> รายชื่อสมาชิก </span>
                     </a>  

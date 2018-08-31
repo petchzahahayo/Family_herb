@@ -9,7 +9,7 @@
         <meta name="author" content="">
         <link rel="icon" href="../../favicon.ico">
 
-        <title>ระบบเก็บข้อมูลสมุนไพร</title>
+        <title>ระบบเก็บข้อมูลธรรมชาติ</title>
 
         <!-- Bootstrap core CSS -->
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -86,7 +86,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.php">ระบบเก็บข้อมูลสมุนไพร</a>
+                    <a class="navbar-brand" href="index.php">ระบบเก็บข้อมูลธรรมชาติ</a>
                 </div>
 
                 <div id="navbar" class="collapse navbar-collapse">

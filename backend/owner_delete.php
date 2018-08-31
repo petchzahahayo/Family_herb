@@ -8,8 +8,8 @@
         
         //delete image
         $sql_image = "SELECT owner_image FROM herb_owner WHERE owner_id='$owner_id'";
-        $path = 'image_owner/';
-        deleteImage($sql_image, $path);
+        //$path = 'image_owner/';
+        //deleteImage($sql_image, $path);
         
         //คำสั่ง sql เพื่อลบ
         $sql = "DELETE FROM herb_owner WHERE owner_id='$owner_id'";

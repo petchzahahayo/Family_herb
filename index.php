@@ -68,7 +68,7 @@ require 'connect/connectdb.php';
                                      ";
                         $res_place = pg_query($db, $sql_place);
                         while ($row_place = pg_fetch_array($res_place)) {
-                    ?>
+            ?>
 
             <!-- Example row of columns -->
             <div class="col-md-3">
@@ -150,11 +150,11 @@ require 'connect/connectdb.php';
 
                     <!-- ค้นหาข้อมูลสมุนไพร -->
                     <div class="col-md-3">
-                        <form action="search.php" method="post">
+                        <form action="treesearch.php" method="post">
                             <table class="table table-striped">
                                 <tr>
                                     <td>
-                                        <input name="herb_search" type="text" class="form-control" placeholder="ค้นหา">
+                                        <input name="tree_search" type="text" class="form-control" placeholder="ค้นหา">
                                     </td>
                                     <td>
                                         <button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-search"></span></button>
