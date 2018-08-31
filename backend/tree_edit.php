@@ -21,7 +21,7 @@
                 treedata_hight= '$treedata_hight',
                 treedata_wideth='$treedata_wideth',
                 treedata_radius='$treedata_radius',  
-                treedata_detail='$treedata_detail', 
+                treedata_detail='$treedata_detail' 
                
              WHERE treedata_id='$treedata_id' ";
     $result = pg_query($sql);

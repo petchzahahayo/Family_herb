@@ -1,5 +1,5 @@
 <?php
-
+    ob_start();
     require 'header_admin.php';      
     
     $name_id = $_GET['name_id'];

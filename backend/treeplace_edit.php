@@ -1,5 +1,6 @@
 <?php
 
+
 require '../connect/connectdb.php';
 
 //upload image      
@@ -30,7 +31,8 @@ if (is_uploaded_file($_FILES['treeplace_herbimg']['tmp_name'])) {
     $sql = "UPDATE tree_place 
                     SET treeowner_id='$treeowner_id',
                         treename_id = '$treename_id',
-                        treeplace_herbimg = '$treeplace_herbimg'    
+                        treeplace_herbimg = '$treeplace_herbimg' 
+
                     WHERE treeplace_id='$treeplace_id'";
     $result = pg_query($sql);
 
@@ -54,7 +56,8 @@ else
     //คำสั่ง sql เพื่อ update ข้อมูล
     $sql = "UPDATE tree_place 
                     SET treeowner_id='$treeowner_id',
-                        treename_id = '$treename_id' 
+                        treename_id = '$treename_id'
+
                     WHERE treeplace_id='$treeplace_id'";
     $result = pg_query($sql);
 
