@@ -118,6 +118,22 @@
                     </div>
                 </div>
 
+                 <!-- poison status -->
+                 <div class="form-group">
+                    <label for="po_id" class="col-md-2 control-label">สถานะ :</label>
+                    <div class="col-md-10">                                              
+                        <label class="radio-inline">
+                            <input type="radio" name="po_id" value="1" >
+                            มีพิษ
+                        </label>    
+                                           
+                        <label class="radio-inline">
+                            <input type="radio" name="po_id" value="2" >
+                            ไม่มีพิษ
+                        </label>                      
+                    </div>
+                </div>
+
                 <!-- button -->
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">

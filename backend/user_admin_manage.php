@@ -38,9 +38,7 @@
                     <a href="user_manage.php" type="button" class="btn btn-success">
                         <span class="glyphicon glyphicon-th-list"> รายชื่อสมาชิก </span>
                     </a>  
-                    <a href="user_expert_manage.php" type="button" class="btn btn-success">
-                        <span class="glyphicon glyphicon-th-list"> รายชื่อผู้เชี่ยวชาญ </span>
-                    </a>
+                    
                 </div>
                 
             </div>

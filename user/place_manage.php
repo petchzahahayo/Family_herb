@@ -126,32 +126,7 @@
                 </nav>
             <!-- paginationBar -->
             
-            <h2>ข้อมูลสมุนไพรที่ไม่ปรากฎชื่อ</h2> 
-            <div class="table-responsive">
-            <table class="table table-bordered">
-                <tr class="danger">
-                    <!--<th><center>#</center></th>-->
-                    <th><center>ชื่อ</center></th>
-                    <th><center>ชื่อสมุนไพร</center></th>
-                    <th><center>รูปภาพ</center></th>
-                    <th><center>ดูข้อมูล</center></th>
-                </tr>
-                
-                <?php while($row2 = pg_fetch_array($result2)){  ?>
-                
-                <tr>
-                    <!-- ลำดับ 
-                    <td><center><?php echo $row2['place_id']; ?></center></td>-->
-                    <td><center><?php echo $row2['owner_name']; ?></center></td>
-                    <td><center><?php echo $row2['name_th']; ?></center></td>
-                    <td><center><img src="../images/<?php echo $row2['place_herbimg']; ?>" style="width:100px;height:100px;"></center></td>
-                    <td><center><a href="show_place_data.php?place_id=<?php echo $row2['place_id']; ?>" class="btn btn-info btn-md">
-                        <span class="glyphicon glyphicon-eye-open"></span>
-                    </a></center></td>
-                </tr>
-                <?php } ?>
-            </table>
-            </div>
+            
         </div>
     </body>
 </html>
