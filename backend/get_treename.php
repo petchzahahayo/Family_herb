@@ -23,7 +23,7 @@
                 <div class="form-group">
                     <div class="col-md-10">
                         <select name="treename_id" id="treename_th" class="form-control">
-                            <option value="">--เลือกชื่อสมุนไพร--</option>
+                            <option value="">--เลือกชื่อต้นไม้--</option>
 
                             <?php
                             while ($row_treename = pg_fetch_array($res_treename)) {
