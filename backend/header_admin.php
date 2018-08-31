@@ -1,3 +1,5 @@
+
+   
 <?php
 session_start();
 
@@ -59,18 +61,7 @@ $result = pg_fetch_array($query);
                     </li>  
 
 
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                       <span class="glyphicon glyphicon-th-list"></span> สัตว์</a>
-                        <ul class="dropdown-menu">
-                         <li><a href="a_animal_manage.php">
-                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลสัตว์</a></li>
-                         <li><a href="a_placeanimal_manage.php">
-                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลสถานที่สัตว์</a></li>   
-                         <li><a href="place_map.php">
-                            <span class="glyphicon glyphicon-map-marker"></span> แผนที่สัตว์</a></li>                     
-                        </ul>
-                    </li>  
-
+                   
 
 
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -90,7 +81,18 @@ $result = pg_fetch_array($query);
                     </li> 
 
                     
-                    
+                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                       <span class="glyphicon glyphicon-th-list"></span> สัตว์</a>
+                        <ul class="dropdown-menu">
+                         <li><a href="a_animal_manage.php">
+                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลสัตว์</a></li>
+                         <li><a href="a_placeanimal_manage.php">
+                            <span class="glyphicon glyphicon-th-list"></span> ข้อมูลสถานที่สัตว์</a></li>   
+                         <li><a href="place_map.php">
+                            <span class="glyphicon glyphicon-map-marker"></span> แผนที่สัตว์</a></li>                     
+                        </ul>
+                    </li>  
+
                     
 
 

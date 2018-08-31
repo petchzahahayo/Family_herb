@@ -1,6 +1,11 @@
-<?php
 
+   
+<?php
+   ob_start();
     require 'header_admin.php';      
+      
+    
+    
     
     $treename_id = $_GET['treename_id'];
     
@@ -12,7 +17,7 @@
     $sql_del_name = "DELETE FROM tree_name WHERE treename_id='$treename_id'";
     $res_del_name = pg_query($db, $sql_del_name);
     
-    if ($res_del_name) {
+     if ($res_del_name) {
         header ("Location: tree_name_manage.php");
     } 
     else {

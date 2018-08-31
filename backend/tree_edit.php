@@ -1,7 +1,7 @@
 <?php
 
     require '../connect/connectdb.php';
-
+   
     //รับค่าตัวแปรจากฟอร์ม
     $treedata_id = $_POST['treedata_id'];
     $treetype_id = $_POST['treetype_id'];
@@ -23,7 +23,7 @@
                 treedata_radius='$treedata_radius',  
                 treedata_detail='$treedata_detail', 
                
-                WHERE treedata_id='$treedata_id' ";
+             WHERE treedata_id='$treedata_id' ";
     $result = pg_query($sql);
 
     if ($result) {

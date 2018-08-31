@@ -81,17 +81,17 @@
                             <td><center><img src="../images/<?php echo $row['treeplace_herbimg']; ?>" style="width:100px;height:100px;"></center></td>
 
                             <!-- ดูข้อมูล -->
-                            <td><center><a href="show_place_data.php?treeplace_id=<?php echo $row['treeplace_id']; ?>" class="btn btn-info btn-md">
+                            <td><center><a href="show_placetree_data.php?treeplace_id=<?php echo $row['treeplace_id']; ?>" class="btn btn-info btn-md">
                                     <span class="glyphicon glyphicon-eye-open"></span>
                                 </a></center></td>
 
                             <!-- edit -->
-                            <td><center><a href="frm_place_edit.php?treeplace_id=<?php echo $row['treeplace_id']; ?>" class="btn btn-warning btn-md">
+                            <td><center><a href="frm_treeplace_edit.php?treeplace_id=<?php echo $row['treeplace_id']; ?>" class="btn btn-warning btn-md">
                                     <span class="glyphicon glyphicon-pencil"></span>
                                 </a></center></td>
 
                             <!-- delete -->
-                            <td><center><a href="place_delete.php?treeplace_id=<?php echo $row['treeplace_id']; ?>" class="btn btn-danger btn-md">
+                            <td><center><a href="treeplace_delete.php?treeplace_id=<?php echo $row['treeplace_id']; ?>" class="btn btn-danger btn-md">
                                     <span class="glyphicon glyphicon-remove"></span>
                                 </a></center></td>
 
@@ -108,57 +108,22 @@
             <nav>
                 <ul class="pagination">
                     <li class="active">
-                        <a href="place_manage.php?page=1" aria-label="Previous">
+                        <a href="placetree_manage.php?page=1" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
                     <?php for ($i = 1; $i <= $total_page; $i++) { ?>
-                        <li><a href="place_manage.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                        <li><a href="placetree_manage.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
                     <?php } ?>
                     <li class="active">
-                        <a href="place_manage.php?page=<?php echo $total_page; ?>" aria-label="Next">
+                        <a href="placetree_manage.php?page=<?php echo $total_page; ?>" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
                 </ul>
             </nav>
 
-            <!-- paginationBar -->
-            <h2>ข้อมูลสต้นไม้ที่ไม่ปรากฎชื่อ</h2> 
-            <table class="table table-bordered">
-                <tr class="danger">
-                    <!--<th><center>#</center></th>-->
-                    <th><center>ชื่อ</center></th>
-                    <th><center>ชื่อต้นไม้</center></th>
-                    <th><center>รูปภาพ</center></th>
-                    <th><center>ดูข้อมูล</center></th>
-                    <th><center>แก้ไข</center></th>
-                    <th><center>ลบ</center></th>
-                </tr>
-
-                <?php while ($row2 = pg_fetch_array($result2)) { ?>
-
-                    <tr>
-                        <!--<td><center><?php //echo $row2['place_id']; ?></center></td>-->
-                        <td><center><?php echo $row2['treeowner_name']; ?></center></td>
-                        <td><center><?php echo $row2['treename_th']; ?></center></td>
-                        <td><center><img src="../images/<?php echo $row2['treeplace_herbimg']; ?>" style="width:100px;height:100px;"></center></td>
-                        <!-- ดูข้อมูล -->
-                        <td><center><a href="show_place_data.php?treeplace_id=<?php echo $row2['treeplace_id']; ?>" class="btn btn-info btn-md">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                            </a></center></td>
-                        <!-- edit -->
-                        <td><center><a href="frm_place_edit.php?treeplace_id=<?php echo $row2['treeplace_id']; ?>" class="btn btn-warning btn-md">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                            </a></center></td>
-
-                        <!-- delete -->
-                        <td><center><a href="place_delete.php?treeplace_id=<?php echo $row2['treeplace_id']; ?>" class="btn btn-danger btn-md">
-                                <span class="glyphicon glyphicon-remove"></span>
-                            </a></center></td>
-                    </tr>
-                <?php } ?>
-            </table>
+           
 
             <br>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>            

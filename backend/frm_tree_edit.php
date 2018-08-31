@@ -5,7 +5,7 @@
         $treedata_id = $_GET['treedata_id'];
         
         //คำสั่ง sql
-        $sql = "SELECT * FROM tree_data WHERE treedata_id='$treedata_id'";
+        $sqltree = "SELECT * FROM tree_data WHERE treedata_id='$treedata_id'";
         $result = pg_query($db, $sql);
         $row = pg_fetch_array($result);
         

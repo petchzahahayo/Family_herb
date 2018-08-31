@@ -130,7 +130,7 @@
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <button type="submit" class="btn btn-primary">บันทึก</button>
-                        <a href="tree_manage.php" class="btn btn-danger">กลับหน้าหลัก</a>
+                        <a href="tree_name_manage.php" class="btn btn-danger">กลับหน้าหลัก</a>
                     </div>
                 </div>
                 <br><br>

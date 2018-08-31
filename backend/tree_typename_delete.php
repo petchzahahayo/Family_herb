@@ -1,5 +1,5 @@
 <?php
-
+    ob_start();
     require 'header_admin.php'; 
     
     $treetype_id = $_GET['treetype_id'];
