@@ -6,7 +6,7 @@
         
         //คำสั่ง sql
         $sqltree = "SELECT * FROM tree_data WHERE treedata_id='$treedata_id'";
-        $result = pg_query($db, $sql);
+        $result = pg_query($db, $sqltree);
         $row = pg_fetch_array($result);
         
         //herb_data

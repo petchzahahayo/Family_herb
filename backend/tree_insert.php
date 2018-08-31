@@ -12,10 +12,11 @@
         $treedata_hight = $_POST['treedata_hight'];
         $treedata_wideth = $_POST['treedata_wideth'];
         $treedata_radius = $_POST['treedata_radius'];
+        $leaf_id = $_POST['leaf_id'];
         
         //คำสั่ง sql
-        $sql = "INSERT INTO tree_data (treedata_id, treetype_id, treename_id, treedata_name_eng, treedata_name_sci, treedata_detail, treedata_hight, treedata_wideth,treedata_radius) 
-                VALUES ('$treedata_id', '$treetype_id', '$treename_id', '$treedata_name_eng', '$treedata_name_sci', '$treedata_detail', '$treedata_hight', '$treedata_wideth',$treedata_radius)";
+        $sql = "INSERT INTO tree_data (treedata_id, treetype_id, treename_id, treedata_name_eng, treedata_name_sci, treedata_detail, treedata_hight, treedata_wideth,treedata_radius,leaf_id) 
+                VALUES ('$treedata_id', '$treetype_id', '$treename_id', '$treedata_name_eng', '$treedata_name_sci', '$treedata_detail', '$treedata_hight', '$treedata_wideth','$treedata_radius','$leaf_id')";
         $result = pg_query($db, $sql);
         
         //check 

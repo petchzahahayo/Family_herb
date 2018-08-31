@@ -8,6 +8,9 @@
         //sql herb_name
         $sql_treename = "SELECT * FROM tree_name";
         $res_treename = pg_query($db, $sql_treename);
+
+        $sql_leaf = "SELECT * FROM leaf";
+        $res_leaf = pg_query($db, $sql_leaf);
         
         //herb_data
         $sql_treedata = "SELECT MAX(treedata_id) FROM tree_data";
@@ -123,6 +126,21 @@
                     <label for="treedata_detail" class="col-md-2 control-label">ลักษณะของต้นไม้ :</label>
                     <div class="col-md-10">
                         <textarea name="treedata_detail" class="form-control" rows="5"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="laaf_id" class="col-md-2 control-label">ประเภทต้นไม้ :</label>
+                    <div class="col-md-10">
+                        <select name="leaf_id" id="owner_id" class="form-control">
+                                    <!-- ดึงข้อมูลจากฐานข้อมูล -->
+                                    <?php
+                                        while($rowleaf = pg_fetch_row($res_leaf))
+                                        {
+                                            echo "<option value='$rowleaf[0]'>$rowleaf[1]</option>"; 
+                                        }
+                                    ?>
+                        </select>
                     </div>
                 </div>
                 
