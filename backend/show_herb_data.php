@@ -3,12 +3,13 @@
         
         //รับข้อมูล
         $data_id = $_GET['data_id'];
-
         $sql = "select * from herb_data 
                 INNER JOIN herb_typename
                 ON herb_data.type_id = herb_typename.type_id
                 INNER JOIN herb_name
                 ON herb_data.name_id = herb_name.name_id
+                INNER JOIN poison
+                ON herb_data.po_id = poison.po_id
                 WHERE data_id='$data_id'";
         $result = pg_query($db, $sql);       
 ?>
@@ -61,6 +62,10 @@
                     <th class="info">สรรพคุณ</th>
                     <td><?php echo $row['data_properties']; ?></td>
                 </tr>
+                <tr>
+                    <th class="info">สถานะพิษ</th>
+                    <td><?php echo $row['status']; ?></td>
+                </tr>
                 
                 <?php } ?>
             </table>
@@ -72,4 +77,3 @@
         </div>    
     </body>
 </html>
-
