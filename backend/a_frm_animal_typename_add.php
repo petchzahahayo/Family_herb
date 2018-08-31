@@ -1,12 +1,12 @@
 <?php
     require 'header_admin.php';
 
-    //name
-    $sql_treetypename = "SELECT MAX(treetype_id)  FROM tree_typename";
-    $res_treetypename = pg_query($db, $sql_treetypename);
-    $row_treetypename = pg_fetch_row($res_treetypename);
-    $row_treetypename1 = $row_treetypename[0];
-    $row_treetypename2 = $row_treetypename1 + 1;
+    //name ++
+    $sql_animal_name_type = "SELECT MAX(animal_type_id)  FROM animal_type";
+    $res_animal_name_type = pg_query($db, $sql_animal_name_type);
+    $row_animal_name_type = pg_fetch_row($res_animal_name_type);
+    $row_animal_name_type1 = $row_animal_name_type[0];
+    $row_animal_name_type2 = $row_animal_name_type1 + 1;
    
 ?>
 
@@ -23,22 +23,22 @@
             <form action="a_animal_typename_insert.php" method="POST" enctype="multipart/form-data" class="form-horizontal">
                 
                 <!-- type_id -->
-                <input name="treetype_id" type="hidden" class="form-control" value="<?php echo $row_treetypename2; ?>">
+                <input name="animal_type_id" type="hidden" class="form-control" value="<?php echo $row_animal_name_type2; ?>">
 
 
                 <!-- type_name -->
                 <div class="form-group">
-                    <label for="treetype_name" class="col-md-2 control-label">ชื่อประเภทสัตว์ :</label>
+                    <label for="animal_name_type" class="col-md-2 control-label">ชื่อประเภทสัตว์ :</label>
                     <div class="col-md-10">
-                        <input name="treetype_name" type="text" class="form-control">
+                        <input name="animal_name_type" type="text" class="form-control">
                     </div>
                 </div>  
                 
                 <!-- type_details -->
                 <div class="form-group">
-                    <label for="treetype_details" class="col-md-2 control-label">รายละเอียด :</label>
+                    <label for="animal_type_more" class="col-md-2 control-label">รายละเอียด :</label>
                     <div class="col-md-10">
-                        <textarea name="treetype_details" class="form-control" rows="5">
+                        <textarea name="animal_type_more" class="form-control" rows="5">
                             
                         </textarea>
                     </div>

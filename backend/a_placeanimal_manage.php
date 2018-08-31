@@ -2,21 +2,13 @@
     require 'header_admin.php';
     require 'function.php';
 
-    //คำสั่ง sql เรียกเฉพาะข้อมูล = 9999
-        $sql2 = "SELECT *  FROM herb_place 
-                 INNER JOIN herb_owner  
-                 ON herb_place.owner_id = herb_owner.owner_id 
-                 INNER JOIN herb_name  
-                 ON herb_place.name_id = herb_name.name_id
-                 WHERE name_th = 'ก9999' ";
-        $result2 = pg_query($db, $sql2);    
 ?>
 
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>ระบบเก็บข้อมูลสัตว์</title>
+        <title>สัตว์ตามท้องที่</title>
         <script>
             var url = window.location; 
             // Will only work if string in href matches with location  
@@ -32,11 +24,11 @@
     <body>
 
         <div class="container">
-            <a href="frm_placetree_add.php" class="btn btn-primary" >
-                <span class="glyphicon glyphicon-plus"> เพิ่มสัตว์</span>
+            <a href="a_frm_animal_add_map.php" class="btn btn-primary" >
+                <span class="glyphicon glyphicon-plus"> เก็บข้อมูล</span>
             </a>
-
-            <h2>ข้อมูลสัตว์</h2> 
+            
+            <h3>ข้อมูลสำรวจสัตว์ในพื้นที่</h3> 
 
             <center><div id="map"></div></center>
             <br>
@@ -44,25 +36,25 @@
                 <thead>
                     <tr class="info">
                         <!--<th><center>#</center></th>-->
-                        <th><center>ชื่อ</center></th>
-                        <th><center>ชื่อสัตว์</center></th>
+                        <th width="150"><center>ชื่อสัตว์</center></th>
+                        <th width="250"><center>แหล่งที่พบ</center></th>
                         <th><center>รูปภาพ</center></th>
-                        <th><center>ดูข้อมูล</center></th>
-                        <th><center>แก้ไข</center></th>
-                        <th><center>ลบ</center></th>
+                        <th width="10"><center>ดู</center></th>
+                        <th width="10"><center>แก้ไข</center></th>
+                        <th width="10"><center>ลบ</center></th>
                     </tr>
                 </thead>
 
                 <!-- show data -->
                 <?php
                     //คำสั่ง sql
-                    $query = "SELECT *  FROM herb_place 
-                                INNER JOIN herb_owner
-                                ON herb_place.owner_id = herb_owner.owner_id
-                                INNER JOIN herb_name
-                                on herb_place.name_id = herb_name.name_id
-                                WHERE name_th NOT IN ('ก9999')
-                                ORDER BY place_id ASC";
+                    $query = "SELECT *  FROM animal_collect
+                                INNER JOIN animal_data
+                                ON animal_collect.animal_tumbon_id_collect = animal_data.animal_data_id
+                                INNER JOIN animal_tumbon
+                                ON animal_data.animal_data_id = animal_tumbon.animal_tumbon_id
+                        
+                                ORDER BY animal_collect_id ASC";
 
                     $result = pagination($query);
                     while ($row = pg_fetch_array($result)) {
@@ -72,22 +64,22 @@
                         <tr>
 
                             <!-- ชื่อ -->
-                            <td><center><?php echo $row['owner_name']; ?></center></td>
+                            <td><center><?php echo $row['animal_name_th']; ?></center></td>
 
                             <!-- ชื่อสมุนไพร -->
-                            <td><center><?php echo $row['name_th']; ?></center></td>
+                            <td><center><?php echo $row['animal_tumbon_name']; ?></center></td>
 
                             <!-- รูปภาพ -->
-                            <td><center><img src="../images/<?php echo $row['place_herbimg']; ?>" style="width:100px;height:100px;"></center></td>
+                            <td><center><img src="../images/<?php echo $row['collect_img']; ?>" style="width:100px;height:100px;"></center></td>
 
                             <!-- ดูข้อมูล -->
-                            <td><center><a href="show_place_data.php?place_id=<?php echo $row['place_id']; ?>" class="btn btn-info btn-md">
+                            <td><center><a href="a_show_animal_data.php?animal_collect_id=<?php echo $row['animal_collect_id']; ?>" class="btn btn-info btn-md">
                                     <span class="glyphicon glyphicon-eye-open"></span>
                                 </a></center></td>
 
                             <!-- edit -->
                             <td><center><a href="frm_place_edit.php?place_id=<?php echo $row['place_id']; ?>" class="btn btn-warning btn-md">
-                                    <span class="glyphicon glyphicon-pencil"></span>
+                                    <span class="glyphicon glyphicon-cog"></span>
                                 </a></center></td>
 
                             <!-- delete -->
@@ -123,43 +115,8 @@
                 </ul>
             </nav>
 
-            <!-- paginationBar -->
-            <h2>ข้อมูลสัตว์ที่ไม่ปรากฎชื่อ</h2> 
-            <table class="table table-bordered">
-                <tr class="danger">
-                    <!--<th><center>#</center></th>-->
-                    <th><center>ชื่อ</center></th>
-                    <th><center>ชื่อสัตว์</center></th>
-                    <th><center>รูปภาพ</center></th>
-                    <th><center>ดูข้อมูล</center></th>
-                    <th><center>แก้ไข</center></th>
-                    <th><center>ลบ</center></th>
-                </tr>
-
-                <?php while ($row2 = pg_fetch_array($result2)) { ?>
-
-                    <tr>
-                        <!--<td><center><?php //echo $row2['place_id']; ?></center></td>-->
-                        <td><center><?php echo $row2['owner_name']; ?></center></td>
-                        <td><center><?php echo $row2['name_th']; ?></center></td>
-                        <td><center><img src="../images/<?php echo $row2['place_herbimg']; ?>" style="width:100px;height:100px;"></center></td>
-                        <!-- ดูข้อมูล -->
-                        <td><center><a href="show_place_data.php?place_id=<?php echo $row2['place_id']; ?>" class="btn btn-info btn-md">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                            </a></center></td>
-                        <!-- edit -->
-                        <td><center><a href="frm_place_edit.php?place_id=<?php echo $row2['place_id']; ?>" class="btn btn-warning btn-md">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                            </a></center></td>
-
-                        <!-- delete -->
-                        <td><center><a href="place_delete.php?place_id=<?php echo $row2['place_id']; ?>" class="btn btn-danger btn-md">
-                                <span class="glyphicon glyphicon-remove"></span>
-                            </a></center></td>
-                    </tr>
-                <?php } ?>
-            </table>
-
+           
+            
             <br>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>            
         </div>

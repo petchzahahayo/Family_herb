@@ -1,15 +1,17 @@
-<?php
 
+<?php
+ob_start();
     require 'header_admin.php'; 
     
-    $treetype_id = $_GET['treetype_id'];
-    
+    $animal_type_id = $_GET['animal_type_id'];
+
     //sql DELETE
-    $sql_del_treetypename = "DELETE FROM tree_typename WHERE treetype_id='$treetype_id'";
-    $res_del_treetypename = pg_query($db, $sql_del_treetypename);
+    $sql_del_typename = "DELETE FROM animal_type WHERE animal_type_id='$animal_type_id'";
+    $res_del_typename = pg_query($db, $sql_del_typename);
     
-    if ($res_del_treetypename) {
-        header ("Location: a_animal_typename_manage.php");
+    if ($res_del_typename) {
+        
+      header ("Location: a_animal_typename_manage.php");
     } 
     else {
         echo "Can not Delete";

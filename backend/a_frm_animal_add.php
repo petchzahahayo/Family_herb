@@ -1,16 +1,12 @@
 <?php 
         require 'header_admin.php';
         
-        //sql herb_type
-        $sqltreeType = "SELECT * FROM tree_typename";
-        $querytreeType = pg_query($db, $sqltreeType);
+        //ประเภทสัตว์
+        $sqlanimaltype = "SELECT * FROM animal_type";
+        $queryanimaltype = pg_query($db, $sqlanimaltype);
         
-        //sql herb_name
-        $sql_treename = "SELECT * FROM tree_name";
-        $res_treename = pg_query($db, $sql_treename);
-        
-        //herb_data
-        $sql_treedata = "SELECT MAX(treedata_id) FROM tree_data";
+        //name++
+        $sql_treedata = "SELECT MAX(animal_data_id) FROM animal_data";
         $res_treedata = pg_query($db, $sql_treedata);
         $row_treedata = pg_fetch_row($res_treedata);
         $row_treedata1 = $row_treedata[0];
@@ -28,101 +24,77 @@
         <div class="container">
             <h2>กรอกข้อมูลสัตว์</h2>
             <br>
-            <form action="a_animal_insert.php" method="POST" enctype="multipart/form-data" class="form-horizontal">
+            <form action="a_animal_insert.php" method="GET" enctype="multipart/form-data" class="form-horizontal">
                 
                 <!-- data_id 
                 <div class="form-group">
                     <label for="data_id" class="col-md-2 control-label">ลำดับ :</label>
                     <div class="col-md-10">-->
-                        <input name="a_animaldata_id" type="hidden" class="form-control" value="<?php echo $row_treedata2; ?>">
+                        <input name="animal_data_id" type="hidden" class="form-control" value="<?php echo $row_treedata2; ?>">
                     <!--</div>
                 </div>-->
                 
                 <!-- herb_type -->
                 <div class="form-group">
-                    <label for="treetype_id" class="col-md-2 control-label">ประเภทสัตว์ :</label>
+                    <label for="animal_type_id_animal_data" class="col-md-2 control-label">ประเภทสัตว์ :</label>
                     <div class="col-md-10">
-                        <select name="treetype_id" id="owner_id" class="form-control">
+                        <select name="animal_type_id_animal_data" id="owner_id" class="form-control">
                                     <!-- ดึงข้อมูลจากฐานข้อมูล -->
                                     <?php
-                                        while($rowtreeType = pg_fetch_row($querytreeType))
+                                        while($rowanimaltype = pg_fetch_row($queryanimaltype))
                                         {
-                                            echo "<option value='$rowtreeType[0]'>$rowtreeType[1]</option>"; 
+                                            echo "<option value='$rowanimaltype[0]'>$rowanimaltype[1]</option>"; 
                                         }
                                     ?>
                         </select>
                     </div>
                 </div>
-                
-                <!-- alphabet -->
-                <div class="form-group">
-                    <label for="treealphabet" class="col-md-2 control-label">ชื่อสัตว์ :</label>
-                    <div class="col-md-10">
-                            <select name="treealphabet" id="treealphabet" class="form-control">
-                                <option value="">--เลือกตัวอักษร--</option>
-                                
-                                    <!-- ดึงข้อมูลจากฐานข้อมูล -->
-                                    <?php
-                                      $sql_treealphabet = "SELECT * FROM tree_alphabet";
-                                      $res_treealphabet = pg_query($db, $sql_treealphabet);
-                                    
-                                        while($row_treealphabet = pg_fetch_array($res_treealphabet))
-                                        {
-                                            $treealphabet_id = $row_treealphabet['treealphabet_id'];
-                                            $treealphabet_th = $row_treealphabet['treealphabet_th'];
-                                            echo "<option value='$treealphabet_id'>$treealphabet_th</option>";
-                                        }
-                                    ?>
-                                
-                            </select>
-                    </div>
-                </div>
+
 
                 <!-- data_name_eng -->
                 <div class="form-group">
-                    <label for="treedata_name_eng" class="col-md-2 control-label">ชื่อภาษาอังกฤษ :</label>
+                    <label for="animal_name_th" class="col-md-2 control-label">ชื่อภาษาไทย:</label>
                     <div class="col-md-10">
-                        <input name="treedata_name_eng" type="text" class="form-control">
+                        <input name="animal_name_th" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="animal_name_eng" class="col-md-2 control-label">ชื่อภาษาอังกฤษ :</label>
+                    <div class="col-md-10">
+                        <input name="animal_name_eng" type="text" class="form-control">
                     </div>
                 </div>
                 
                 <!-- data_name_sci -->
                 <div class="form-group">
-                    <label for="treedata_name_sci" class="col-md-2 control-label">ชื่อวิทยาศาสตร์ :</label>
+                    <label for="animal_name_science" class="col-md-2 control-label">ชื่อวิทยาศาสตร์ :</label>
                     <div class="col-md-10">
-                        <input name="treedata_name_sci" type="text" class="form-control">
+                        <input name="animal_name_science" type="text" class="form-control">
                     </div>
                 </div>
                 
                  <!-- data_hight -->
                  <div class="form-group">
-                    <label for="treedata_hight" class="col-md-2 control-label">ความสูงของสัตว์ :</label>
+                    <label for="animal_high" class="col-md-2 control-label">ความสูงของสัตว์ :</label>
                     <div class="col-md-10">
-                        <input name="treedata_hight" placeholder="เซนติเมตร" type="number" class="form-control">
+                        <input name="animal_high" placeholder="เซนติเมตร" type="number" class="form-control">
                     </div>
                 </div>
 
                  <!-- data_width -->
                  <div class="form-group">
-                    <label for="treedata_wideth" class="col-md-2 control-label">ความกว้างของสัตว์ :</label>
+                    <label for="animal_long" class="col-md-2 control-label">ความกว้างของสัตว์ :</label>
                     <div class="col-md-10">
-                        <input name="treedata_wideth" placeholder="เซนติเมตร" type="number" class="form-control">
+                        <input name="animal_long" placeholder="เซนติเมตร" type="number" class="form-control">
                     </div>
                 </div>
 
-                <!-- data_radus -->
-                <div class="form-group">
-                    <label for="treedata_radius" class="col-md-2 control-label">เส้นรอบวงของสัตว์ :</label>
-                    <div class="col-md-10">
-                        <input name="treedata_radius" placeholder="เซนติเมตร" type="number" class="form-control">
-                    </div>
-                </div>
 
                  <!-- data_detail -->
                  <div class="form-group">
-                    <label for="treedata_detail" class="col-md-2 control-label">ลักษณะของสัตว์ :</label>
+                    <label for="animal_detail" class="col-md-2 control-label">ลักษณะสังเกต :</label>
                     <div class="col-md-10">
-                        <textarea name="treedata_detail" class="form-control" rows="5"></textarea>
+                        <textarea name="animal_detail" class="form-control" rows="5"></textarea>
                     </div>
                 </div>
                 
