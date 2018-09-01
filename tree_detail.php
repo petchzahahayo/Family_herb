@@ -65,19 +65,19 @@
                     
                     <div class="alert alert-info">
                         <p class="p1"><strong><?php echo $row_place['treename_th']; ?></strong>
-                        ความสูงของต้นไม้: <?php echo $row_place['treedata_hight']; ?>
+                        ความสูงของต้นไม้: <?php echo $row_place['treeplace_hight']; ?>
                         </p>
                     </div>
                     
                     <div class="alert alert-info">
                         <p class="p1"><strong><?php echo $row_place['treename_th']; ?></strong>
-                        ความกว้างของต้นไม้: <?php echo $row_place['treedata_wideth']; ?>
+                        ความกว้างของต้นไม้: <?php echo $row_place['treeplace_wideth']; ?>
                         </p>
                     </div>
                     
                     <div class="alert alert-info">
                         <p class="p1"><strong><?php echo $row_place['treename_th']; ?></strong>
-                        เส้นรอบวงของต้นไม้: <?php echo $row_place['treedata_radius']; ?>
+                        เส้นรอบวงของต้นไม้: <?php echo $row_place['treeplace_radius']; ?>
                         </p>
                     </div>
 

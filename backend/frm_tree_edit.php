@@ -90,29 +90,7 @@
                 
                       
 
-                <!-- treedata_hight -->
-                <div class="form-group">
-                    <label class="col-md-2 control-label">ความสูงของต้นไม้ :</label>
-                    <div class="col-md-10">
-                        <input name="treedata_hight" type="text" class="form-control" value="<?php echo $row['treedata_hight']; ?>">
-                    </div>
-                </div>            
-
-                <!-- treedata_wideth -->
-                <div class="form-group">
-                    <label class="col-md-2 control-label">ความกว้างของต้นไม้ :</label>
-                    <div class="col-md-10">
-                        <input name="treedata_wideth" type="text" class="form-control" value="<?php echo $row['treedata_wideth']; ?>">
-                    </div>
-                </div>
-
-                <!-- treedata_radius -->
-                <div class="form-group">
-                    <label class="col-md-2 control-label">เส้นรอบวงของต้นไม้ :</label>
-                    <div class="col-md-10">
-                        <input name="treedata_radius" type="text" class="form-control" value="<?php echo $row['treedata_radius']; ?>">
-                    </div>
-                </div>
+                
 
                 <!-- data_detail -->
                 <div class="form-group">

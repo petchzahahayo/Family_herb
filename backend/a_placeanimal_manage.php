@@ -54,6 +54,7 @@
                         <th width="250"><center>แหล่งที่พบ</center></th>
                         <th><center>รูปภาพ</center></th>
                         <th width="10"><center>ดู</center></th>
+                        <th width="10"><center>แก้ไข</center></th>
                         <th width="10"><center>ลบ</center></th>
                     </tr>
                 </thead>
@@ -90,6 +91,13 @@
                                     <span class="glyphicon glyphicon-eye-open"></span>
                                 </a></center></td>
 
+                            <!-- แก้ไขข้อมูล -->
+                            <td><center>
+                                <a href="a_show_animal_edit.php?animal_collect_id=<?php echo $row['animal_collect_id']; ?>" class="btn btn-info btn-md">
+                                   
+                                    <span class="glyphicon glyphicon-cog"></span>
+                                </a>
+                            </center></td>
 
                             <!-- delete -->
                             <td><center><a href="a_placeanimal_manage.php?animal_collect_id=<?php echo $row['animal_collect_id']; ?>" class="btn btn-danger btn-md">

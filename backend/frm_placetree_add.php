@@ -84,7 +84,32 @@
                     </div>
                 </div>
                 
+
                 
+                  <!-- data_hight -->
+                <div class="form-group">
+                    <label for="treeplace_hight" class="col-md-2 control-label">ความสูงของต้นไม้ :</label>
+                    <div class="col-md-10">
+                        <input name="treeplace_hight" placeholder="เซนติเมตร" type="number" class="form-control">
+                    </div>
+                </div>
+
+                 <!-- data_width -->
+                <div class="form-group">
+                    <label for="treeplace_wideth" class="col-md-2 control-label">ความกว้างของต้นไม้ :</label>
+                    <div class="col-md-10">
+                        <input name="treeplace_wideth" placeholder="เซนติเมตร" type="number" class="form-control">
+                    </div>
+                </div>
+
+                <!-- data_radus -->
+                <div class="form-group">
+                    <label for="treeplace_radius" class="col-md-2 control-label">เส้นรอบวงของต้นไม้ :</label>
+                    <div class="col-md-10">
+                        <input name="treeplace_radius" placeholder="เซนติเมตร" type="number" class="form-control">
+                    </div>
+                </div>
+
                 
                 <!-- data_image -->
                 <div class="form-group">

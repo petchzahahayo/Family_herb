@@ -52,11 +52,18 @@ else
     $treeplace_id = $_POST['treeplace_id'];
     $treeowner_id = $_POST['treeowner_id'];
     $treename_id = $_POST['treename_id'];
+    $treeplace_hight = $_POST['treeplace_hight'];
+    $treeplace_wideth = $_POST['treeplace_wideth'];
+    $treeplace_radius = $_POST['treeplace_radius'];
     
     //คำสั่ง sql เพื่อ update ข้อมูล
     $sql = "UPDATE tree_place 
                     SET treeowner_id ='$treeowner_id',
-                        treename_id = '$treename_id'
+                        treename_id = '$treename_id',
+                        treeplace_hight = ' $treeplace_hight',
+                        treeplace_wideth = '$treeplace_wideth',
+                        treeplace_radius = '$treeplace_radius'
+
 
                     WHERE treeplace_id ='$treeplace_id'";
     $result = pg_query($sql);

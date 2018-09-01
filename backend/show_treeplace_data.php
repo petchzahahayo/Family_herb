@@ -70,12 +70,29 @@
                     
                 </tr>
                 
+                
+                
                 <tr>
-                    <th class="info">ชื่อสมุนไพร</th>
+                    <th class="info">ความสูงของต้นไม้</th>
                     
-                        <td><?php echo $rowData['treename_th']; ?></td>
+                        <td><?php echo $rowData['treeplace_hight']; ?></td>
                     
                 </tr>
+
+                <tr>
+                    <th class="info">ความกว้างของต้นไม้</th>
+                    
+                        <td><?php echo $rowData['treeplace_wideth']; ?></td>
+                    
+                </tr>
+
+                  <tr>
+                    <th class="info">เส้นรอยวงของต้นไม้</th>
+                    
+                        <td><?php echo $rowData['treeplace_radius']; ?></td>
+                    
+                </tr>
+
                 <?php } ?>
                 <!-- map -->
                 <tr>

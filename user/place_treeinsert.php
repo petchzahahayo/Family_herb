@@ -1,4 +1,5 @@
 <?php
+
         require '../connect/connectdb.php';
         
         //รับค่าตัวแปรจากฟอร์ม
@@ -7,6 +8,10 @@
         $treealphabet = $_POST['treename_id'];
         $treeplace_lat = $_POST['treeplace_lat'];
         $treeplace_lng = $_POST['treeplace_lng'];
+        $treeplace_hight = $_POST['treeplace_hight'];
+        $treeplace_wideth = $_POST['treeplace_wideth'];
+        $treeplace_radius = $_POST['treeplace_radius'];
+       
         
         //upload image
         $ext = pathinfo(($_FILES['treeplace_herbimg']['name']), PATHINFO_EXTENSION); //นามสกุลของไฟล์
@@ -21,12 +26,12 @@
             exit();
         }
         
-        $place_herbimg = $new_image_name;
+        $treeplace_herbimg = $new_image_name;
         //end upload image
         
         //คำสั่ง sql
-        $sql = "INSERT INTO tree_place (treeplace_id, treeowner_id, treename_id,  treeplace_lat, treeplace_lng, treeplace_herbimg)"
-                . "VALUES ('$treeplace_id','$treeowner_id', '$treealphabet',  '$treeplace_lat', '$treeplace_lng', '$treeplace_herbimg') ";
+        $sql = "INSERT INTO tree_place (treeplace_id, treeowner_id, treename_id,  treeplace_lat, treeplace_lng, treeplace_herbimg,treeplace_hight,treeplace_wideth,treeplace_radius)"
+                . "VALUES ('$treeplace_id','$treeowner_id', '$treealphabet',  '$treeplace_lat', '$treeplace_lng', '$treeplace_herbimg','$treeplace_hight','$treeplace_wideth','$treeplace_radius') ";
         $result = pg_query($db, $sql);
         
         //check 
@@ -38,3 +43,4 @@
         }
         
         pg_close($db);
+

@@ -15,6 +15,7 @@
         $sqltreePlace = "SELECT * FROM tree_place WHERE treeplace_id='$treeplace_id'";
         $restreePlace = pg_query($db, $sqltreePlace);
         $rowtreePlace = pg_fetch_array($restreePlace);
+       
         
         //sql herb_place lat,lng
         $sql = "SELECT * FROM tree_place WHERE treeplace_id='$treeplace_id'";
@@ -92,7 +93,37 @@
 						
                     </div>
                 </div>
+                    <!-- เพิ่มฟิว -->
+                
+                    <!-- treedata_hight -->
+                <div class="form-group">
+                    <label class="col-md-2 control-label">ความสูงของต้นไม้ :</label>
+                    <div class="col-md-10">
+                        <input name="treeplace_hight" type="text" class="form-control" value="<?php echo $rowtreePlace['treeplace_hight']; ?>">
+                    </div>
+                </div>            
 
+                <!-- treedata_wideth -->
+                <div class="form-group">
+                    <label class="col-md-2 control-label">ความกว้างของต้นไม้ :</label>
+                    <div class="col-md-10">
+                        <input name="treeplace_wideth" type="text" class="form-control" value="<?php echo $rowtreePlace['treeplace_wideth']; ?>">
+                    </div>
+                </div>
+
+                <!-- treedata_radius -->
+                <div class="form-group">
+                    <label class="col-md-2 control-label">เส้นรอบวงของต้นไม้ :</label>
+                    <div class="col-md-10">
+                        <input name="treeplace_radius" type="text" class="form-control" value="<?php echo $rowtreePlace['treeplace_radius']; ?>">
+                    </div>
+                </div>
+
+
+
+
+
+                <!-- เพิ่มฟิว -->
                 <!-- images -->
                 <div class="form-group">
                     <label for="treeplace_herbimg" class="col-md-2 control-label">รูปภาพ :</label>
