@@ -35,9 +35,7 @@
                     <a href="tree_typename_manage.php" class="btn btn-success" >
                         <span class="glyphicon glyphicon-th-list"> รายชื่อประเภทต้นไม้</span>                   
                     </a> 
-                    <a href="tree_leaf_manage.php" class="btn btn-success" >
-                        <span class="glyphicon glyphicon-th-list"> ลักษณะใบ</span>
-                    </a>                                      
+                                                      
                 </div>
                 
             </div>
