@@ -37,7 +37,7 @@
                         <th><center>ชื่อ</center></th>
                         <th><center>ดูข้อมูล</center></th>
                         <th><center>แก้ไข</center></th>
-                        <th><center>ลบ</center></th>
+                        <!--<th><center>ลบ</center></th>-->
                     </tr>
                 </thead>
                 
@@ -58,10 +58,10 @@
                                 <span class="glyphicon glyphicon-pencil"></span>
                         </a></center></td>
                         
-                        <!-- delete -->
+                        <!-- delete 
                         <td><center><a href="owner_treedelete.php?treeowner_id=<?php echo $row['treeowner_id']; ?>" class="btn btn-danger btn-md">
                                 <span class="glyphicon glyphicon-remove"></span>
-                        </a></center></td>
+                        </a></center></td>-->
                     </tr>
                 </tbody>
                 <?php } ?>
