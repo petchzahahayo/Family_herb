@@ -23,7 +23,7 @@ $result = pg_fetch_array($query);
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>ระบบเก็บข้อมูลสมุนไพร</title>
+        <title>ระบบเก็บข้อมูลธรรมชาติ</title>
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
@@ -37,7 +37,7 @@ $result = pg_fetch_array($query);
     <body>
         <div class="navbar navbar-inverse navbar-static-top">
             <div class="container">
-                <a href="" class="navbar-brand">ระบบเก็บข้อมูลสมุนไพร (ผู้ใช้ทั่วไป)</a>
+                <a href="" class="navbar-brand">ระบบเก็บข้อมูลธรรมชาติ (ผู้ใช้ทั่วไป)</a>
                 <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeader">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
