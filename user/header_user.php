@@ -61,6 +61,11 @@ $result = pg_fetch_array($query);
                             </a>
                         </li>
                         <li>
+                            <a href="medic_manage.php">
+                                <span class="glyphicon glyphicon-th-list"> ข้อมูลยา</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="owner_manage.php">
                                 <span class="glyphicon glyphicon-th-list"> กรอกข้อมูลเจ้าของสมุนไพร</span>
                             </a>

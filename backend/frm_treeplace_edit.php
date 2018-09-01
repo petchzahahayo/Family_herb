@@ -45,7 +45,7 @@
     </head>
     <body>
         <div class="container">
-            <h2>แก้ไขข้อมูลสมุนไพร</h2>
+            <h2>แก้ไขข้อมูลต้นไม้</h2>
             <br>
             <form action="treeplace_edit.php" method="POST" enctype="multipart/form-data" class="form-horizontal">
 
@@ -72,7 +72,7 @@
 
                 <!-- name_id -->
                 <div class="form-group">
-                    <label for="treename_id" class="col-md-2 control-label">ชื่อสมุนไพร :</label>
+                    <label for="treename_id" class="col-md-2 control-label">ชื่อต้นไม้ :</label>
                     <div class="col-md-10">
                         <select name="treename_id" class="form-control">
 
@@ -145,7 +145,7 @@
                 <!-- button -->
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="hidden" name="place_id" value="<?php echo $rowtreePlace['treeplace_id'] ?>">
+                        <input type="hidden" name="treeplace_id" value="<?php echo $rowtreePlace['treeplace_id'] ?>">
                         <button name="edit_btn" type="submit" class="btn btn-primary">แก้ไข</button>
                         <a href="placetree_manage.php" class="btn btn-danger">กลับหน้าหลัก</a>
                     </div>

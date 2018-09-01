@@ -1,5 +1,5 @@
 <?php
-    require 'header_admin.php';      
+    require 'header_user.php';      
 ?>
 
 <!DOCTYPE html>
@@ -28,14 +28,14 @@
                     </a>                    
                 </div>
                 
-                <div class="col-md-6">
+                <!-- <div class="col-md-6">
                     <a href="herb_part_manage.php" type="button" class="btn btn-success">
                         <span class="glyphicon glyphicon-th-list"> รายชื่อส่วนที่ใช้ </span>
                     </a>
                     <a href="medic_type_manage.php" class="btn btn-success" >
                         <span class="glyphicon glyphicon-th-list"> รายชื่อประเภทยา</span>
                     </a>                    
-                </div>
+                </div> -->
                 
             </div>
             

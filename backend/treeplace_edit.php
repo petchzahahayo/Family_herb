@@ -55,10 +55,10 @@ else
     
     //คำสั่ง sql เพื่อ update ข้อมูล
     $sql = "UPDATE tree_place 
-                    SET treeowner_id='$treeowner_id',
+                    SET treeowner_id ='$treeowner_id',
                         treename_id = '$treename_id'
 
-                    WHERE treeplace_id='$treeplace_id'";
+                    WHERE treeplace_id ='$treeplace_id'";
     $result = pg_query($sql);
 
 
