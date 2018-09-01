@@ -74,7 +74,7 @@ $row = pg_fetch_array($result);
                 <div class="form-group">
                     <label for="treeowner_education" class="col-md-2 control-label">การศีกษา :</label>
                     <div class="col-md-10">
-                        <label class="radio-inline"><input type="radio" name="treeowner_education" value="ต่ำกว่า ม.3" <?php if ($row['owner_education'] == 'ต่ำกว่า ม.3') echo "checked"; ?>>ต่ำกว่า ม.3</label>
+                        <label class="radio-inline"><input type="radio" name="treeowner_education" value="ต่ำกว่า ม.3" <?php if ($row['treeowner_education'] == 'ต่ำกว่า ม.3') echo "checked"; ?>>ต่ำกว่า ม.3</label>
                         <label class="radio-inline"><input type="radio" name="treeowner_education" value="ม.3" <?php if ($row['treeowner_education'] == 'ม.3') echo "checked"; ?>>ม.3</label>
                         <label class="radio-inline"><input type="radio" name="treeowner_education" value="ม.6" <?php if ($row['treeowner_education'] == 'ม.6') echo "checked"; ?>>ม.6</label>
                         <label class="radio-inline"><input type="radio" name="treeowner_education" value="ป.ตรี" <?php if ($row['treeowner_education'] == 'ป.ตรี') echo "checked"; ?>>ป.ตรี</label>
