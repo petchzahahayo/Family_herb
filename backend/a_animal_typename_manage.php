@@ -1,7 +1,19 @@
 <?php
     require 'header_admin.php';      
 ?>
+<?php   
+ 
+ if (@$_GET['animal_type_id'])  {
 
+     @$type_id = @$_GET['animal_type_id'];
+     $sql = "DELETE FROM animal_type WHERE animal_type_id='$type_id'";
+    $result = pg_query($db, $sql);
+
+}
+
+
+
+  ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -65,7 +77,7 @@
                     
                     <tr class="info">
                         <!--<th><center>#</center></th>    -->                    
-                        <th><center>ชื่อ</center></th>   
+                        <th><center>ประเภท</center></th>   
                         <th><center>รายละเอียด</center></th> 
                         <th><center>แก้ไข</center></th>
                         <th><center>ลบ</center></th>
@@ -80,18 +92,18 @@
                         <td><center><?php //echo $row['type_id']; ?></center></td>         --> 
             
                         <!-- ชื่อ -->
-                        <td width="150"><center><?php echo $row['animal_name_type']; ?></center></td>
+                        <td width="150"><?php echo $row['animal_name_type']; ?></td>
             
                         <!-- รายละเอียด -->
-                        <td width="70%"><center><?php echo $row['animal_type_more']; ?></center></td>
+                        <td width="70%"><?php echo $row['animal_type_more']; ?></td>
                         
                         <!-- edit -->
                         <td width="10"><center><a href="a_frm_animal_typename_edit.php?animal_type_id=<?php echo $row['animal_type_id']; ?>" class="btn btn-warning btn-md">
-                                <span class="glyphicon glyphicon-edit"></span>
+                                <span class="glyphicon glyphicon-cog"></span>
                         </a></center></td>
                         
                         <!-- delete -->
-                        <td width="10"><center><a type="button" href="a_animal_typename_delete.php?animal_type_id=<?php echo $row['animal_type_id']; ?>" class="btn btn-danger btn-md">
+                        <td width="10"><center><a type="button" href="a_animal_typename_manage.php?animal_type_id=<?php echo $row['animal_type_id']; ?>" class="btn btn-danger btn-md">
                                 <span class="glyphicon glyphicon-remove"></span>
                         </a></center></td>
                     </tr>

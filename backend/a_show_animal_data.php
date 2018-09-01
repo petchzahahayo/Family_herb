@@ -10,6 +10,10 @@
                                 ON animal_collect.animal_tumbon_id_collect = animal_data.animal_data_id
                                 INNER JOIN animal_tumbon
                                 ON animal_data.animal_data_id = animal_tumbon.animal_tumbon_id
+                                  
+                                INNER JOIN animal_type
+                                ON animal_data.animal_type_id_animal_data = animal_type.animal_type_id
+                            
                                 WHERE animal_collect.animal_collect_id='$animal_collect_id'
                                 ";
         $result = pg_query($db, $sql);       
@@ -30,25 +34,51 @@
                 <!-- show data -->
                 <?php while ($row = pg_fetch_array($result)){ ?>
                 
-                <tr>
+                <tr >
                     <th class="info">ชื่อสัตว์</th>
                     <td><?php echo $row['animal_name_th']; ?></td>
                 </tr>                               
-                
+                <tr>
+                    <th class="info">ชื่ออังกฤษ</th>
+                    <td><?php echo $row['animal_name_eng']; ?></td>
+                </tr>
                 <tr>
                     <th class="info">ชื่อวิทยาศาสตร์</th>
-                    <td><?php echo $row['animal_name_eng']; ?></td>
+                    <td><?php echo $row['animal_name_science']; ?></td>
                 </tr>
 
                 <tr>
                     <th class="info">จุดสำรวจพบ</th>
                     <td><?php echo $row['animal_tumbon_name']; ?></td>
                 </tr>
+                  <tr>
+                    <th class="info">จุดสังเกต</th>
+                    <td><?php echo $row['animal_detail']; ?></td>
+                </tr>
+                <tr>
+                    <th class="info">ประเภท</th>
+                    <td><?php echo $row['animal_name_type']; ?></td>
+                </tr>
+                 <tr>
+                    <th class="info">อธิบายลักษณะตามประเภท</th>
+                    <td><?php echo $row['animal_type_more']; ?></td>
+                </tr>
+              
               
                 <tr>
                     <th class="info">ความสูงของสัตว์</th>
-                    <td><?php echo $row['animal_high']; ?></td>
+                    <td><?php echo $row['animal_high']; ?> เซนติเมตร</td>
                 </tr>
+                <tr>
+                    <th class="info">ความยาวของสัตว์</th>
+                    <td><?php echo $row['animal_long']; ?> เซนติเมตร</td>
+                </tr>
+                <tr>
+                  <th class="info">รูปภาพ</th>
+                  <td><center>
+                <img src="../images/<?php echo $row['collect_img']; ?>" style="width:300px;">
+               </center> </td>
+              </tr>
                 <tr>
                     <th class="info">สถานที่</th>
                         <td>
@@ -96,7 +126,7 @@
             <a href="frm_herb_add.php" class="btn btn-primary" >
                 <span class="glyphicon glyphicon-plus"> เพิ่มสมุนไพร</span>
             </a>-->
-            <a href="a_animal_manage.php" class="btn btn-danger">กลับหน้าหลัก</a>
+            <a href="a_placeanimal_manage.php" class="btn btn-danger">กลับหน้าหลัก</a>
         </div>    
     </body>
 </html>

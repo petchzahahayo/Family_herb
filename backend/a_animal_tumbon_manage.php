@@ -1,7 +1,19 @@
 <?php
     require 'header_admin.php';      
 ?>
+<?php   
+ 
+ if (@$_GET['animal_tumbon_id'])  {
 
+     @$tumbon_id = @$_GET['animal_tumbon_id'];
+     $sql = "DELETE FROM animal_tumbon WHERE animal_tumbon_id='$tumbon_id'";
+    $result = pg_query($db, $sql);
+
+}
+
+
+
+  ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -72,11 +84,11 @@
                         
                         <!-- edit -->
                         <td width="10"><center><a href="a_frm_animal_tumbon_edit.php?animal_tumbon_id=<?php echo $row['animal_tumbon_id']; ?>" class="btn btn-warning btn-md">
-                                <span class="glyphicon glyphicon-edit"></span>
+                                <span class="glyphicon glyphicon-cog"></span>
                         </a></center></td>
                         
                         <!-- delete -->
-                        <td width="10"><center><a href="a_animal_tumbon_delete.php?animal_tumbon_id=<?php echo $row['animal_tumbon_id']; ?>" class="btn btn-danger btn-md">
+                        <td width="10"><center><a href="a_animal_tumbon_manage.php?animal_tumbon_id=<?php echo $row['animal_tumbon_id']; ?>" class="btn btn-danger btn-md">
                                 <span class="glyphicon glyphicon-remove"></span>
                         </a></center></td>
                     </tr>

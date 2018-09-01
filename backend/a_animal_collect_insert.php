@@ -8,7 +8,7 @@
         $tumbon_id = $_POST['animal_tumbon_id_collect'];
         $collect_lat = $_POST['collect_lat'];
         $collect_lng = $_POST['collect_lng'];
-         $collect_img = $_POST['collect_img'];
+         @$collect_img = $_POST['collect_img'];
         
         //upload image
         $ext = pathinfo(($_FILES['collect_img']['name']), PATHINFO_EXTENSION); //นามสกุลของไฟล์

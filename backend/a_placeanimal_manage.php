@@ -4,6 +4,20 @@
 
 ?>
 
+<?php   
+ 
+ if (@$_GET['animal_collect_id'])  {
+
+     @$collect_id = @$_GET['animal_collect_id'];
+     @$sql = "DELETE FROM animal_collect WHERE animal_collect_id='$collect_id'";
+    @$result = pg_query($db, $sql);
+
+}
+
+
+
+  ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -40,7 +54,6 @@
                         <th width="250"><center>แหล่งที่พบ</center></th>
                         <th><center>รูปภาพ</center></th>
                         <th width="10"><center>ดู</center></th>
-                        <th width="10"><center>แก้ไข</center></th>
                         <th width="10"><center>ลบ</center></th>
                     </tr>
                 </thead>
@@ -70,20 +83,16 @@
                             <td><center><?php echo $row['animal_tumbon_name']; ?></center></td>
 
                             <!-- รูปภาพ -->
-                            <td><center><img src="../images/<?php echo $row['collect_img']; ?>" style="width:100px;height:100px;"></center></td>
+                            <td><center><img src="../images/<?php echo $row['collect_img']; ?>" style="width:150px;"></center></td>
 
                             <!-- ดูข้อมูล -->
                             <td><center><a href="a_show_animal_data.php?animal_collect_id=<?php echo $row['animal_collect_id']; ?>" class="btn btn-info btn-md">
                                     <span class="glyphicon glyphicon-eye-open"></span>
                                 </a></center></td>
 
-                            <!-- edit -->
-                            <td><center><a href="frm_place_edit.php?place_id=<?php echo $row['place_id']; ?>" class="btn btn-warning btn-md">
-                                    <span class="glyphicon glyphicon-cog"></span>
-                                </a></center></td>
 
                             <!-- delete -->
-                            <td><center><a href="place_delete.php?place_id=<?php echo $row['place_id']; ?>" class="btn btn-danger btn-md">
+                            <td><center><a href="a_placeanimal_manage.php?animal_collect_id=<?php echo $row['animal_collect_id']; ?>" class="btn btn-danger btn-md">
                                     <span class="glyphicon glyphicon-remove"></span>
                                 </a></center></td>
 
@@ -100,15 +109,15 @@
             <nav>
                 <ul class="pagination">
                     <li class="active">
-                        <a href="place_manage.php?page=1" aria-label="Previous">
+                        <a href="a_placeanimal_manage.php?page=1" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
                     <?php for ($i = 1; $i <= $total_page; $i++) { ?>
-                        <li><a href="place_manage.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                        <li><a href=a_placeanimal_manage.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
                     <?php } ?>
                     <li class="active">
-                        <a href="place_manage.php?page=<?php echo $total_page; ?>" aria-label="Next">
+                        <a href="a_placeanimal_manage.php?page=<?php echo $total_page; ?>" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>

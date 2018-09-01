@@ -4,6 +4,17 @@
 
 ?>
 
+
+<?php   
+ 
+ if (@$_GET['animal_data_id'])  {
+
+     @$data_id = @$_POST['animal_data_id'];
+     $sql = "DELETE FROM animal_data WHERE animal_data_id='$data_id'";
+    $result = pg_query($db, $sql);
+
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -55,7 +66,6 @@
                         <th width="150"><center>ชื่อสัตว์</center></th>
                         <th width="250"><center>ประเภทสัตว์</center></th>
                         <th><center>รายละเอียด</center></th>
-                        <th width="10"><center>ดู</center></th>
                         <th width="10"><center>แก้ไข</center></th>
                         <th width="10"><center>ลบ</center></th>
                     </tr>
@@ -65,8 +75,8 @@
                 <?php
                     //คำสั่ง sql
                     $query = "SELECT animal_data.animal_name_th, animal_type.animal_name_type, animal_data.animal_detail 
-from animal_data inner join animal_type 
-on animal_data.animal_type_id_animal_data = animal_type.animal_type_id";
+                    from animal_data inner join animal_type 
+                    on animal_data.animal_type_id_animal_data = animal_type.animal_type_id";
 
                     $result = pagination($query);
                     while ($row = pg_fetch_array($result)) {
@@ -78,25 +88,18 @@ on animal_data.animal_type_id_animal_data = animal_type.animal_type_id";
                             <!-- ชื่อ -->
                             <td><center><?php echo $row['animal_name_th']; ?></center></td>
 
-                            <!-- ชื่อสมุนไพร -->
+                            <!-- ประเภทสัตว์-->
                             <td width="100"><?php echo $row['animal_name_type']; ?></td>
 
-                            <!-- รูปภาพ -->
+                            <!-- รายละเอียด -->
                             <td><?php echo $row['animal_detail']; ?></td>
-
-
-                            <!-- ดูข้อมูล -->
-                            <td><center><a href="a_show_animal_data.php?animal_collect_id=<?php echo $row['animal_collect_id']; ?>" class="btn btn-info btn-md">
-                                    <span class="glyphicon glyphicon-eye-open"></span>
-                                </a></center></td>
-
                             <!-- edit -->
                             <td><center><a href="frm_place_edit.php?place_id=<?php echo $row['place_id']; ?>" class="btn btn-warning btn-md">
                                     <span class="glyphicon glyphicon-cog"></span>
                                 </a></center></td>
 
                             <!-- delete -->
-                            <td><center><a href="a_animal_delete.php?place_id=<?php echo $row['animal_data_id']; ?>" class="btn btn-danger btn-md">
+                            <td><center><a href="a_animal_manage.php?animal_data_id=<?php echo $row['animal_data_id']; ?>" class="btn btn-danger btn-md">
                                     <span class="glyphicon glyphicon-remove"></span>
                                 </a></center></td>
 
