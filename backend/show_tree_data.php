@@ -47,20 +47,7 @@
                     <td><?php echo $row['treedata_name_sci']; ?></td>
                 </tr>
                 
-                <tr>
-                    <th class="info">ความสูงของต้นไม้</th>
-                    <td><?php echo $row['treedata_hight']; ?></td>
-                </tr>
-
-                <tr>
-                    <th class="info">ความกว้างของต้นไม้</th>
-                    <td><?php echo $row['treedata_wideth']; ?></td>
-                </tr>
-
-                <tr>
-                    <th class="info">เส้นรอบวงของต้นไม้</th>
-                    <td><?php echo $row['treedata_radius']; ?></td>
-                </tr>
+                
 
                 <tr>
                     <th class="info">ลักษณะของต้นไม้</th>
